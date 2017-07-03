@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/semanser/Documents/Programming/myfolder/src'
+let g:netrw_dirhist_2='/Users/semanser/Documents/Programming/myfolder'
+let g:netrw_dirhist_3='/Users/semanser/Documents/Programming/myfolder/src'
+let g:netrw_dirhist_4='/Users/semanser/Documents/Programming/myfolder'
+let g:netrw_dirhist_5='/Users/semanser/Documents/Programming/myfolder/src'
+let g:netrw_dirhist_6='/Users/semanser/Documents/Programming/myfolder'
