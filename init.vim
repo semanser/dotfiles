@@ -26,6 +26,7 @@ Plug 'rakr/vim-one'
 Plug 'valloric/MatchTagAlways'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
+Plug 'alvan/vim-closetag'
 
 " fzf
 let mapleader = "\<Space>"
@@ -106,3 +107,5 @@ nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
 
 " For global replace
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>
+
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*jsx'
