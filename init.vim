@@ -20,7 +20,7 @@ Plug 'jreybert/vimagit'
 Plug 'tpope/vim-fugitive'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 Plug 'pangloss/vim-javascript'
-Plug 'maxmellon/vim-jsx-pretty'
+Plug 'mxw/vim-jsx'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'rakr/vim-one'
 Plug 'valloric/MatchTagAlways'
@@ -109,3 +109,15 @@ nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*jsx'
+
+let g:jsx_ext_required = 0 " Let vim-jsx handle JSX in `.js` files.
+
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'javascript.jsx' : 1,
+    \ 'jinja' : 1,
+    \ 'liquid' : 1,
+    \ 'markdown' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \}
