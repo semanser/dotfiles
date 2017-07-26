@@ -27,10 +27,11 @@ Plug 'valloric/MatchTagAlways'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
+Plug 'easymotion/vim-easymotion'
 
 " fzf
 let mapleader = "\<Space>"
-nnoremap <silent> <leader><space> :Files<CR>
+nnoremap <silent> <leader><tab> :Files<CR>
 imap <C-c> <CR><Esc>O
 
 " <Ctrl-l> redraws the screen and removes any search highlighting.
@@ -121,3 +122,12 @@ let g:mta_filetypes = {
     \ 'xhtml' : 1,
     \ 'xml' : 1,
     \}
+
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
