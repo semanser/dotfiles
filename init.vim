@@ -137,7 +137,7 @@ set autoread
 "
 """""""""""
 hi Pmenu ctermfg=NONE ctermbg=241 cterm=NONE guifg=NONE guibg=#64697a gui=NONE
-hi PmenuSel ctermfg=NONE ctermbg=105 cterm=NONE guifg=NONE guibg=#95bc07 gui=NONE
+hi PmenuSel ctermfg=36 ctermbg=105 cterm=NONE guifg=#fafafa guibg=#95bc07 gui=NONE
 hi MatchParen cterm=bold ctermbg=green ctermfg=blue
 
 
