@@ -19,6 +19,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'alvan/vim-closetag'
   Plug 'easymotion/vim-easymotion'
   Plug 'ap/vim-css-color'
+  Plug 'hail2u/vim-css3-syntax'
 call plug#end()
 
 
