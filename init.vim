@@ -104,7 +104,7 @@ let g:javascript_plugin_jsdoc = 1
 " delimitMate
 "
 """""""""""""""
-let delimitMate_expand_cr=1
+let delimitMate_expand_cr = 1 " autoindent on carriage return
 
 
 
