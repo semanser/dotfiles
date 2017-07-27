@@ -20,6 +20,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'easymotion/vim-easymotion'
   Plug 'ap/vim-css-color'
   Plug 'hail2u/vim-css3-syntax'
+  Plug 'haya14busa/incsearch.vim'
 call plug#end()
 
 
@@ -109,6 +110,17 @@ let delimitMate_expand_cr = 1 " autoindent on carriage return
 
 
 
+"""""""""""""""
+"
+" incsearch
+"
+""""""""""""""
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+
+
 """"""""""""""
 "
 " VARS
@@ -130,7 +142,8 @@ set termguicolors       " enable True color
 set splitbelow          " open new split below
 set splitright          " open new split right
 set autoread
-
+set incsearch           " incremental search
+set hlsearch            " highlights the string matched by the search
 
 """""""""""
 "
