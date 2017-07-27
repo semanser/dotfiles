@@ -131,3 +131,7 @@ nmap s <Plug>(easymotion-overwin-f2)
 
 " Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
+
+map <Leader>w :w<CR>
+map <Leader>q :q<CR>
+
