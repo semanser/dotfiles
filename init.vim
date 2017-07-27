@@ -46,6 +46,7 @@ let NERDTreeShowHidden=1
 """""""""""""""""
 nnoremap <silent> <leader><tab> :Files<CR>
 imap <C-c> <CR><Esc>O
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 
 
@@ -143,3 +144,4 @@ nnoremap <C-k> <C-W>k
 nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
 nnoremap <esc> :noh<return><esc>
+
