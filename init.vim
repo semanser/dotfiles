@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'alvan/vim-closetag'
   Plug 'easymotion/vim-easymotion'
+  Plug 'ap/vim-css-color'
 call plug#end()
 
 
