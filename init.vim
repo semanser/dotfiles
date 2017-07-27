@@ -34,8 +34,7 @@ let mapleader = "\<Space>"
 nnoremap <silent> <leader><tab> :Files<CR>
 imap <C-c> <CR><Esc>O
 
-" <Ctrl-l> redraws the screen and removes any search highlighting.
-nnoremap <silent> <leader>h :nohl<CR>
+nnoremap <esc> :noh<return><esc>
 
 call plug#end()
 
