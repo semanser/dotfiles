@@ -60,7 +60,7 @@ colorscheme one
 set background=dark
 
 " NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <Leader>n :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
 set relativenumber
