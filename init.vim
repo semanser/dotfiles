@@ -9,8 +9,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'jreybert/vimagit'
   Plug 'tpope/vim-fugitive'
   Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
-  Plug 'pangloss/vim-javascript'
-  Plug 'mxw/vim-jsx'
+  Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+  Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
   Plug 'yuttie/comfortable-motion.vim'
   Plug 'rakr/vim-one'
   Plug 'valloric/MatchTagAlways'
@@ -41,7 +41,7 @@ let NERDTreeShowHidden=1
 
 """""""""""""""""
 "
-" junegunn/fzf
+" fzf
 "
 """""""""""""""""
 nnoremap <silent> <leader><tab> :Files<CR>
@@ -97,6 +97,14 @@ let g:EasyMotion_smartcase = 1 " Turn on case insensitive feature
 "
 """"""""""""""""""
 let g:javascript_plugin_jsdoc = 1
+
+
+"""""""""""""""
+"
+" delimitMate
+"
+"""""""""""""""
+let delimitMate_expand_cr=1
 
 
 
