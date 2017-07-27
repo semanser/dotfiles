@@ -141,7 +141,7 @@ set showmatch           " show match brackets
 set termguicolors       " enable True color
 set splitbelow          " open new split below
 set splitright          " open new split right
-set autoread
+set autoread            " autoload file changes
 set incsearch           " incremental search
 set hlsearch            " highlights the string matched by the search
 
