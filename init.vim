@@ -47,7 +47,7 @@ let NERDTreeShowHidden=1
 " fzf
 "
 """""""""""""""""
-nnoremap <silent> <leader><tab> :Files<CR>
+nnoremap <silent> <leader>f :Files<CR>
 imap <C-c> <CR><Esc>O
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
@@ -88,8 +88,6 @@ let g:mta_filetypes = {
 nmap s <Plug>(easymotion-overwin-f2)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
-map <Leader>w :w<CR>
-map <Leader>q :q<CR>
 let g:EasyMotion_smartcase = 1 " Turn on case insensitive feature
 
 
@@ -204,4 +202,9 @@ nnoremap <C-k> <C-W>k
 nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
 nnoremap <esc> :noh<return><esc>
+nmap ¬ :bnext<CR>
+nmap ˙ :bprevious<CR>
+nmap <leader>w :bd<CR>
+map <Leader>s :w<CR>
+map <Leader>q :q<CR>
 
