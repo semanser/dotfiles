@@ -144,6 +144,9 @@ set splitright          " open new split right
 set autoread            " autoload file changes
 set incsearch           " incremental search
 set hlsearch            " highlights the string matched by the search
+set nowrap             " wrap lines
+
+
 
 """""""""""
 "
