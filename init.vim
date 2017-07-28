@@ -21,6 +21,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'ap/vim-css-color'
   Plug 'hail2u/vim-css3-syntax'
   Plug 'haya14busa/incsearch.vim'
+  Plug 'vim-ctrlspace/vim-ctrlspace'
 call plug#end()
 
 
@@ -120,6 +121,29 @@ map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
 
+"""""""""""""""
+"
+" ctrl-space
+"
+"""""""""""""""
+let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
+
+
+
+"""""""""""
+"
+" airline
+"
+"""""""""""
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ctrlspace#enabled = 1
+let g:airline_section_y = ''
+let g:airline_section_x = ''
+let g:airline_section_z = ''
+" let g:airline_section_a = ''
+let g:airline_section_c = ''
+
+
 
 """"""""""""""
 "
@@ -144,7 +168,9 @@ set splitright          " open new split right
 set autoread            " autoload file changes
 set incsearch           " incremental search
 set hlsearch            " highlights the string matched by the search
-set nowrap             " wrap lines
+set nowrap              " wrap lines
+set nocompatible
+set hidden
 
 
 
