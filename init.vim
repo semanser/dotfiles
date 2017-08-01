@@ -6,8 +6,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
 " Plug 'mhinz/vim-signify'
-  Plug 'jreybert/vimagit'
-  Plug 'tpope/vim-fugitive'
   Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
   Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
   Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
@@ -22,6 +20,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'hail2u/vim-css3-syntax'
   Plug 'haya14busa/incsearch.vim'
   Plug 'vim-ctrlspace/vim-ctrlspace'
+  Plug 'lambdalisue/gina.vim'
 call plug#end()
 
 
