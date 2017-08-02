@@ -58,7 +58,7 @@ let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 "
 """"""""""""
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*jsx'
-
+let g:closetag_close_shortcut = ''
 
 
 """""""""""""
