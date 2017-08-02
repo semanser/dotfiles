@@ -25,7 +25,6 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 
-
 syntax on
 colorscheme one
 let mapleader = "\<Space>"
@@ -169,7 +168,14 @@ set incsearch           " incremental search
 set hlsearch            " highlights the string matched by the search
 set nowrap              " wrap lines
 set nocompatible
-set hidden
+set hidden              " buffer becomes hidden when it is abandoned
+set lazyredraw          " only redraw when necessary
+set ttyfast             " always assume a fast terminal
+set noshowmode          " don't show mode as we use a status line plugin
+set wildmenu            " visual autocomplete for command menu
+set nobackup            " disable backups
+set noswapfile          " disable swapfile
+set autowriteall        " autosave files
 
 
 
