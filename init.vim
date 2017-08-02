@@ -21,6 +21,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'haya14busa/incsearch.vim'
   Plug 'vim-ctrlspace/vim-ctrlspace'
   Plug 'lambdalisue/gina.vim'
+  Plug 'bronson/vim-trailing-whitespace'
 call plug#end()
 
 
