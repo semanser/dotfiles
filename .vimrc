@@ -22,6 +22,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-ctrlspace/vim-ctrlspace'
   Plug 'lambdalisue/gina.vim'
   Plug 'bronson/vim-trailing-whitespace'
+  Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 
@@ -132,7 +133,7 @@ let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
 " airline
 "
 """""""""""
-let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#ctrlspace#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_section_y = ''
@@ -184,10 +185,11 @@ set autowriteall        " autosave files
 " COLORS
 "
 """""""""""
-hi Pmenu ctermfg=NONE ctermbg=241 cterm=NONE guifg=NONE guibg=#64697a gui=NONE
-hi PmenuSel ctermfg=36 ctermbg=105 cterm=NONE guifg=#fafafa guibg=#95bc07 gui=NONE
-hi MatchParen cterm=bold ctermbg=green ctermfg=blue
-hi CursorLine   cterm=NONE ctermbg=NONE ctermfg=NONE guibg=#1c1c1c guifg=NONE
+hi Pmenu      ctermfg=NONE ctermbg=241    cterm=NONE    guifg=NONE    guibg=#64697a gui=NONE
+hi PmenuSel   ctermfg=36   ctermbg=105    cterm=NONE    guifg=#fafafa guibg=#95bc07 gui=NONE
+hi MatchParen cterm=bold   ctermbg=green  ctermfg=blue
+hi CursorLine cterm=NONE   ctermbg=NONE   ctermfg=NONE  guibg=#1c1c1c guifg=NONE
+set guifont=Monaco:h16
 call one#highlight('Normal', '', '1F2334', '')
 
 " highlight line under cursor
@@ -214,4 +216,3 @@ nmap ˙ :bprevious<CR>
 nmap <leader>w :bd<CR>
 map <Leader>s :w<CR>
 map <Leader>q :q<CR>
-
