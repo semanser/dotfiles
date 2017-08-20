@@ -1,7 +1,5 @@
 call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'
   Plug 'airblade/vim-gitgutter'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
@@ -19,10 +17,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'ap/vim-css-color'
   Plug 'hail2u/vim-css3-syntax'
   Plug 'haya14busa/incsearch.vim'
-  Plug 'vim-ctrlspace/vim-ctrlspace'
   Plug 'lambdalisue/gina.vim'
   Plug 'bronson/vim-trailing-whitespace'
-  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'wincent/command-t', { 'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make' }
 call plug#end()
 
 
@@ -42,14 +40,13 @@ let NERDTreeShowHidden=1
 
 
 
-"""""""""""""""""
+"""""""""""""
 "
-" fzf
+" CommmandT
 "
-"""""""""""""""""
-nnoremap <silent> <leader>f :Files<CR>
-imap <C-c> <CR><Esc>O
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+"""""""""""""
+let g:CommandTFileScanner = "git"
+let g:CommandTHighlightColor = #fafafa
 
 
 
@@ -60,6 +57,7 @@ let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 """"""""""""
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*jsx'
 let g:closetag_close_shortcut = ''
+
 
 
 """""""""""""
@@ -119,23 +117,12 @@ map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
 
-"""""""""""""""
-"
-" ctrl-space
-"
-"""""""""""""""
-let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
-
-
 
 """""""""""
 "
 " airline
 "
 """""""""""
-" let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#ctrlspace#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_section_y = ''
 let g:airline_section_x = ''
 let g:airline_section_z = ''
@@ -189,7 +176,7 @@ hi Pmenu      ctermfg=NONE ctermbg=241    cterm=NONE    guifg=NONE    guibg=#646
 hi PmenuSel   ctermfg=36   ctermbg=105    cterm=NONE    guifg=#fafafa guibg=#95bc07 gui=NONE
 hi MatchParen cterm=bold   ctermbg=green  ctermfg=blue
 hi CursorLine cterm=NONE   ctermbg=NONE   ctermfg=NONE  guibg=#1c1c1c guifg=NONE
-set guifont=Monaco:h16
+set guifont=Inconsolata:h16
 call one#highlight('Normal', '', '1F2334', '')
 
 " highlight line under cursor
@@ -213,6 +200,4 @@ nnoremap <C-l> <C-W>l
 nnoremap <esc> :noh<return><esc>
 nmap ¬ :bnext<CR>
 nmap ˙ :bprevious<CR>
-nmap <leader>w :bd<CR>
-map <Leader>s :w<CR>
-map <Leader>q :q<CR>
+
