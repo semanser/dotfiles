@@ -28,7 +28,8 @@ syntax on
 colorscheme one
 let mapleader = "\<Space>"
 
-
+" Setup working directory
+cd /Users/semanser/Documents/Programming/
 
 """""""""""""
 "
