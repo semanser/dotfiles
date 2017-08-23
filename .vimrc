@@ -21,6 +21,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'bronson/vim-trailing-whitespace'
   Plug 'airblade/vim-gitgutter'
   Plug 'wincent/command-t', { 'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make' }
+  Plug 'mileszs/ack.vim'
 call plug#end()
 
 
@@ -48,6 +49,16 @@ let NERDTreeShowHidden=1
 """""""""""""
 let g:CommandTFileScanner = "git"
 let g:CommandTHighlightColor = #fafafa
+
+
+"""""""""""""
+"
+" ack
+"
+"""""""""""""
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 
 
