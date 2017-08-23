@@ -176,7 +176,7 @@ set wildmenu            " visual autocomplete for command menu
 set nobackup            " disable backups
 set noswapfile          " disable swapfile
 set autowriteall        " autosave files
-
+set sidescroll=1        " incrementally scroll one character
 
 
 """""""""""
