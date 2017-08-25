@@ -1,27 +1,27 @@
 call plug#begin('~/.vim/plugged')
-  Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
   Plug 'airblade/vim-gitgutter'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
-" Plug 'mhinz/vim-signify'
-  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
-  Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
-  Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
-  Plug 'yuttie/comfortable-motion.vim'
-  Plug 'rakr/vim-one'
-  Plug 'valloric/MatchTagAlways'
-  Plug 'Raimondi/delimitMate'
-  Plug 'tpope/vim-surround'
+  Plug 'airblade/vim-gitgutter'
   Plug 'alvan/vim-closetag'
-  Plug 'easymotion/vim-easymotion'
   Plug 'ap/vim-css-color'
+  Plug 'bronson/vim-trailing-whitespace'
+  Plug 'easymotion/vim-easymotion'
   Plug 'hail2u/vim-css3-syntax'
   Plug 'haya14busa/incsearch.vim'
   Plug 'lambdalisue/gina.vim'
-  Plug 'bronson/vim-trailing-whitespace'
-  Plug 'airblade/vim-gitgutter'
-  Plug 'wincent/command-t', { 'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make' }
   Plug 'mileszs/ack.vim'
+  Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
+  Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+  Plug 'raimondi/delimitMate'
+  Plug 'rakr/vim-one'
+  Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+  Plug 'tpope/vim-surround'
+  Plug 'valloric/MatchTagAlways'
+  Plug 'valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'wincent/command-t', { 'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make' }
+  Plug 'yuttie/comfortable-motion.vim'
+" Plug 'mhinz/vim-signify'
 call plug#end()
 
 
@@ -67,8 +67,8 @@ endif
 " vim-closetag
 "
 """"""""""""
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*jsx'
 let g:closetag_close_shortcut = ''
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*jsx'
 
 
 
@@ -135,11 +135,10 @@ map g/ <Plug>(incsearch-stay)
 " airline
 "
 """""""""""
-let g:airline_section_y = ''
-let g:airline_section_x = ''
-let g:airline_section_z = ''
-" let g:airline_section_a = ''
 let g:airline_section_c = ''
+let g:airline_section_x = ''
+let g:airline_section_y = ''
+let g:airline_section_z = ''
 
 
 
@@ -187,10 +186,10 @@ set wildmenu            " visual autocomplete for command menu
 " COLORS
 "
 """""""""""
+hi CursorLine cterm=NONE   ctermbg=NONE   ctermfg=NONE  guibg=#1c1c1c guifg=NONE
+hi MatchParen cterm=bold   ctermbg=green  ctermfg=blue
 hi Pmenu      ctermfg=NONE ctermbg=241    cterm=NONE    guifg=NONE    guibg=#64697a gui=NONE
 hi PmenuSel   ctermfg=36   ctermbg=105    cterm=NONE    guifg=#fafafa guibg=#95bc07 gui=NONE
-hi MatchParen cterm=bold   ctermbg=green  ctermfg=blue
-hi CursorLine cterm=NONE   ctermbg=NONE   ctermfg=NONE  guibg=#1c1c1c guifg=NONE
 set guifont=Inconsolata:h16
 call one#highlight('Normal', '', '1F2334', '')
 
@@ -208,13 +207,13 @@ augroup END
 " KEYMAP
 "
 """""""""""
-nnoremap <C-j> <C-W>j
-nnoremap <C-k> <C-W>k
-nnoremap <C-h> <C-W>h
-nnoremap <C-l> <C-W>l
-nnoremap <esc> :noh<return><esc>
 nmap ¬ :bnext<CR>
 nmap ˙ :bprevious<CR>
+nnoremap <C-h> <C-W>h
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-l> <C-W>l
+nnoremap <esc> :noh<return><esc>
 
 " ====== Make tabs be addressable via Apple+1 or 2 or 3, etc
 " Use numbers to pick the tab you want (like iTerm)
