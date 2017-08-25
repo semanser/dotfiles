@@ -148,35 +148,38 @@ let g:airline_section_c = ''
 " VARS
 "
 """"""""""""""
-set showcmd             " Show (partial) command in status line
-set showmatch           " Show matching brackets.
-set number 		          " Show line number
-set relativenumber      " Make relative line number
-set ignorecase          " Make searching case insensitive
-set smartcase           " ... unless the query has capital letters.
-set scrolloff=9999      " keep cursor at the center of the screen
+set autoread            " autoload file changes
+set autowriteall        " autosave files
 set background=dark     " dark colorscheme One
 set expandtab           " Convert tabs to the spaces
-set tabstop=2           " 2 spaces
+set gcr=a:blinkon0      " disable cursor blinking
+set hidden              " buffer becomes hidden when it is abandoned
+set history=1000        " Store lots of :cmdline history
+set hlsearch            " highlights the string matched by the search
+set ignorecase          " Make searching case insensitive
+set incsearch           " incremental search
+set lazyredraw          " only redraw when necessary
+set nobackup            " disable backups
+set nocompatible        " Use Vim settings, rather then Vi
+set noshowmode          " don't show mode as we use a status line plugin
+set noswapfile          " disable swapfile
+set nowrap              " wrap lines
+set number 		          " Show line number
+set relativenumber      " Make relative line number
+set scrolloff=9999      " keep cursor at the center of the screen
 set shiftwidth=2        " 2 spaces
+set showcmd             " Show (partial) command in status line
+set showmatch           " Show matching brackets.
 set showmatch           " show match brackets
-set termguicolors       " enable True color
+set sidescroll=1        " incrementally scroll one character
+set smartcase           " ... unless the query has capital letters.
 set splitbelow          " open new split below
 set splitright          " open new split right
-set autoread            " autoload file changes
-set incsearch           " incremental search
-set hlsearch            " highlights the string matched by the search
-set nowrap              " wrap lines
-set nocompatible
-set hidden              " buffer becomes hidden when it is abandoned
-set lazyredraw          " only redraw when necessary
+set tabstop=2           " 2 spaces
+set termguicolors       " enable True color
 set ttyfast             " always assume a fast terminal
-set noshowmode          " don't show mode as we use a status line plugin
 set wildmenu            " visual autocomplete for command menu
-set nobackup            " disable backups
-set noswapfile          " disable swapfile
-set autowriteall        " autosave files
-set sidescroll=1        " incrementally scroll one character
+
 
 
 """""""""""
@@ -213,3 +216,14 @@ nnoremap <esc> :noh<return><esc>
 nmap ¬ :bnext<CR>
 nmap ˙ :bprevious<CR>
 
+" ====== Make tabs be addressable via Apple+1 or 2 or 3, etc
+" Use numbers to pick the tab you want (like iTerm)
+map <silent> <D-1> :tabn 1<cr>
+map <silent> <D-2> :tabn 2<cr>
+map <silent> <D-3> :tabn 3<cr>
+map <silent> <D-4> :tabn 4<cr>
+map <silent> <D-5> :tabn 5<cr>
+map <silent> <D-6> :tabn 6<cr>
+map <silent> <D-7> :tabn 7<cr>
+map <silent> <D-8> :tabn 8<cr>
+map <silent> <D-9> :tabn 9<cr>
