@@ -1,4 +1,5 @@
 call plug#begin('~/.vim/plugged')
+
   Plug 'airblade/vim-gitgutter'
   Plug 'airblade/vim-gitgutter'
   Plug 'alvan/vim-closetag'
@@ -190,7 +191,7 @@ hi CursorLine cterm=NONE   ctermbg=NONE   ctermfg=NONE  guibg=#1c1c1c guifg=NONE
 hi MatchParen cterm=bold   ctermbg=green  ctermfg=blue
 hi Pmenu      ctermfg=NONE ctermbg=241    cterm=NONE    guifg=NONE    guibg=#64697a gui=NONE
 hi PmenuSel   ctermfg=36   ctermbg=105    cterm=NONE    guifg=#fafafa guibg=#95bc07 gui=NONE
-set guifont=Inconsolata:h16
+set guifont=Inconsolata:h18
 call one#highlight('Normal', '', '1F2334', '')
 
 " highlight line under cursor
