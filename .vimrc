@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'easymotion/vim-easymotion'
   Plug 'hail2u/vim-css3-syntax'
   Plug 'haya14busa/incsearch.vim'
+  Plug 'junegunn/vim-easy-align'
   Plug 'lambdalisue/gina.vim'
   Plug 'mileszs/ack.vim'
   Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
@@ -140,6 +141,20 @@ let g:airline_section_x = ''
 let g:airline_section_y = ''
 let g:airline_section_z = ''
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+
+
+"""""""""""""
+"
+" vim-easy-align
+"
+"""""""""""""
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
 
 
 """"""""""""""
