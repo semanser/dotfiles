@@ -179,7 +179,7 @@ set tabstop=2           " 2 spaces
 set termguicolors       " enable True color
 set ttyfast             " always assume a fast terminal
 set wildmenu            " visual autocomplete for command menu
-
+set guioptions=         " remove scroll bars
 
 
 """""""""""
