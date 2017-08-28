@@ -164,28 +164,28 @@ nmap ga <Plug>(EasyAlign)
 set autoread            " autoload file changes
 set autowriteall        " autosave files
 set background=dark     " dark colorscheme One
-set expandtab           " Convert tabs to the spaces
+set expandtab           " convert tabs to the spaces
 set gcr=a:blinkon0      " disable cursor blinking
 set hidden              " buffer becomes hidden when it is abandoned
-set history=1000        " Store lots of :cmdline history
+set history=1000        " store lots of :cmdline history
 set hlsearch            " highlights the string matched by the search
-set ignorecase          " Make searching case insensitive
+set ignorecase          " make searching case insensitive
 set incsearch           " incremental search
 set lazyredraw          " only redraw when necessary
 set nobackup            " disable backups
-set nocompatible        " Use Vim settings, rather then Vi
+set nocompatible        " use Vim settings, rather then Vi
 set noshowmode          " don't show mode as we use a status line plugin
 set noswapfile          " disable swapfile
 set nowrap              " wrap lines
-set number 		          " Show line number
-set relativenumber      " Make relative line number
+set number 		          " show line number
+set relativenumber      " make relative line number
 set scrolloff=9999      " keep cursor at the center of the screen
 set shiftwidth=2        " 2 spaces
-set showcmd             " Show (partial) command in status line
-set showmatch           " Show matching brackets.
+set showcmd             " show (partial) command in status line
+set showmatch           " show matching brackets
 set showmatch           " show match brackets
 set sidescroll=1        " incrementally scroll one character
-set smartcase           " ... unless the query has capital letters.
+set smartcase           " ... unless the query has capital letters
 set splitbelow          " open new split below
 set splitright          " open new split right
 set tabstop=2           " 2 spaces
@@ -193,7 +193,10 @@ set termguicolors       " enable True color
 set ttyfast             " always assume a fast terminal
 set wildmenu            " visual autocomplete for command menu
 set guioptions=         " remove scroll bars
-
+set foldmethod=indent   " type of indentation
+set foldnestmax=10      " sets the maximum nesting of folds
+set nofoldenable        " when off, all folds are open when open a new file
+set foldlevel=2         " sets the fold level
 
 """""""""""
 "
