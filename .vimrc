@@ -33,6 +33,8 @@ let mapleader = "\<Space>"
 " Setup working directory
 cd /Users/semanser/Documents/Programming/
 
+
+
 """""""""""""
 "
 " NERDTree
@@ -109,6 +111,7 @@ let g:EasyMotion_smartcase = 1 " Turn on case insensitive feature
 "
 """"""""""""""""""
 let g:javascript_plugin_jsdoc = 1
+
 
 
 """""""""""""""
@@ -199,18 +202,23 @@ set foldnestmax=10      " sets the maximum nesting of folds
 set nofoldenable        " when off, all folds are open when open a new file
 set foldlevel=2         " sets the fold level
 
+
+
 """""""""""
 "
 " COLORS
 "
 """""""""""
-hi CursorLine cterm=NONE   ctermbg=NONE   ctermfg=NONE  guibg=#1c1c1c guifg=NONE
-hi MatchParen cterm=bold   ctermbg=green  ctermfg=blue
+hi CursorLine cterm=NONE   ctermbg=NONE   ctermfg=NONE  guibg=#0D0D13 guifg=NONE
+hi Cursor guibg=#E2E93C
 hi Pmenu      ctermfg=NONE ctermbg=241    cterm=NONE    guifg=NONE    guibg=#64697a gui=NONE
 hi PmenuSel   ctermfg=36   ctermbg=105    cterm=NONE    guifg=#fafafa guibg=#95bc07 gui=NONE
 hi EndOfBuffer guifg=bg
 set guifont=Inconsolata:h18
-call one#highlight('Normal', '', '1F2334', '')
+call one#highlight('Normal', '', '13131F', '')
+
+au InsertLeave * hi Cursor guibg=#E2E93C
+au InsertEnter * hi Cursor guibg=#FF434E
 
 " highlight line under cursor
 augroup CursorLine
