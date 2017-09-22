@@ -215,7 +215,7 @@ hi Pmenu      ctermfg=NONE ctermbg=241    cterm=NONE    guifg=NONE    guibg=#646
 hi PmenuSel   ctermfg=36   ctermbg=105    cterm=NONE    guifg=#fafafa guibg=#95bc07 gui=NONE
 hi EndOfBuffer guifg=bg
 set guifont=Inconsolata:h18
-call one#highlight('Normal', '', '13131F', '')
+call one#highlight('Normal', '', '1B1B25', '')
 
 au InsertLeave * hi Cursor guibg=#E2E93C
 au InsertEnter * hi Cursor guibg=#FF434E
