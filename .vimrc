@@ -1,9 +1,7 @@
 call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
-  Plug 'airblade/vim-gitgutter'
   Plug 'alvan/vim-closetag'
   Plug 'ap/vim-css-color'
-  Plug 'bronson/vim-trailing-whitespace'
   Plug 'easymotion/vim-easymotion'
   Plug 'hail2u/vim-css3-syntax'
   Plug 'haya14busa/incsearch.vim'
@@ -24,6 +22,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
   Plug 'junegunn/fzf.vim'
   Plug 'jreybert/vimagit'
+  Plug 'w0rp/ale'
 " Plug 'mhinz/vim-signify'
 call plug#end()
 
@@ -45,6 +44,16 @@ cd /Users/semanser/Documents/Programming/
 map <Leader>n :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
+
+
+"""""""""""""
+"
+" w0rp/ale
+"
+"""""""""""""
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
 
 
 """""""""""""
@@ -146,8 +155,10 @@ map g/ <Plug>(incsearch-stay)
 let g:airline_section_x = ''
 let g:airline_section_y = ''
 let g:airline_section_z = ''
-let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_theme = 'simple'
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#whitespace#enabled = 0
 
 
 
