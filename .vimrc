@@ -20,8 +20,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  Plug 'wincent/command-t', { 'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make' }
   Plug 'yuttie/comfortable-motion.vim'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+  Plug 'junegunn/fzf.vim'
+  Plug 'jreybert/vimagit'
 " Plug 'mhinz/vim-signify'
 call plug#end()
 
@@ -47,15 +49,6 @@ let NERDTreeShowHidden=1
 
 """""""""""""
 "
-" CommmandT
-"
-"""""""""""""
-let g:CommandTFileScanner = "git"
-let g:CommandTHighlightColor = #fafafa
-
-
-"""""""""""""
-"
 " ack
 "
 """""""""""""
@@ -72,6 +65,17 @@ endif
 """"""""""""
 let g:closetag_close_shortcut = ''
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*jsx'
+
+
+
+"""""""""""""""""
+"
+" junegunn/fzf
+"
+"""""""""""""""""
+nnoremap <silent> <leader><tab> :Files<CR>
+imap <C-c> <CR><Esc>O
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 
 
@@ -201,7 +205,7 @@ set foldmethod=indent   " type of indentation
 set foldnestmax=10      " sets the maximum nesting of folds
 set nofoldenable        " when off, all folds are open when open a new file
 set foldlevel=2         " sets the fold level
-
+set guioptions+=e
 
 
 """""""""""
