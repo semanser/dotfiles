@@ -224,13 +224,13 @@ set guioptions+=e
 " COLORS
 "
 """""""""""
-hi CursorLine cterm=NONE   ctermbg=NONE   ctermfg=NONE  guibg=#0D0D13 guifg=NONE
+hi CursorLine cterm=NONE   ctermbg=NONE   ctermfg=NONE  guibg=#0e0e16 guifg=NONE
 hi Cursor guibg=#E2E93C
-hi Pmenu      ctermfg=NONE ctermbg=241    cterm=NONE    guifg=NONE    guibg=#64697a gui=NONE
-hi PmenuSel   ctermfg=36   ctermbg=105    cterm=NONE    guifg=#fafafa guibg=#95bc07 gui=NONE
+hi Pmenu      ctermfg=NONE ctermbg=241    cterm=NONE    guifg=NONE    guibg=#181826 gui=NONE
+hi PmenuSel   ctermfg=36   ctermbg=105    cterm=NONE    guifg=#101011 guibg=#E2E93C gui=NONE
 hi EndOfBuffer guifg=bg
 set guifont=Inconsolata:h18
-call one#highlight('Normal', '', '1B1B25', '')
+call one#highlight('Normal', '', '13131c', '')
 
 au InsertLeave * hi Cursor guibg=#E2E93C
 au InsertEnter * hi Cursor guibg=#FF434E
