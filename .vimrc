@@ -23,6 +23,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf.vim'
   Plug 'jreybert/vimagit'
   Plug 'w0rp/ale'
+  Plug 'szw/vim-g'
 " Plug 'mhinz/vim-signify'
 call plug#end()
 
