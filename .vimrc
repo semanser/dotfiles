@@ -10,12 +10,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'mileszs/ack.vim'
   Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
   Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
-  Plug 'raimondi/delimitMate'
+  Plug 'Raimondi/delimitMate'
   Plug 'rakr/vim-one'
   Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
   Plug 'tpope/vim-surround'
-  Plug 'valloric/MatchTagAlways'
-  Plug 'valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
+  Plug 'Valloric/MatchTagAlways'
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'yuttie/comfortable-motion.vim'
@@ -239,7 +239,6 @@ hi Cursor guibg=#E2E93C
 hi Pmenu      ctermfg=NONE ctermbg=241    cterm=NONE    guifg=NONE    guibg=#181826 gui=NONE
 hi PmenuSel   ctermfg=36   ctermbg=105    cterm=NONE    guifg=#101011 guibg=#E2E93C gui=NONE
 hi EndOfBuffer guifg=bg
-set guifont=Inconsolata:h18
 call one#highlight('Normal', '', '13131c', '')
 
 au InsertLeave * hi Cursor guibg=#E2E93C
