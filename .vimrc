@@ -13,7 +13,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/vim-easy-align'
   Plug 'lambdalisue/gina.vim'
-  Plug 'mileszs/ack.vim'
   Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
   Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
   Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
@@ -66,16 +65,6 @@ let NERDTreeShowHidden=1
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \}
-
-
-"""""""""""""
-"
-" ack
-"
-"""""""""""""
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
 
 
 
