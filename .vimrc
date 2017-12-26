@@ -20,7 +20,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'yuttie/comfortable-motion.vim'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
   Plug 'junegunn/fzf.vim'
-  Plug 'jreybert/vimagit'
   Plug 'w0rp/ale'
   Plug 'szw/vim-g'
 " Plug 'mhinz/vim-signify'
