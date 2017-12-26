@@ -11,13 +11,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
   Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
   Plug 'Raimondi/delimitMate'
-  Plug 'rakr/vim-one'
+  Plug 'joshdick/onedark.vim'
   Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
   Plug 'tpope/vim-surround'
   Plug 'Valloric/MatchTagAlways'
   Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
   Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
   Plug 'yuttie/comfortable-motion.vim'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
   Plug 'junegunn/fzf.vim'
@@ -28,8 +27,21 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 
+if (empty($TMUX))
+  if (has("nvim"))
+  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
 syntax on
-colorscheme one
+colorscheme onedark
 let mapleader = "\<Space>"
 
 " Setup working directory
@@ -156,7 +168,7 @@ map g/ <Plug>(incsearch-stay)
 let g:airline_section_x = ''
 let g:airline_section_y = ''
 let g:airline_section_z = ''
-let g:airline_theme = 'simple'
+let g:airline_theme='onedark'
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#whitespace#enabled = 0
@@ -234,12 +246,12 @@ set guioptions+=e
 " COLORS
 "
 """""""""""
-hi CursorLine cterm=NONE   ctermbg=NONE   ctermfg=NONE  guibg=#0e0e16 guifg=NONE
-hi Cursor guibg=#E2E93C
+" hi CursorLine cterm=NONE   ctermbg=NONE   ctermfg=NONE  guibg=#0e0e16 guifg=NONE
+" hi Cursor guibg=#E2E93C
 hi Pmenu      ctermfg=NONE ctermbg=241    cterm=NONE    guifg=NONE    guibg=#181826 gui=NONE
 hi PmenuSel   ctermfg=36   ctermbg=105    cterm=NONE    guifg=#101011 guibg=#E2E93C gui=NONE
 hi EndOfBuffer guifg=bg
-call one#highlight('Normal', '', '13131c', '')
+" call one#highlight('Normal', '', '13131c', '')
 
 au InsertLeave * hi Cursor guibg=#E2E93C
 au InsertEnter * hi Cursor guibg=#FF434E
@@ -265,6 +277,7 @@ nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
 nnoremap <esc> :noh<return><esc>
+tnoremap <Esc> <C-\><C-n>
 
 " ====== Make tabs be addressable via Apple+1 or 2 or 3, etc
 " Use numbers to pick the tab you want (like iTerm)
