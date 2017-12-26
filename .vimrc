@@ -1,27 +1,27 @@
 call plug#begin('~/.vim/plugged')
+  Plug 'Raimondi/delimitMate'
+  Plug 'Valloric/MatchTagAlways'
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
   Plug 'airblade/vim-gitgutter'
   Plug 'alvan/vim-closetag'
   Plug 'ap/vim-css-color'
   Plug 'easymotion/vim-easymotion'
   Plug 'hail2u/vim-css3-syntax'
   Plug 'haya14busa/incsearch.vim'
+  Plug 'joshdick/onedark.vim'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+  Plug 'junegunn/fzf.vim'
   Plug 'junegunn/vim-easy-align'
   Plug 'lambdalisue/gina.vim'
   Plug 'mileszs/ack.vim'
   Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
   Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
-  Plug 'Raimondi/delimitMate'
-  Plug 'joshdick/onedark.vim'
   Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
-  Plug 'tpope/vim-surround'
-  Plug 'Valloric/MatchTagAlways'
-  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
-  Plug 'vim-airline/vim-airline'
-  Plug 'yuttie/comfortable-motion.vim'
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-  Plug 'junegunn/fzf.vim'
-  Plug 'w0rp/ale'
   Plug 'szw/vim-g'
+  Plug 'tpope/vim-surround'
+  Plug 'vim-airline/vim-airline'
+  Plug 'w0rp/ale'
+  Plug 'yuttie/comfortable-motion.vim'
 " Plug 'mhinz/vim-signify'
 call plug#end()
 
