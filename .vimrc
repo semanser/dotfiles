@@ -263,7 +263,7 @@ augroup CursorLine
   au WinLeave * setlocal nocursorline
 augroup END
 
-
+au TermOpen * setlocal nonumber norelativenumber
 
 """""""""""
 "
