@@ -243,6 +243,7 @@ set nofoldenable        " when off, all folds are open when open a new file
 set foldlevel=2         " sets the fold level
 set guioptions+=e
 set encoding=utf-8      " set the character encoding to UTF-8
+set completeopt-=preview " Do not show preview window for ins-completion.
 
 
 
