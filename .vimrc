@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'easymotion/vim-easymotion'
   Plug 'hail2u/vim-css3-syntax'
   Plug 'haya14busa/incsearch.vim'
+  Plug 'heavenshell/vim-jsdoc'
   Plug 'joshdick/onedark.vim'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
   Plug 'junegunn/fzf.vim'
