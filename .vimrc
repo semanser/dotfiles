@@ -17,6 +17,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
   Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
   Plug 'szw/vim-g'
+  Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'
   Plug 'vim-airline/vim-airline'
   Plug 'w0rp/ale'
@@ -206,44 +207,44 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 " VARS
 "
 """"""""""""""
-set autoread            " autoload file changes
-set autowriteall        " autosave files
-set background=dark     " dark colorscheme One
-set expandtab           " convert tabs to the spaces
-set gcr=a:blinkon0      " disable cursor blinking
-set hidden              " hide when switching buffers instead of unloading
-set history=1000        " store lots of :cmdline history
-set hlsearch            " highlights the string matched by the search
-set ignorecase          " make searching case insensitive
-set incsearch           " incremental search
-set lazyredraw          " only redraw when necessary
-set nobackup            " disable backups
-set nocompatible        " use Vim settings, rather then Vi
-set noshowmode          " don't show mode as we use a status line plugin
-set noswapfile          " disable swapfile
-set nowrap              " wrap lines
-set number 		          " show line number
-set relativenumber      " make relative line number
-set scrolloff=9999      " keep cursor at the center of the screen
-set shiftwidth=2        " 2 spaces
-set showcmd             " show (partial) command in status line
-set showmatch           " show match brackets
-set sidescroll=1        " incrementally scroll one character
-set smartcase           " ... unless the query has capital letters
-set splitbelow          " open new split below
-set splitright          " open new split right
-set tabstop=2           " 2 spaces
-set termguicolors       " enable True color
-set ttyfast             " always assume a fast terminal
-set wildmenu            " visual autocomplete for command menu
-set guioptions=         " remove scroll bars
-set foldmethod=indent   " type of indentation
-set foldnestmax=10      " sets the maximum nesting of folds
-set nofoldenable        " when off, all folds are open when open a new file
-set foldlevel=2         " sets the fold level
-set guioptions+=e
-set encoding=utf-8      " set the character encoding to UTF-8
+set autoread             " autoload file changes
+set autowriteall         " autosave files
+set background=dark      " dark colorscheme One
 set completeopt-=preview " Do not show preview window for ins-completion.
+set encoding=utf-8       " set the character encoding to UTF-8
+set expandtab            " convert tabs to the spaces
+set foldlevel=2          " sets the fold level
+set foldmethod=indent    " type of indentation
+set foldnestmax=10       " sets the maximum nesting of folds
+set gcr=a:blinkon0       " disable cursor blinking
+set guioptions=          " remove all GUI components and options.
+set guioptions+=e
+set hidden               " hide when switching buffers instead of unloading
+set history=1000         " store lots of :cmdline history
+set hlsearch             " highlights the string matched by the search
+set ignorecase           " make searching case insensitive
+set incsearch            " incremental search
+set lazyredraw           " only redraw when necessary
+set nobackup             " disable backups
+set nocompatible         " use Vim settings, rather then Vi
+set nofoldenable         " when off, all folds are open when open a new file
+set noshowmode           " don't show mode as we use a status line plugin
+set noswapfile           " disable swapfile
+set nowrap               " wrap lines
+set number               " show line number
+set relativenumber       " make relative line number
+set scrolloff=9999       " keep cursor at the center of the screen
+set shiftwidth=2         " 2 spaces
+set showcmd              " show (partial) command in status line
+set showmatch            " show match brackets
+set sidescroll=1         " incrementally scroll one character
+set smartcase            " ... unless the query has capital letters
+set splitbelow           " open new split below
+set splitright           " open new split right
+set tabstop=2            " 2 spaces
+set termguicolors        " enable True color
+set ttyfast              " always assume a fast terminal
+set wildmenu             " visual autocomplete for command menu
 
 
 
