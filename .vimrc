@@ -211,7 +211,7 @@ set autowriteall        " autosave files
 set background=dark     " dark colorscheme One
 set expandtab           " convert tabs to the spaces
 set gcr=a:blinkon0      " disable cursor blinking
-set hidden              " buffer becomes hidden when it is abandoned
+set hidden              " hide when switching buffers instead of unloading
 set history=1000        " store lots of :cmdline history
 set hlsearch            " highlights the string matched by the search
 set ignorecase          " make searching case insensitive
