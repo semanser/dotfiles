@@ -242,6 +242,8 @@ set foldnestmax=10      " sets the maximum nesting of folds
 set nofoldenable        " when off, all folds are open when open a new file
 set foldlevel=2         " sets the fold level
 set guioptions+=e
+set encoding=utf-8      " set the character encoding to UTF-8
+
 
 
 """""""""""
