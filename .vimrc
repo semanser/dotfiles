@@ -1,17 +1,5 @@
 """""""""""""
 "
-" GENERAL
-"
-"""""""""""""
-cd /Users/semanser/Documents/Programming/ " Setup working directory
-colorscheme gruvbox                       " Setup color scheme
-let mapleader = "\<Space>"                " Setup leader key
-syntax enable                             " Enable syntax highlighting
-
-
-
-"""""""""""""
-"
 " PLUGINS
 "
 """""""""""""
@@ -41,6 +29,18 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'                                           " Lean & mean status/tabline for vim that's light as air
   Plug 'w0rp/ale'                                                          " Asynchronous Lint Engine
 call plug#end()
+
+
+
+"""""""""""""
+"
+" GENERAL
+"
+"""""""""""""
+cd /Users/semanser/Documents/Programming/ " Setup working directory
+colorscheme gruvbox                       " Setup color scheme
+let mapleader = "\<Space>"                " Setup leader key
+syntax enable                             " Enable syntax highlighting
 
 
 
