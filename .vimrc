@@ -148,7 +148,7 @@ endfunc
 " 
 " NERDTree
 "
-map <Leader>n :NERDTreeToggle<CR>
+map <silent> <tab> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
 " 
