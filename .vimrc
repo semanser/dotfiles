@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf.vim'                                                  " fzf bindings for vim
   Plug 'junegunn/vim-easy-align'                                           " A Vim alignment plugin
   Plug 'lambdalisue/gina.vim'                                              " Asynchronously control git repositories in Neovim/Vim 8
+  Plug 'mhinz/vim-startify'                                                " The fancy start screen for Vim.
   Plug 'morhetz/gruvbox'                                                   " Retro groove color scheme for Vim
   Plug 'mxw/vim-jsx'                                                       " React JSX syntax highlighting and indenting for vim
   Plug 'othree/es.next.syntax.vim'                                         " ES.Next syntax for Vim
