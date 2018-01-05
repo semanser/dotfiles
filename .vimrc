@@ -38,10 +38,10 @@ call plug#end()
 " GENERAL
 "
 """""""""""""
-cd /Users/semanser/Documents/Programming/ " Setup working directory
-colorscheme gruvbox                       " Setup color scheme
-let mapleader = "\<Space>"                " Setup leader key
-syntax enable                             " Enable syntax highlighting
+cd /Users/semanser/Desktop/Programming " Setup working directory
+colorscheme gruvbox                    " Setup color scheme
+let mapleader = "\<Space>"             " Setup leader key
+syntax enable                          " Enable syntax highlighting
 
 
 
