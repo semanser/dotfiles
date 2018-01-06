@@ -95,6 +95,10 @@ set wildmenu             " visual autocomplete for command menu
 " KEYMAP
 "
 """"""""""""
+imap <C-c> <CR><Esc>O
+map /  <Plug>(incsearch-forward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 map <silent> <D-1> :tabn 1<cr>
 map <silent> <D-2> :tabn 2<cr>
 map <silent> <D-3> :tabn 3<cr>
@@ -104,7 +108,12 @@ map <silent> <D-6> :tabn 6<cr>
 map <silent> <D-7> :tabn 7<cr>
 map <silent> <D-8> :tabn 8<cr>
 map <silent> <D-9> :tabn 9<cr>
+map <silent> <tab> :NERDTreeToggle<CR>
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 nmap <C-S-P> :call <SID>SynStack()<CR>
+nmap ga <Plug>(EasyAlign)
+nmap s <Plug>(easymotion-overwin-f2)
 nmap ¬ :bnext<CR>
 nmap ˙ :bprevious<CR>
 nnoremap <C-h> <C-W>h
@@ -112,12 +121,14 @@ nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
 nnoremap <esc> :noh<return><esc>
+nnoremap <silent> <leader><tab> :Files<CR>
 nnoremap <silent> <leader>ga :Gina add .<CR>
 nnoremap <silent> <leader>gc :Gina commit<CR>
 nnoremap <silent> <leader>gp :Gina push<CR>
 nnoremap <silent> <leader>t :term<CR>
 tnoremap <Esc> <C-\><C-n>
 vmap <leader>s :sort<CR>
+xmap ga <Plug>(EasyAlign)
 
 
 
@@ -154,7 +165,6 @@ endfunc
 " 
 " NERDTree
 "
-map <silent> <tab> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
 " 
@@ -173,8 +183,6 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*jsx'
 " 
 " fzf
 "
-nnoremap <silent> <leader><tab> :Files<CR>
-imap <C-c> <CR><Esc>O
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
@@ -209,22 +217,11 @@ let g:mta_filetypes = {
 " vim-easymotion
 "
 let g:EasyMotion_smartcase = 1 " Turn on case insensitive feature
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-nmap s <Plug>(easymotion-overwin-f2)
 
 "
 " delimitMate
 "
 let delimitMate_expand_cr = 1 " autoindent on carriage return
-
-" 
-" incsearch
-"
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-
 
 "
 " airline
@@ -238,14 +235,6 @@ let g:airline_section_x = ''
 let g:airline_section_y = ''
 let g:airline_section_z = ''
 let g:airline_theme='gruvbox'
-
-"
-" vim-easy-align
-"
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
 
 "
 " YouCompleteMe
