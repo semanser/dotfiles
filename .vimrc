@@ -112,6 +112,9 @@ nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
 nnoremap <esc> :noh<return><esc>
+nnoremap <silent> <leader>ga :Gina add .<CR>
+nnoremap <silent> <leader>gc :Gina commit<CR>
+nnoremap <silent> <leader>gp :Gina push<CR>
 tnoremap <Esc> <C-\><C-n>
 
 
