@@ -1,34 +1,101 @@
-"""""""""""""
+""""""""""""""""""
 "
-" PLUGINS
+" PLUGINS SETUP
 "
-"""""""""""""
+""""""""""""""""""
 call plug#begin('~/.vim/plugged')
   Plug 'Raimondi/delimitMate'                                              " Provides insert mode auto-completion for quotes, parens, brackets, etc
+  let delimitMate_expand_cr = 1 " autoindent on carriage return
+
   Plug 'Valloric/MatchTagAlways'                                           " Always highlights the enclosing html/xml tags
+
   Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' } " A code-completion engine
+  let g:ycm_autoclose_preview_window_after_insertion = 1
+
   Plug 'airblade/vim-gitgutter'                                            " Shows a git diff in the gutter (sign column) and stages/undoes hunks
+
   Plug 'alvan/vim-closetag'                                                " Auto close (X)HTML tags
+  let g:closetag_close_shortcut = ''
+  let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*jsx'
+
   Plug 'ap/vim-css-color'                                                  " Preview colours in source code while editing
+
   Plug 'easymotion/vim-easymotion'                                         " A much simpler way to use some motions in vim
+  let g:EasyMotion_smartcase = 1
+
   Plug 'hail2u/vim-css3-syntax'                                            " CSS3 syntax (and syntax defined in some foreign specifications) support for Vim's built-in syntax/css.vim
+
   Plug 'haya14busa/incsearch.vim'                                          " Improved incremental searching for Vim
+
   Plug 'heavenshell/vim-jsdoc'                                             " Generate JSDoc to your JavaScript code
+
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }        " A command-line fuzzy finder
+
   Plug 'junegunn/fzf.vim'                                                  " fzf bindings for vim
+  let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+  let g:fzf_colors =
+        \ { 'fg':      ['fg', 'Normal'],
+        \ 'bg':      ['bg', 'Normal'],
+        \ 'hl':      ['fg', 'Comment'],
+        \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+        \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+        \ 'hl+':     ['fg', 'Statement'],
+        \ 'info':    ['fg', 'PreProc'],
+        \ 'border':  ['fg', 'Ignore'],
+        \ 'prompt':  ['fg', 'Conditional'],
+        \ 'pointer': ['fg', 'Exception'],
+        \ 'marker':  ['fg', 'Keyword'],
+        \ 'spinner': ['fg', 'Label'],
+        \ 'header':  ['fg', 'Comment'] }
+
   Plug 'junegunn/vim-easy-align'                                           " A Vim alignment plugin
+
   Plug 'lambdalisue/gina.vim'                                              " Asynchronously control git repositories in Neovim/Vim 8
+
   Plug 'mhinz/vim-startify'                                                " The fancy start screen for Vim.
+
   Plug 'morhetz/gruvbox'                                                   " Retro groove color scheme for Vim
+
   Plug 'mxw/vim-jsx'                                                       " React JSX syntax highlighting and indenting for vim
+  let g:jsx_ext_required = 0 " Let vim-jsx handle JSX in `.js` files.
+  let g:mta_filetypes = {
+        \ 'html' : 1,
+        \ 'javascript.jsx' : 1,
+        \ 'jinja' : 1,
+        \ 'liquid' : 1,
+        \ 'markdown' : 1,
+        \ 'xhtml' : 1,
+        \ 'xml' : 1,
+        \}
+
   Plug 'othree/es.next.syntax.vim'                                         " ES.Next syntax for Vim
+
   Plug 'othree/yajs.vim'                                                   " YAJS.vim: Yet Another JavaScript Syntax for Vim
+
   Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}                     " A tree explorer plugin for vim
+  let NERDTreeShowHidden=1
+
   Plug 'szw/vim-g'                                                         " Quick Google lookup directly from Vim
+
   Plug 'tpope/vim-commentary'                                              " Comment stuff out
+
   Plug 'tpope/vim-surround'                                                " Quoting/parenthesizing made simple
+
   Plug 'vim-airline/vim-airline'                                           " Lean & mean status/tabline for vim that's light as air
+  " let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#ale#enabled = 1
+  let g:airline#extensions#tabline#fnamemod = ':t'
+  let g:airline#extensions#tabline#show_close_button= 0
+  let g:airline#extensions#whitespace#enabled = 0
+  let g:airline_section_x = ''
+  let g:airline_section_y = ''
+  let g:airline_section_z = ''
+  let g:airline_theme='gruvbox'
+
   Plug 'w0rp/ale'                                                          " Asynchronous Lint Engine
+  let g:ale_linters = {
+        \   'javascript': ['eslint'],
+        \}
 call plug#end()
 
 
@@ -153,91 +220,4 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
-
-
-
-"""""""""""""
-"
-" PLUGINS SETTINGS
-"
-"""""""""""""
-
-" 
-" NERDTree
-"
-let NERDTreeShowHidden=1
-
-" 
-" ale
-"
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\}
-
-" 
-" vim-closetag
-"
-let g:closetag_close_shortcut = ''
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*jsx'
-
-" 
-" fzf
-"
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-" 
-" vim-jsx
-"
-let g:jsx_ext_required = 0 " Let vim-jsx handle JSX in `.js` files.
-let g:mta_filetypes = {
-    \ 'html' : 1,
-    \ 'javascript.jsx' : 1,
-    \ 'jinja' : 1,
-    \ 'liquid' : 1,
-    \ 'markdown' : 1,
-    \ 'xhtml' : 1,
-    \ 'xml' : 1,
-    \}
-
-"
-" vim-easymotion
-"
-let g:EasyMotion_smartcase = 1 " Turn on case insensitive feature
-
-"
-" delimitMate
-"
-let delimitMate_expand_cr = 1 " autoindent on carriage return
-
-"
-" airline
-"
-" let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#show_close_button= 0
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline_section_x = ''
-let g:airline_section_y = ''
-let g:airline_section_z = ''
-let g:airline_theme='gruvbox'
-
-"
-" YouCompleteMe
-"
-let g:ycm_autoclose_preview_window_after_insertion = 1
 
