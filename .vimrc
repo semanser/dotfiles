@@ -208,11 +208,6 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 nmap s <Plug>(easymotion-overwin-f2)
 
-" 
-" vim-javascript
-"
-let g:javascript_plugin_jsdoc = 1
-
 "
 " delimitMate
 "
