@@ -115,6 +115,7 @@ nnoremap <esc> :noh<return><esc>
 nnoremap <silent> <leader>ga :Gina add .<CR>
 nnoremap <silent> <leader>gc :Gina commit<CR>
 nnoremap <silent> <leader>gp :Gina push<CR>
+nnoremap <silent> <leader>t :term<CR>
 tnoremap <Esc> <C-\><C-n>
 vmap <leader>s :sort<CR>
 
