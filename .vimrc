@@ -4,34 +4,46 @@
 "
 """"""""""""""""""
 call plug#begin('~/.vim/plugged')
-  Plug 'Raimondi/delimitMate'                                              " Provides insert mode auto-completion for quotes, parens, brackets, etc
-  let delimitMate_expand_cr = 1 " autoindent on carriage return
+  " Provides insert mode auto-completion for quotes, parens, brackets, etc
+  Plug 'Raimondi/delimitMate'
+  let delimitMate_expand_cr = 1
 
-  Plug 'Valloric/MatchTagAlways'                                           " Always highlights the enclosing html/xml tags
+  " Always highlights the enclosing html/xml tags
+  Plug 'Valloric/MatchTagAlways'
 
-  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' } " A code-completion engine
+  " A code-completion engine
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
   let g:ycm_autoclose_preview_window_after_insertion = 1
 
-  Plug 'airblade/vim-gitgutter'                                            " Shows a git diff in the gutter (sign column) and stages/undoes hunks
+  " Shows a git diff in the gutter (sign column) and stages/undoes hunks
+  Plug 'airblade/vim-gitgutter'
 
-  Plug 'alvan/vim-closetag'                                                " Auto close (X)HTML tags
+  " Auto close (X)HTML tags
+  Plug 'alvan/vim-closetag'
   let g:closetag_close_shortcut = ''
   let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*jsx'
 
-  Plug 'ap/vim-css-color'                                                  " Preview colours in source code while editing
+  " Preview colours in source code while editing
+  Plug 'ap/vim-css-color'
 
-  Plug 'easymotion/vim-easymotion'                                         " A much simpler way to use some motions in vim
+  " A much simpler way to use some motions in vim
+  Plug 'easymotion/vim-easymotion'
   let g:EasyMotion_smartcase = 1
 
-  Plug 'hail2u/vim-css3-syntax'                                            " CSS3 syntax (and syntax defined in some foreign specifications) support for Vim's built-in syntax/css.vim
+  " CSS3 syntax (and syntax defined in some foreign specifications) support for Vim's built-in syntax/css.vim
+  Plug 'hail2u/vim-css3-syntax'
 
-  Plug 'haya14busa/incsearch.vim'                                          " Improved incremental searching for Vim
+  " Improved incremental searching for Vim
+  Plug 'haya14busa/incsearch.vim'
 
-  Plug 'heavenshell/vim-jsdoc'                                             " Generate JSDoc to your JavaScript code
+  " Generate JSDoc to your JavaScript code
+  Plug 'heavenshell/vim-jsdoc'
 
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }        " A command-line fuzzy finder
+  " A command-line fuzzy finder
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 
-  Plug 'junegunn/fzf.vim'                                                  " fzf bindings for vim
+  " fzf bindings for vim
+  Plug 'junegunn/fzf.vim'
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
   let g:fzf_colors =
         \ { 'fg':      ['fg', 'Normal'],
@@ -48,16 +60,21 @@ call plug#begin('~/.vim/plugged')
         \ 'spinner': ['fg', 'Label'],
         \ 'header':  ['fg', 'Comment'] }
 
-  Plug 'junegunn/vim-easy-align'                                           " A Vim alignment plugin
+  " A Vim alignment plugin
+  Plug 'junegunn/vim-easy-align'
 
-  Plug 'lambdalisue/gina.vim'                                              " Asynchronously control git repositories in Neovim/Vim 8
+  " Asynchronously control git repositories in Neovim/Vim 8
+  Plug 'lambdalisue/gina.vim'
 
-  Plug 'mhinz/vim-startify'                                                " The fancy start screen for Vim.
+  " The fancy start screen for Vim.
+  Plug 'mhinz/vim-startify'
 
-  Plug 'morhetz/gruvbox'                                                   " Retro groove color scheme for Vim
+  " Retro groove color scheme for Vim
+  Plug 'morhetz/gruvbox'
 
-  Plug 'mxw/vim-jsx'                                                       " React JSX syntax highlighting and indenting for vim
-  let g:jsx_ext_required = 0 " Let vim-jsx handle JSX in `.js` files.
+  " React JSX syntax highlighting and indenting for vim
+  Plug 'mxw/vim-jsx'
+  let g:jsx_ext_required = 0
   let g:mta_filetypes = {
         \ 'html' : 1,
         \ 'javascript.jsx' : 1,
@@ -68,20 +85,27 @@ call plug#begin('~/.vim/plugged')
         \ 'xml' : 1,
         \}
 
-  Plug 'othree/es.next.syntax.vim'                                         " ES.Next syntax for Vim
+  " ES.Next syntax for Vim
+  Plug 'othree/es.next.syntax.vim'
 
-  Plug 'othree/yajs.vim'                                                   " YAJS.vim: Yet Another JavaScript Syntax for Vim
+  " YAJS.vim: Yet Another JavaScript Syntax for Vim
+  Plug 'othree/yajs.vim'
 
-  Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}                     " A tree explorer plugin for vim
+  " A tree explorer plugin for vim
+  Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
   let NERDTreeShowHidden=1
 
-  Plug 'szw/vim-g'                                                         " Quick Google lookup directly from Vim
+  " Quick Google lookup directly from Vim
+  Plug 'szw/vim-g'
 
-  Plug 'tpope/vim-commentary'                                              " Comment stuff out
+  " Comment stuff out
+  Plug 'tpope/vim-commentary'
 
-  Plug 'tpope/vim-surround'                                                " Quoting/parenthesizing made simple
+  " Quoting/parenthesizing made simple
+  Plug 'tpope/vim-surround'
 
-  Plug 'vim-airline/vim-airline'                                           " Lean & mean status/tabline for vim that's light as air
+  " Lean & mean status/tabline for vim that's light as air
+  Plug 'vim-airline/vim-airline'
   " let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#ale#enabled = 1
   let g:airline#extensions#tabline#fnamemod = ':t'
@@ -92,7 +116,8 @@ call plug#begin('~/.vim/plugged')
   let g:airline_section_z = ''
   let g:airline_theme='gruvbox'
 
-  Plug 'w0rp/ale'                                                          " Asynchronous Lint Engine
+  " Asynchronous Lint Engine
+  Plug 'w0rp/ale'
   let g:ale_linters = {
         \   'javascript': ['eslint'],
         \}
