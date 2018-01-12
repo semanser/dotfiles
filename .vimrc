@@ -121,6 +121,9 @@ call plug#begin('~/.vim/plugged')
   let g:ale_linters = {
         \   'javascript': ['eslint'],
         \}
+
+  " Make the yanked region apparent!
+  Plug 'machakann/vim-highlightedyank'
 call plug#end()
 
 
