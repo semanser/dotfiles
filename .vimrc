@@ -189,6 +189,7 @@ set wildmenu             " visual autocomplete for command menu
 """"""""""""
 imap <C-c> <CR><Esc>O
 map /  <Plug>(incsearch-forward)
+map <F3> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <silent> <D-1> :tabn 1<cr>
@@ -230,19 +231,4 @@ xmap ga <Plug>(EasyAlign)
 "
 """""""""""""
 au TermOpen * setlocal nonumber norelativenumber
-
-
-
-"""""""""""""
-"
-" FUNCTIONS
-"
-"""""""""""""
-" Show syntax highlighting groups for word under cursor (needed for theme development)
-function! <SID>SynStack() 
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
 
