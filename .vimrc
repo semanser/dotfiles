@@ -32,6 +32,11 @@ call plug#begin('~/.vim/plugged')
 
   " CSS3 syntax (and syntax defined in some foreign specifications) support for Vim's built-in syntax/css.vim
   Plug 'hail2u/vim-css3-syntax'
+  augroup VimCSS3Syntax
+    autocmd!
+
+    autocmd FileType css setlocal iskeyword+=-
+  augroup END
 
   " Improved incremental searching for Vim
   Plug 'haya14busa/incsearch.vim'
@@ -234,4 +239,3 @@ xmap ga <Plug>(EasyAlign)
 "
 """""""""""""
 au TermOpen * setlocal nonumber norelativenumber
-
