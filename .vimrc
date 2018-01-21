@@ -34,7 +34,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'hail2u/vim-css3-syntax'
   augroup VimCSS3Syntax
     autocmd!
-
     autocmd FileType css setlocal iskeyword+=-
   augroup END
 
