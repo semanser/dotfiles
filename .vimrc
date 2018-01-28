@@ -124,6 +124,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'w0rp/ale'
   let g:ale_linters = {
         \   'javascript': ['eslint'],
+        \   'javascript.jsx': ['eslint'],
         \}
 
   " Make the yanked region apparent!
