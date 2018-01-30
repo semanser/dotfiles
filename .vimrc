@@ -97,7 +97,11 @@ call plug#begin('~/.vim/plugged')
 
   " A tree explorer plugin for vim
   Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
-  let NERDTreeShowHidden=1
+  let NERDTreeAutoDeleteBuffer = 1
+  let NERDTreeChDirMode = 2
+  let NERDTreeMinimalUI = 1
+  let NERDTreeQuitOnOpen = 1
+  let NERDTreeShowHidden = 1
 
   " Quick Google lookup directly from Vim
   Plug 'szw/vim-g'
