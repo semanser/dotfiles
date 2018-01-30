@@ -133,6 +133,8 @@ call plug#begin('~/.vim/plugged')
 
   " Make the yanked region apparent!
   Plug 'machakann/vim-highlightedyank'
+
+	Plug 'dyng/ctrlsf.vim'
 call plug#end()
 
 
