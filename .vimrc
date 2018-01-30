@@ -235,7 +235,9 @@ nnoremap <silent> <leader>gs :Gina status<CR>
 nnoremap <silent> <leader>t :term<CR>
 nnoremap H ^
 nnoremap L g_
+nnoremap P P`[v`]=
 nnoremap S i<cr><esc><right>
+nnoremap p p`[v`]=
 tnoremap <Esc> <C-\><C-n>
 vmap <leader>s :sort<CR>
 xmap ga <Plug>(EasyAlign)
