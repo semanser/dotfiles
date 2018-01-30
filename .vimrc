@@ -225,14 +225,16 @@ nnoremap <esc> :noh<return><esc>
 nnoremap <silent> <leader><tab> :Files<CR>
 nnoremap <silent> <leader>ga :Gina add .<CR>
 nnoremap <silent> <leader>gc :Gina commit<CR>
+nnoremap <silent> <leader>gd :Gina diff<CR>
 nnoremap <silent> <leader>gp :Gina push<CR>
 nnoremap <silent> <leader>gs :Gina status<CR>
-nnoremap <silent> <leader>gd :Gina diff<CR>
 nnoremap <silent> <leader>t :term<CR>
+nnoremap H ^
+nnoremap L g_
+nnoremap S i<cr><esc><right>
 tnoremap <Esc> <C-\><C-n>
 vmap <leader>s :sort<CR>
 xmap ga <Plug>(EasyAlign)
-
 
 
 """""""""""""
