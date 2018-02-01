@@ -241,8 +241,8 @@ nnoremap <silent> <leader>gd :Gina diff<CR>
 nnoremap <silent> <leader>gp :Gina push<CR>
 nnoremap <silent> <leader>gs :Gina status<CR>
 nnoremap <silent> <leader>t :term<CR>
-nnoremap H ^
-nnoremap L g_
+nnoremap H 0
+nnoremap L $
 nnoremap P P`[v`]=
 nnoremap S i<cr><esc><right>
 nnoremap p p`[v`]=
