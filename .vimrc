@@ -214,6 +214,7 @@ nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
 nnoremap <esc> :noh<return><esc>
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <silent> <leader><tab> :Files<CR>
 nnoremap <silent> <leader>ga :Gina add .<CR>
 nnoremap <silent> <leader>gc :Gina commit<CR>
