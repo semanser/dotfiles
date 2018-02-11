@@ -207,28 +207,8 @@ set wildmenu             " visual autocomplete for command menu
 " KEYMAP
 "
 """"""""""""
-imap <C-c> <CR><Esc>O
-map /  <Plug>(incsearch-forward)
-map <F3> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <silent> <D-1> :tabn 1<cr>
-map <silent> <D-2> :tabn 2<cr>
-map <silent> <D-3> :tabn 3<cr>
-map <silent> <D-4> :tabn 4<cr>
-map <silent> <D-5> :tabn 5<cr>
-map <silent> <D-6> :tabn 6<cr>
-map <silent> <D-7> :tabn 7<cr>
-map <silent> <D-8> :tabn 8<cr>
-map <silent> <D-9> :tabn 9<cr>
-map <silent> <tab> :NERDTreeToggle<CR>
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-nmap <C-S-P> :call <SID>SynStack()<CR>
-nmap ga <Plug>(EasyAlign)
-nmap s <Plug>(easymotion-overwin-f2)
-nmap ¬ :bnext<CR>
-nmap ˙ :bprevious<CR>
+inoremap <C-c> <CR><Esc>O
+nnoremap <C-S-P> :call <SID>SynStack()<CR>
 nnoremap <C-h> <C-W>h
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
@@ -240,15 +220,36 @@ nnoremap <silent> <leader>gc :Gina commit<CR>
 nnoremap <silent> <leader>gd :Gina diff<CR>
 nnoremap <silent> <leader>gp :Gina push<CR>
 nnoremap <silent> <leader>gs :Gina status<CR>
+nnoremap <silent> <leader>r :source %<CR>
 nnoremap <silent> <leader>t :term<CR>
 nnoremap H 0
 nnoremap L $
 nnoremap P P`[v`]=
 nnoremap S i<cr><esc><right>
+nnoremap ga <Plug>(EasyAlign)
 nnoremap p p`[v`]=
+nnoremap s <Plug>(easymotion-overwin-f2)
+nnoremap ¬ :bnext<CR>
+nnoremap ˙ :bprevious<CR>
+noremap /  <Plug>(incsearch-forward)
+noremap <F3> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
+noremap <Leader>j <Plug>(easymotion-j)
+noremap <Leader>k <Plug>(easymotion-k)
+noremap <silent> <D-1> :tabn 1<cr>
+noremap <silent> <D-2> :tabn 2<cr>
+noremap <silent> <D-3> :tabn 3<cr>
+noremap <silent> <D-4> :tabn 4<cr>
+noremap <silent> <D-5> :tabn 5<cr>
+noremap <silent> <D-6> :tabn 6<cr>
+noremap <silent> <D-7> :tabn 7<cr>
+noremap <silent> <D-8> :tabn 8<cr>
+noremap <silent> <D-9> :tabn 9<cr>
+noremap <silent> <tab> :NERDTreeToggle<CR>
+noremap ?  <Plug>(incsearch-backward)
+noremap g/ <Plug>(incsearch-stay)
 tnoremap <Esc> <C-\><C-n>
-vmap <leader>s :sort<CR>
-xmap ga <Plug>(EasyAlign)
+vnoremap <leader>s :sort<CR>
+xnoremap ga <Plug>(EasyAlign)
 
 
 """""""""""""
@@ -257,3 +258,4 @@ xmap ga <Plug>(EasyAlign)
 "
 """""""""""""
 au TermOpen * setlocal nonumber norelativenumber
+
