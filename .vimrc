@@ -214,7 +214,7 @@ nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
 nnoremap <esc> :noh<return><esc>
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>ev :vsplit ~/dotfiles/.vimrc<cr>
 nnoremap <silent> <leader><tab> :Files<CR>
 nnoremap <silent> <leader>ga :Gina add .<CR>
 nnoremap <silent> <leader>gc :Gina commit<CR>
@@ -232,7 +232,7 @@ nnoremap p p`[v`]=
 nnoremap s <Plug>(easymotion-overwin-f2)
 nnoremap ¬ :bnext<CR>
 nnoremap ˙ :bprevious<CR>
-noremap /  <Plug>(incsearch-forward)
+map /  <Plug>(incsearch-forward)
 noremap <F3> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
 noremap <Leader>j <Plug>(easymotion-j)
 noremap <Leader>k <Plug>(easymotion-k)
