@@ -237,6 +237,7 @@ xnoremap ga <Plug>(EasyAlign)
 " AUTOCOMMANDS {{{
 augroup folding
   autocmd FileType vim setlocal foldmethod=marker
+  autocmd FileType vim execute "normal! zM"
 augroup END
 
 augroup term
@@ -246,10 +247,12 @@ augroup END
 " }}}
 
 " FUNCTIONS {{{
+" correct label for folding block in vimrc
 set foldtext=MyFoldText()
-function MyFoldText()
+function! MyFoldText()
 	let line = getline(v:foldstart)
 	let sub = substitute(line, '/\*\|\*/\|{{{\d\=', '', 'g')
 	return v:folddashes . sub
 endfunction
 " }}}
+
