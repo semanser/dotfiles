@@ -1,7 +1,4 @@
-""""""""""""""""""
-"
-" PLUGINS SETUP
-" """"""""""""""""""
+" PLUGIN SETUP {{{
 if empty(glob('~/.vim/autoload/plug.vim'))
 	silent execute "!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 	autocmd VimEnter * PlugInstall | source $MYVIMRC
@@ -141,26 +138,16 @@ call plug#begin('~/.vim/plugged')
 	" An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
 	Plug 'dyng/ctrlsf.vim'
 call plug#end()
+" }}}
 
-
-
-"""""""""""""
-"
-" GENERAL
-"
-"""""""""""""
+" GENERAL {{{
 cd /Users/semanser/Desktop/Programming " Setup working directory
 colorscheme gruvbox                    " Setup color scheme
 let mapleader = "\<Space>"             " Setup leader key
 syntax enable                          " Enable syntax highlighting
+" }}}
 
-
-
-""""""""""""""
-"
-" VARS
-"
-""""""""""""""
+" VARS {{{
 set autoread             " autoload file changes
 set autowriteall         " autosave files
 set background=dark      " dark colorscheme One
@@ -198,14 +185,9 @@ set tabstop=2            " 2 spaces
 set termguicolors        " enable True color
 set ttyfast              " always assume a fast terminal
 set wildmenu             " visual autocomplete for command menu
+" }}}
 
-
-
-""""""""""""
-"
-" KEYMAP
-"
-""""""""""""
+" KEYMAP {{{
 inoremap <C-c> <CR><Esc>O
 nnoremap <C-S-P> :call <SID>SynStack()<CR>
 nnoremap <C-h> <C-W>h
@@ -250,15 +232,15 @@ noremap g/ <Plug>(incsearch-stay)
 tnoremap <Esc> <C-\><C-n>
 vnoremap <leader>s :sort<CR>
 xnoremap ga <Plug>(EasyAlign)
+" }}}
 
+" AUTOCOMMANDS {{{
+augroup folding
+  autocmd FileType vim setlocal foldmethod=marker
+augroup END
 
-"""""""""""""
-" 
-" AUTOCOMMANDS
-"
-"""""""""""""
 augroup term
 	autocmd!
   autocmd TermOpen * setlocal nonumber norelativenumber
 augroup END
-
+" }}}
