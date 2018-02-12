@@ -244,3 +244,12 @@ augroup term
   autocmd TermOpen * setlocal nonumber norelativenumber
 augroup END
 " }}}
+
+" FUNCTIONS {{{
+set foldtext=MyFoldText()
+function MyFoldText()
+	let line = getline(v:foldstart)
+	let sub = substitute(line, '/\*\|\*/\|{{{\d\=', '', 'g')
+	return v:folddashes . sub
+endfunction
+" }}}
