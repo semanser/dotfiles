@@ -137,6 +137,8 @@ call plug#begin('~/.vim/plugged')
 
 	" An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
 	Plug 'dyng/ctrlsf.vim'
+
+	Plug 'semanser/vim-outdated-plugins'
 call plug#end()
 " }}}
 
@@ -184,6 +186,8 @@ set splitright           " open new split right
 set tabstop=2            " 2 spaces
 set termguicolors        " enable True color
 set ttyfast              " always assume a fast terminal
+set undodir=~/.vim/undo-dir " setup undo directory
+set undofile             " save undo chages even after computer restart
 set wildmenu             " visual autocomplete for command menu
 " }}}
 
