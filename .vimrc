@@ -122,7 +122,7 @@ call plug#begin('~/.vim/plugged')
   let g:airline#extensions#whitespace#enabled = 0
   let g:airline_section_x = ''
   let g:airline_section_y = ''
-  let g:airline_section_z = ''
+  let g:airline_section_z = '%{HistoryIndicator()}'
   let g:airline_theme='gruvbox'
 
   " Asynchronous Lint Engine
@@ -142,6 +142,9 @@ call plug#begin('~/.vim/plugged')
 
 	" Block-breaking game in vim 8.0
   Plug 'johngrib/vim-game-code-break'
+
+	" Add ability to easily go back and forth in your buffer history in vim
+	Plug 'ckarnell/history-traverse'
 call plug#end()
 " }}}
 
@@ -192,7 +195,7 @@ set ttyfast                 " always assume a fast terminal
 set undodir=~/.vim/undo-dir " setup undo directory
 set undofile                " save undo chages even after computer restart
 set wildmenu                " visual autocomplete for command menu
-                            " }}}
+" }}}
 
 " KEYMAP {{{
 inoremap <C-c> <CR><Esc>O
@@ -218,8 +221,8 @@ nnoremap L $
 nnoremap P P`[v`]=
 nnoremap S i<cr><esc><right>
 nnoremap p p`[v`]=
-nnoremap ¬ :bnext<CR>
-nnoremap ˙ :bprevious<CR>
+nnoremap ¬ :HisTravForward<CR>
+nnoremap ˙ :HisTravBack<CR>
 noremap <F3> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
 noremap <Leader>j <Plug>(easymotion-j)
 noremap <Leader>k <Plug>(easymotion-k)
