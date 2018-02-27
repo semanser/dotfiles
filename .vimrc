@@ -138,7 +138,10 @@ call plug#begin('~/.vim/plugged')
 	" An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
 	Plug 'dyng/ctrlsf.vim'
 
-	" Plug 'semanser/vim-outdated-plugins'
+	Plug 'semanser/vim-outdated-plugins'
+
+	" Block-breaking game in vim 8.0
+  Plug 'johngrib/vim-game-code-break'
 call plug#end()
 " }}}
 
@@ -149,7 +152,7 @@ let mapleader = "\<Space>"             " Setup leader key
 syntax enable                          " Enable syntax highlighting
 " }}}
 
-                            " VARS {{{
+" VARS {{{
 set autoread                " autoload file changes
 set autowriteall            " autosave files
 set background=dark         " dark colorscheme One
