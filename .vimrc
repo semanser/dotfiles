@@ -138,7 +138,7 @@ call plug#begin('~/.vim/plugged')
 	" An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
 	Plug 'dyng/ctrlsf.vim'
 
-	Plug 'semanser/vim-outdated-plugins'
+	" Plug 'semanser/vim-outdated-plugins'
 call plug#end()
 " }}}
 
@@ -149,50 +149,52 @@ let mapleader = "\<Space>"             " Setup leader key
 syntax enable                          " Enable syntax highlighting
 " }}}
 
-" VARS {{{
-set autoread             " autoload file changes
-set autowriteall         " autosave files
-set background=dark      " dark colorscheme One
-set completeopt-=preview " Do not show preview window for ins-completion.
-set encoding=utf-8       " set the character encoding to UTF-8
-set expandtab            " convert tabs to the spaces
-set foldlevel=2          " sets the fold level
-set foldmethod=indent    " type of indentation
-set foldnestmax=10       " sets the maximum nesting of folds
-set gcr=a:blinkon0       " disable cursor blinking
-set guioptions=          " remove all GUI components and options.
-set hidden               " hide when switching buffers instead of unloading
-set history=1000         " store lots of :cmdline history
-set hlsearch             " highlights the string matched by the search
-set ignorecase           " make searching case insensitive
-set incsearch            " incremental search
-set lazyredraw           " only redraw when necessary
-set nobackup             " disable backups
-set nocompatible         " use Vim settings, rather then Vi
-set nofoldenable         " when off, all folds are open when open a new file
-set noshowmode           " don't show mode as we use a status line plugin
-set noswapfile           " disable swapfile
-set nowrap               " wrap lines
-set number               " show line number
-set relativenumber       " make relative line number
-set scrolloff=9999       " keep cursor at the center of the screen
-set shiftwidth=2         " 2 spaces
-set showcmd              " show (partial) command in status line
-set showmatch            " show match brackets
-set sidescroll=1         " incrementally scroll one character
-set smartcase            " unless the query has capital letters
-set splitbelow           " open new split below
-set splitright           " open new split right
-set tabstop=2            " 2 spaces
-set termguicolors        " enable True color
-set ttyfast              " always assume a fast terminal
+                            " VARS {{{
+set autoread                " autoload file changes
+set autowriteall            " autosave files
+set background=dark         " dark colorscheme One
+set completeopt-=preview    " Do not show preview window for ins-completion.
+set encoding=utf-8          " set the character encoding to UTF-8
+set expandtab               " convert tabs to the spaces
+set foldlevel=2             " sets the fold level
+set foldmethod=indent       " type of indentation
+set foldnestmax=10          " sets the maximum nesting of folds
+set gcr=a:blinkon0          " disable cursor blinking
+set guioptions=             " remove all GUI components and options.
+set hidden                  " hide when switching buffers instead of unloading
+set history=1000            " store lots of :cmdline history
+set hlsearch                " highlights the string matched by the search
+set ignorecase              " make searching case insensitive
+set incsearch               " incremental search
+set lazyredraw              " only redraw when necessary
+set nobackup                " disable backups
+set nocompatible            " use Vim settings, rather then Vi
+set nofoldenable            " when off, all folds are open when open a new file
+set noshowmode              " don't show mode as we use a status line plugin
+set noswapfile              " disable swapfile
+set nowrap                  " wrap lines
+set number                  " show line number
+set relativenumber          " make relative line number
+set scrolloff=9999          " keep cursor at the center of the screen
+set shiftwidth=2            " 2 spaces
+set showcmd                 " show (partial) command in status line
+set showmatch               " show match brackets
+set sidescroll=1            " incrementally scroll one character
+set smartcase               " unless the query has capital letters
+set splitbelow              " open new split below
+set splitright              " open new split right
+set tabstop=2               " 2 spaces
+set termguicolors           " enable True color
+set ttyfast                 " always assume a fast terminal
 set undodir=~/.vim/undo-dir " setup undo directory
-set undofile             " save undo chages even after computer restart
-set wildmenu             " visual autocomplete for command menu
-" }}}
+set undofile                " save undo chages even after computer restart
+set wildmenu                " visual autocomplete for command menu
+                            " }}}
 
 " KEYMAP {{{
 inoremap <C-c> <CR><Esc>O
+map / <Plug>(incsearch-forward)
+nmap s <Plug>(easymotion-overwin-f2)
 nnoremap <C-S-P> :call <SID>SynStack()<CR>
 nnoremap <C-h> <C-W>h
 nnoremap <C-j> <C-W>j
@@ -212,12 +214,9 @@ nnoremap H 0
 nnoremap L $
 nnoremap P P`[v`]=
 nnoremap S i<cr><esc><right>
-nnoremap ga <Plug>(EasyAlign)
 nnoremap p p`[v`]=
-nnoremap s <Plug>(easymotion-overwin-f2)
 nnoremap ¬ :bnext<CR>
 nnoremap ˙ :bprevious<CR>
-map /  <Plug>(incsearch-forward)
 noremap <F3> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
 noremap <Leader>j <Plug>(easymotion-j)
 noremap <Leader>k <Plug>(easymotion-k)
@@ -235,7 +234,7 @@ noremap ?  <Plug>(incsearch-backward)
 noremap g/ <Plug>(incsearch-stay)
 tnoremap <Esc> <C-\><C-n>
 vnoremap <leader>s :sort<CR>
-xnoremap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
 " }}}
 
 " AUTOCOMMANDS {{{
