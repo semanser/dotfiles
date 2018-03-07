@@ -122,7 +122,7 @@ call plug#begin('~/.vim/plugged')
   let g:airline#extensions#whitespace#enabled = 0
   let g:airline_section_x = ''
   let g:airline_section_y = ''
-  let g:airline_section_z = '%{HistoryIndicator()}'
+  let g:airline_section_z = ''
   let g:airline_theme='gruvbox'
 
   " Asynchronous Lint Engine
@@ -142,9 +142,6 @@ call plug#begin('~/.vim/plugged')
 
 	" Block-breaking game in vim 8.0
   Plug 'johngrib/vim-game-code-break'
-
-	" Add ability to easily go back and forth in your buffer history in vim
-	Plug 'ckarnell/history-traverse'
 call plug#end()
 " }}}
 
