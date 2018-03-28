@@ -115,7 +115,7 @@ call plug#begin('~/.vim/plugged')
 
   " Lean & mean status/tabline for vim that's light as air
   Plug 'vim-airline/vim-airline'
-  " let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#enabled = 0
   let g:airline#extensions#ale#enabled = 1
   let g:airline#extensions#tabline#fnamemod = ':t'
   let g:airline#extensions#tabline#show_close_button= 0
@@ -123,7 +123,7 @@ call plug#begin('~/.vim/plugged')
   let g:airline_section_x = ''
   let g:airline_section_y = ''
   let g:airline_section_z = ''
-  let g:airline_theme='gruvbox'
+  let g:airline_theme='onehalfdark'
 
   " Asynchronous Lint Engine
   Plug 'w0rp/ale'
@@ -138,16 +138,23 @@ call plug#begin('~/.vim/plugged')
 	" An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
 	Plug 'dyng/ctrlsf.vim'
 
-	Plug 'semanser/vim-outdated-plugins'
+  " Plug 'semanser/vim-outdated-plugins'
 
 	" Block-breaking game in vim 8.0
   Plug 'johngrib/vim-game-code-break'
+
+	" Go development plugin for Vim
+	Plug 'fatih/vim-go'
+	let g:go_bin_path = "/usr/local/bin/go"
+	let $GOPATH = $HOME."/Desktop/Programming/go"
+
+	Plug 'sonph/onehalf', {'rtp': 'vim/'}
 call plug#end()
 " }}}
 
 " GENERAL {{{
 cd /Users/semanser/Desktop/Programming " Setup working directory
-colorscheme gruvbox                    " Setup color scheme
+colorscheme onehalfdark
 let mapleader = "\<Space>"             " Setup leader key
 syntax enable                          " Enable syntax highlighting
 " }}}
