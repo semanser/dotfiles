@@ -230,8 +230,8 @@ nnoremap L $
 nnoremap P P`[v`]=
 nnoremap S i<cr><esc><right>
 nnoremap p p`[v`]=
-nnoremap ¬ :HisTravForward<CR>
-nnoremap ˙ :HisTravBack<CR>
+nnoremap ¬ :bnext<CR>
+nnoremap ˙ :bprevious<CR>
 noremap <F3> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
 noremap <Leader>j <Plug>(easymotion-j)
 noremap <Leader>k <Plug>(easymotion-k)
