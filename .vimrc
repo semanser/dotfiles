@@ -148,7 +148,11 @@ call plug#begin('~/.vim/plugged')
 	let g:go_bin_path = "/usr/local/bin/go"
 	let $GOPATH = $HOME."/Desktop/Programming/go"
 
+	" Clean, vibrant and pleasing color schemes for Vim, Sublime Text, iTerm, gnome-terminal and more.
 	Plug 'sonph/onehalf', {'rtp': 'vim/'}
+
+	" Import/require files in javascript with single button!
+	Plug 'kristijanhusak/vim-js-file-import'
 call plug#end()
 " }}}
 
@@ -210,6 +214,7 @@ nnoremap <C-h> <C-W>h
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
+nnoremap <Leader>if :JsFileImport<CR>
 nnoremap <esc> :noh<return><esc>
 nnoremap <leader>ev :vsplit ~/dotfiles/.vimrc<cr>
 nnoremap <silent> <leader><tab> :Files<CR>
