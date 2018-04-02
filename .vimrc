@@ -138,7 +138,8 @@ call plug#begin('~/.vim/plugged')
 	" An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
 	Plug 'dyng/ctrlsf.vim'
 
-  " Plug 'semanser/vim-outdated-plugins'
+	" Async Vim plugin for showing your outdated Vim plugins
+  Plug 'semanser/vim-outdated-plugins'
 
 	" Block-breaking game in vim 8.0
   Plug 'johngrib/vim-game-code-break'
@@ -168,6 +169,7 @@ set autoread                " autoload file changes
 set autowriteall            " autosave files
 set background=dark         " dark colorscheme One
 set completeopt-=preview    " Do not show preview window for ins-completion.
+set diffopt+=vertical       " split diffopt in vertical mode
 set encoding=utf-8          " set the character encoding to UTF-8
 set expandtab               " convert tabs to the spaces
 set foldlevel=2             " sets the fold level
