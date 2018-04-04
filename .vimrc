@@ -120,6 +120,7 @@ call plug#begin('~/.vim/plugged')
   let g:airline#extensions#tabline#fnamemod = ':t'
   let g:airline#extensions#tabline#show_close_button= 0
   let g:airline#extensions#whitespace#enabled = 0
+  let g:airline_section_a = ''
   let g:airline_section_x = ''
   let g:airline_section_y = ''
   let g:airline_section_z = ''
