@@ -11,6 +11,15 @@ call plug#begin('~/.vim/plugged')
 
   " Always highlights the enclosing html/xml tags
   Plug 'Valloric/MatchTagAlways'
+  let g:mta_filetypes = {
+        \ 'html' : 1,
+        \ 'javascript.jsx' : 1,
+        \ 'jinja' : 1,
+        \ 'liquid' : 1,
+        \ 'markdown' : 1,
+        \ 'xhtml' : 1,
+        \ 'xml' : 1,
+        \}
 
   " A code-completion engine
   Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
@@ -77,24 +86,11 @@ call plug#begin('~/.vim/plugged')
   " Retro groove color scheme for Vim
   Plug 'morhetz/gruvbox'
 
+	" Vastly improved Javascript indentation and syntax support in Vim
+	Plug 'pangloss/vim-javascript'
+
   " React JSX syntax highlighting and indenting for vim
   Plug 'mxw/vim-jsx'
-  let g:jsx_ext_required = 0
-  let g:mta_filetypes = {
-        \ 'html' : 1,
-        \ 'javascript.jsx' : 1,
-        \ 'jinja' : 1,
-        \ 'liquid' : 1,
-        \ 'markdown' : 1,
-        \ 'xhtml' : 1,
-        \ 'xml' : 1,
-        \}
-
-  " ES.Next syntax for Vim
-  Plug 'othree/es.next.syntax.vim'
-
-  " YAJS.vim: Yet Another JavaScript Syntax for Vim
-  Plug 'othree/yajs.vim'
 
   " A tree explorer plugin for vim
   Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
@@ -103,6 +99,7 @@ call plug#begin('~/.vim/plugged')
   let NERDTreeMinimalUI = 1
   let NERDTreeQuitOnOpen = 1
   let NERDTreeShowHidden = 1
+	let NERDTreeStatusline = ''
 
   " Quick Google lookup directly from Vim
   Plug 'szw/vim-g'
