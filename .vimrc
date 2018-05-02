@@ -208,12 +208,12 @@ set wildmenu                " visual autocomplete for command menu
 " KEYMAP {{{
 inoremap <C-c> <CR><Esc>O
 map / <Plug>(incsearch-forward)
+map <silent> <C-h> :call WinMove('h')<cr>
+map <silent> <C-j> :call WinMove('j')<cr>
+map <silent> <C-k> :call WinMove('k')<cr>
+map <silent> <C-l> :call WinMove('l')<cr>
 nmap s <Plug>(easymotion-overwin-f2)
 nnoremap <C-S-P> :call <SID>SynStack()<CR>
-nnoremap <C-h> <C-W>h
-nnoremap <C-j> <C-W>j
-nnoremap <C-k> <C-W>k
-nnoremap <C-l> <C-W>l
 nnoremap <Leader>if :JsFileImport<CR>
 nnoremap <esc> :noh<return><esc>
 nnoremap <leader>ev :vsplit ~/dotfiles/.vimrc<cr>
@@ -274,4 +274,17 @@ function! MyFoldText()
 	return v:folddashes . sub
 endfunction
 " }}}
+
+function! WinMove(key)
+	let t:curwin = winnr()
+	exec "wincmd ".a:key
+	if (t:curwin == winnr())
+		if (match(a:key,'[jk]'))
+			wincmd v
+		else
+			wincmd s
+		endif
+		exec "wincmd ".a:key
+	endif
+endfunction
 
