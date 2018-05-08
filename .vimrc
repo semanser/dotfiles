@@ -114,6 +114,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'
   let g:airline#extensions#tabline#enabled = 0
   let g:airline#extensions#ale#enabled = 1
+	let g:airline#extensions#branch#enabled=1
   let g:airline#extensions#tabline#fnamemod = ':t'
   let g:airline#extensions#tabline#show_close_button= 0
   let g:airline#extensions#whitespace#enabled = 0
@@ -217,6 +218,7 @@ nnoremap <C-S-P> :call <SID>SynStack()<CR>
 nnoremap <Leader>if :JsFileImport<CR>
 nnoremap <esc> :noh<return><esc>
 nnoremap <leader>ev :vsplit ~/dotfiles/.vimrc<cr>
+nnoremap <silent> <D-S-*> :Ag <C-R><C-W><CR>
 nnoremap <silent> <leader><tab> :Files<CR>
 nnoremap <silent> <leader>ga :Gina add .<CR>
 nnoremap <silent> <leader>gc :Gina commit<CR>
