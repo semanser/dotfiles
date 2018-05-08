@@ -153,6 +153,9 @@ call plug#begin('~/.vim/plugged')
 
 	" Import/require files in javascript with single button!
 	Plug 'kristijanhusak/vim-js-file-import'
+
+	" a Git wrapper so awesome, it should be illegal 
+	Plug 'tpope/vim-fugitive'
 call plug#end()
 " }}}
 
