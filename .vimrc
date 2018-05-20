@@ -211,6 +211,8 @@ set wildmenu                " visual autocomplete for command menu
 
 " KEYMAP {{{
 inoremap <C-c> <CR><Esc>O
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
 map / <Plug>(incsearch-forward)
 map <silent> <C-h> :call WinMove('h')<cr>
 map <silent> <C-j> :call WinMove('j')<cr>
