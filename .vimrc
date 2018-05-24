@@ -171,6 +171,7 @@ set autoread                " autoload file changes
 set autowriteall            " autosave files
 set background=dark         " dark colorscheme One
 set completeopt-=preview    " Do not show preview window for ins-completion.
+set cursorline              " Enable cursor line
 set diffopt+=vertical       " split diffopt in vertical mode
 set encoding=utf-8          " set the character encoding to UTF-8
 set expandtab               " convert tabs to the spaces
