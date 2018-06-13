@@ -210,6 +210,7 @@ set termguicolors           " enable True color
 set ttyfast                 " always assume a fast terminal
 set undodir=~/.vim/undo-dir " setup undo directory
 set undofile                " save undo chages even after computer restart
+set updatetime=250          " reduce update time in Vim
 set wildmenu                " visual autocomplete for command menu
 " }}}
 
