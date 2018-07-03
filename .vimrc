@@ -107,8 +107,8 @@ call plug#begin('~/.vim/plugged')
   " Comment stuff out
   Plug 'tpope/vim-commentary'
 
-  " Quoting/parenthesizing made simple
-  Plug 'tpope/vim-surround'
+  " The set of operator and textobject plugins to search/select/edit sandwiched textobjects.
+  Plug 'machakann/vim-sandwich'
 
   " Lean & mean status/tabline for vim that's light as air
   Plug 'vim-airline/vim-airline'
@@ -223,7 +223,7 @@ map <silent> <C-h> :call WinMove('h')<cr>
 map <silent> <C-j> :call WinMove('j')<cr>
 map <silent> <C-k> :call WinMove('k')<cr>
 map <silent> <C-l> :call WinMove('l')<cr>
-nmap s <Plug>(easymotion-overwin-f2)
+nmap <Leader>s <Plug>(easymotion-overwin-f2)
 nnoremap <C-S-P> :call <SID>SynStack()<CR>
 nnoremap <Leader>if :JsFileImport<CR>
 nnoremap <esc> :noh<return><esc>
