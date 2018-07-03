@@ -159,6 +159,12 @@ call plug#begin('~/.vim/plugged')
 
 	" a Git wrapper so awesome, it should be illegal 
 	Plug 'tpope/vim-fugitive'
+
+	" Vim plugin: Create your own text objects
+	Plug 'kana/vim-textobj-user'
+
+  " A text object for any of '', "", (), {}, [] and <>.
+	Plug 'rhysd/vim-textobj-anyblock'
 call plug#end()
 " }}}
 
@@ -225,6 +231,10 @@ map <silent> <C-j> :call WinMove('j')<cr>
 map <silent> <C-k> :call WinMove('k')<cr>
 map <silent> <C-l> :call WinMove('l')<cr>
 nmap <Leader>s <Plug>(easymotion-overwin-f2)
+nmap caa cab
+nmap cii cib
+nmap daa dab
+nmap dii dib
 nnoremap <C-S-P> :call <SID>SynStack()<CR>
 nnoremap <Leader>if :JsFileImport<CR>
 nnoremap <esc> :noh<return><esc>
