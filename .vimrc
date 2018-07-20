@@ -122,7 +122,7 @@ call plug#begin('~/.vim/plugged')
   let g:airline_section_x = ''
   let g:airline_section_y = ''
   let g:airline_section_z = ''
-  let g:airline_theme='onehalfdark'
+  let g:airline_theme='tender'
 
   " Asynchronous Lint Engine
   Plug 'w0rp/ale'
@@ -151,9 +151,6 @@ call plug#begin('~/.vim/plugged')
 	let g:go_bin_path = "/usr/local/bin/go"
 	let $GOPATH = $HOME."/Desktop/Programming/go"
 
-	" Clean, vibrant and pleasing color schemes for Vim, Sublime Text, iTerm, gnome-terminal and more.
-	Plug 'sonph/onehalf', {'rtp': 'vim/'}
-
 	" Import/require files in javascript with single button!
 	Plug 'kristijanhusak/vim-js-file-import'
 
@@ -165,20 +162,23 @@ call plug#begin('~/.vim/plugged')
 
   " A text object for any of '', "", (), {}, [] and <>.
 	Plug 'rhysd/vim-textobj-anyblock'
+
+	Plug 'jacoborus/tender.vim'
 call plug#end()
 " }}}
 
 " GENERAL {{{
 cd /Users/semanser/Desktop/Programming " Setup working directory
-colorscheme onehalfdark
-let mapleader = "\<Space>"             " Setup leader key
 syntax enable                          " Enable syntax highlighting
+colorscheme tender
+let mapleader = "\<Space>"             " Setup leader key
+let macvim_skip_colorscheme=1
 " }}}
 
 " VARS {{{
 set autoread                " autoload file changes
 set autowriteall            " autosave files
-set background=dark         " dark colorscheme One
+set background=dark         " dark colorscheme
 set completeopt-=preview    " Do not show preview window for ins-completion.
 set cursorline              " Enable cursor line
 set diffopt+=vertical       " split diffopt in vertical mode
