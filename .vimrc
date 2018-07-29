@@ -163,7 +163,11 @@ call plug#begin('~/.vim/plugged')
   " A text object for any of '', "", (), {}, [] and <>.
 	Plug 'rhysd/vim-textobj-anyblock'
 
+  " A 24bit colorscheme for Vim, Airline and Lightline
 	Plug 'jacoborus/tender.vim'
+
+	" Vim plugin for selectively illuminating other uses of current word under the cursor
+	Plug 'RRethy/vim-illuminate'
 call plug#end()
 " }}}
 
@@ -313,3 +317,5 @@ function! WinMove(key)
 	endif
 endfunction
 
+" vim-illuminate option
+hi illuminatedWord guibg=#4c525e
