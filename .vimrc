@@ -156,6 +156,9 @@ call plug#begin('~/.vim/plugged')
 
 	" Vim plugin for selectively illuminating other uses of current word under the cursor
 	Plug 'RRethy/vim-illuminate'
+
+  " A Vim plugin that manages your tag files
+	Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
 " }}}
 
