@@ -50,9 +50,6 @@ call plug#begin('~/.vim/plugged')
   " Improved incremental searching for Vim
   Plug 'haya14busa/incsearch.vim'
 
-  " Generate JSDoc to your JavaScript code
-  Plug 'heavenshell/vim-jsdoc'
-
   " A command-line fuzzy finder
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 
@@ -83,9 +80,6 @@ call plug#begin('~/.vim/plugged')
   " The fancy start screen for Vim.
   Plug 'mhinz/vim-startify'
 
-  " Retro groove color scheme for Vim
-  Plug 'morhetz/gruvbox'
-
 	" Vastly improved Javascript indentation and syntax support in Vim
 	Plug 'pangloss/vim-javascript'
 
@@ -112,10 +106,10 @@ call plug#begin('~/.vim/plugged')
 
   " Lean & mean status/tabline for vim that's light as air
   Plug 'vim-airline/vim-airline'
-	let g:airline#extensions#branch#enabled=1
+	let g:airline#extensions#branch#enabled = 1
   let g:airline#extensions#ale#enabled = 1
   let g:airline#extensions#tabline#enabled = 0
-  let g:airline#extensions#tabline#show_close_button= 0
+  let g:airline#extensions#tabline#show_close_button = 0
   let g:airline#extensions#whitespace#enabled = 0
   let g:airline_section_a = ''
   let g:airline_section_c = '%t'
@@ -137,9 +131,6 @@ call plug#begin('~/.vim/plugged')
   " Make the yanked region apparent!
   Plug 'machakann/vim-highlightedyank'
 
-	" An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
-	Plug 'dyng/ctrlsf.vim'
-
 	" Async Vim plugin for showing your outdated Vim plugins
   Plug 'semanser/vim-outdated-plugins'
 
@@ -150,9 +141,6 @@ call plug#begin('~/.vim/plugged')
 	Plug 'fatih/vim-go'
 	let g:go_bin_path = "/usr/local/bin/go"
 	let $GOPATH = $HOME."/Desktop/Programming/go"
-
-	" Import/require files in javascript with single button!
-	Plug 'kristijanhusak/vim-js-file-import'
 
 	" a Git wrapper so awesome, it should be illegal 
 	Plug 'tpope/vim-fugitive'
