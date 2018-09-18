@@ -22,8 +22,8 @@ call plug#begin('~/.vim/plugged')
         \}
 
   " A code-completion engine
-  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
-  let g:ycm_autoclose_preview_window_after_insertion = 1
+  " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
+  " let g:ycm_autoclose_preview_window_after_insertion = 1
 
   " Shows a git diff in the gutter (sign column) and stages/undoes hunks
   Plug 'airblade/vim-gitgutter'
@@ -35,10 +35,6 @@ call plug#begin('~/.vim/plugged')
 
   " Preview colours in source code while editing
   Plug 'ap/vim-css-color'
-
-  " A much simpler way to use some motions in vim
-  Plug 'easymotion/vim-easymotion'
-  let g:EasyMotion_smartcase = 1
 
   " CSS3 syntax (and syntax defined in some foreign specifications) support for Vim's built-in syntax/css.vim
   Plug 'hail2u/vim-css3-syntax'
@@ -95,9 +91,6 @@ call plug#begin('~/.vim/plugged')
   let NERDTreeShowHidden = 1
 	let NERDTreeStatusline = ''
 
-  " Quick Google lookup directly from Vim
-  Plug 'szw/vim-g'
-
   " Comment stuff out
   Plug 'tpope/vim-commentary'
 
@@ -134,14 +127,6 @@ call plug#begin('~/.vim/plugged')
 	" Async Vim plugin for showing your outdated Vim plugins
   Plug 'semanser/vim-outdated-plugins'
 
-	" Block-breaking game in vim 8.0
-  Plug 'johngrib/vim-game-code-break'
-
-	" Go development plugin for Vim
-	Plug 'fatih/vim-go'
-	let g:go_bin_path = "/usr/local/bin/go"
-	let $GOPATH = $HOME."/Desktop/Programming/go"
-
 	" a Git wrapper so awesome, it should be illegal 
 	Plug 'tpope/vim-fugitive'
 
@@ -157,8 +142,7 @@ call plug#begin('~/.vim/plugged')
 	" Vim plugin for selectively illuminating other uses of current word under the cursor
 	Plug 'RRethy/vim-illuminate'
 
-  " A Vim plugin that manages your tag files
-	Plug 'ludovicchabant/vim-gutentags'
+	Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 call plug#end()
 " }}}
 
@@ -192,6 +176,7 @@ set inccommand=nosplit      " shows the effects of a command incrementally, as y
 set incsearch               " incremental search
 set lazyredraw              " only redraw when necessary
 set nobackup                " disable backups
+set signcolumn=yes          " always show signcolumns
 set nocompatible            " use Vim settings, rather then Vi
 set nofoldenable            " when off, all folds are open when open a new file
 set noshowmode              " don't show mode as we use a status line plugin
@@ -225,7 +210,6 @@ map <silent> <C-h> :call WinMove('h')<cr>
 map <silent> <C-j> :call WinMove('j')<cr>
 map <silent> <C-k> :call WinMove('k')<cr>
 map <silent> <C-l> :call WinMove('l')<cr>
-nmap <Leader>s <Plug>(easymotion-overwin-f2)
 nmap caa cab
 nmap cii cib
 nmap daa dab
@@ -254,8 +238,6 @@ nnoremap p p`[v`]=
 nnoremap ¬ :bnext<CR>
 nnoremap ˙ :bprevious<CR>
 noremap <F3> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
-noremap <Leader>j <Plug>(easymotion-j)
-noremap <Leader>k <Plug>(easymotion-k)
 noremap <silent> <D-1> :tabn 1<cr>
 noremap <silent> <D-2> :tabn 2<cr>
 noremap <silent> <D-3> :tabn 3<cr>
@@ -271,6 +253,29 @@ noremap g/ <Plug>(incsearch-stay)
 tnoremap <Esc> <C-\><C-n>
 vnoremap <leader>s :sort<CR>
 xmap ga <Plug>(EasyAlign)
+
+" COC keymap
+" Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" Use <cr> for confirm completion.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Use `[c` and `]c` for navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" Use K for show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
 " }}}
 
 " AUTOCOMMANDS {{{
@@ -283,6 +288,8 @@ augroup term
 	autocmd!
   autocmd TermOpen * setlocal nonumber norelativenumber
 augroup END
+
+autocmd CursorHoldI,CursorMovedI * silent! call CocAction('showSignatureHelp')
 " }}}
 
 " FUNCTIONS {{{
@@ -305,6 +312,14 @@ function! WinMove(key)
 			wincmd s
 		endif
 		exec "wincmd ".a:key
+	endif
+endfunction
+
+function! s:show_documentation()
+	if &filetype == 'vim'
+		execute 'h '.expand('<cword>')
+	else
+		call CocAction('doHover')
 	endif
 endfunction
 
