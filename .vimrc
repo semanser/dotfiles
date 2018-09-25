@@ -104,11 +104,13 @@ call plug#begin('~/.vim/plugged')
   let g:airline#extensions#tabline#enabled = 0
   let g:airline#extensions#tabline#show_close_button = 0
   let g:airline#extensions#whitespace#enabled = 0
+  let g:airline_inactive_collapse=0
   let g:airline_section_a = ''
+  let g:airline_section_b = ''
   let g:airline_section_c = '%t'
   let g:airline_section_x = ''
   let g:airline_section_y = ''
-  let g:airline_section_z = ''
+  let g:airline_section_z = '%l'
   let g:airline_theme='tender'
 
   " Asynchronous Lint Engine
@@ -141,6 +143,7 @@ call plug#begin('~/.vim/plugged')
 
 	" Vim plugin for selectively illuminating other uses of current word under the cursor
 	Plug 'RRethy/vim-illuminate'
+	let g:Illuminate_ftblacklist = ['nerdtree']
 
 	Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 call plug#end()
@@ -182,8 +185,6 @@ set nofoldenable            " when off, all folds are open when open a new file
 set noshowmode              " don't show mode as we use a status line plugin
 set noswapfile              " disable swapfile
 set nowrap                  " wrap lines
-set number                  " show line number
-set relativenumber          " make relative line number
 set scrolloff=9999          " keep cursor at the center of the screen
 set shiftwidth=2            " 2 spaces
 set showcmd                 " show (partial) command in status line
@@ -300,7 +301,6 @@ function! MyFoldText()
 	let sub = substitute(line, '/\*\|\*/\|{{{\d\=', '', 'g')
 	return v:folddashes . sub
 endfunction
-" }}}
 
 function! WinMove(key)
 	let t:curwin = winnr()
@@ -322,6 +322,8 @@ function! s:show_documentation()
 		call CocAction('doHover')
 	endif
 endfunction
+" }}}
 
-" vim-illuminate option
+" HIGHLIGHT {{{
 hi illuminatedWord guibg=#4c525e
+" }}}
