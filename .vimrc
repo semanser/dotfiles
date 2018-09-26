@@ -185,7 +185,7 @@ set nofoldenable            " when off, all folds are open when open a new file
 set noshowmode              " don't show mode as we use a status line plugin
 set noswapfile              " disable swapfile
 set nowrap                  " wrap lines
-set scrolloff=9999          " keep cursor at the center of the screen
+set scrolloff=10            " keep cursor at the minimum 10 rows from the screen borders
 set shiftwidth=2            " 2 spaces
 set showcmd                 " show (partial) command in status line
 set showmatch               " show match brackets
