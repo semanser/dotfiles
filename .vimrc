@@ -216,7 +216,7 @@ nmap dii dib
 nnoremap <C-S-P> :call <SID>SynStack()<CR>
 nnoremap <esc> :noh<return><esc>
 nnoremap <leader>ev :vsplit ~/dotfiles/.vimrc<cr>
-nnoremap <silent> <S-W> :q<CR>
+nnoremap <silent> <S-W> :bd<CR>
 nnoremap <silent> <D-S-*> :Ag <C-R><C-W><CR>
 nnoremap <silent> <leader><tab> :Files<CR>
 nnoremap <silent> <leader>ga :Gina add .<CR>
