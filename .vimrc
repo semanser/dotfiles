@@ -144,6 +144,8 @@ call plug#begin('~/.vim/plugged')
 	" Vim plugin for selectively illuminating other uses of current word under the cursor
 	Plug 'RRethy/vim-illuminate'
 	let g:Illuminate_ftblacklist = ['nerdtree']
+
+  Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 call plug#end()
 " }}}
 
@@ -252,6 +254,30 @@ noremap g/ <Plug>(incsearch-stay)
 tnoremap <Esc> <C-\><C-n>
 vnoremap <leader>s :sort<CR>
 xmap ga <Plug>(EasyAlign)
+
+" COC keymap
+" Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <TAB>
+			\ pumvisible() ? "\<C-n>" :
+			\ <SID>check_back_space() ? "\<TAB>" :
+			\ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" Use <cr> for confirm completion.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Use `[c` and `]c` for navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" Use K for show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
 " }}}
 
 " AUTOCOMMANDS {{{
@@ -265,10 +291,9 @@ augroup term
   autocmd TermOpen * setlocal nonumber norelativenumber
 augroup END
 
-
 au BufRead,BufNewFile .eslintrc set filetype=json
 
-" autocmd CursorHoldI,CursorMovedI * silent! call CocAction('showSignatureHelp')
+autocmd CursorHoldI,CursorMovedI * silent! call CocAction('showSignatureHelp')
 " }}}
 
 " FUNCTIONS {{{
@@ -294,11 +319,11 @@ function! WinMove(key)
 endfunction
 
 function! s:show_documentation()
-	if &filetype == 'vim'
-		execute 'h '.expand('<cword>')
-	else
-		call CocAction('doHover')
-	endif
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
 endfunction
 " }}}
 
