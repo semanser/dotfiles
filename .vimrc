@@ -145,7 +145,11 @@ call plug#begin('~/.vim/plugged')
 	Plug 'RRethy/vim-illuminate'
 	let g:Illuminate_ftblacklist = ['nerdtree']
 
+  " Complete engine and Language Server support for neovim & vim, featured as VSCode
   Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+
+	" Sane buffer/window deletion.
+	Plug 'mhinz/vim-sayonara'
 call plug#end()
 " }}}
 
@@ -218,7 +222,7 @@ nmap dii dib
 nnoremap <C-S-P> :call <SID>SynStack()<CR>
 nnoremap <esc> :noh<return><esc>
 nnoremap <leader>ev :vsplit ~/dotfiles/.vimrc<cr>
-nnoremap <silent> <S-W> :bd!<CR>
+nnoremap <silent> <S-W> :Sayounara<CR>
 nnoremap <silent> <D-S-*> :Ag <C-R><C-W><CR>
 nnoremap <silent> <leader><tab> :Files<CR>
 nnoremap <silent> <leader>ga :Gina add .<CR>
