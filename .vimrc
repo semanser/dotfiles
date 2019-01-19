@@ -150,6 +150,9 @@ call plug#begin('~/.vim/plugged')
 
 	" Sane buffer/window deletion.
 	Plug 'mhinz/vim-sayonara'
+
+	" Git branch management for Vim
+  Plug 'sodapopcan/vim-twiggy'
 call plug#end()
 " }}}
 
@@ -230,6 +233,7 @@ nnoremap <silent> <leader>gc :Gina commit<CR>
 nnoremap <silent> <leader>gd :Gina diff<CR>
 nnoremap <silent> <leader>gp :Gina push<CR>
 nnoremap <silent> <leader>gs :Gina status -s<CR>
+nnoremap <silent> <leader>gt :Twiggy<CR>
 nnoremap <silent> <leader>j :ALENext<cr>
 nnoremap <silent> <leader>k :ALEPrevious<cr>
 nnoremap <silent> <leader>pu :PlugUpdate<CR>
