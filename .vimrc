@@ -153,6 +153,9 @@ call plug#begin('~/.vim/plugged')
 
 	" Git branch management for Vim
   Plug 'sodapopcan/vim-twiggy'
+
+  " Changes Vim working directory to project root (identified by presence of known directory or file).
+  Plug 'airblade/vim-rooter'
 call plug#end()
 " }}}
 
