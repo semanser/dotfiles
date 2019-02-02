@@ -308,6 +308,10 @@ augroup END
 au BufRead,BufNewFile .eslintrc set filetype=json
 
 autocmd CursorHoldI,CursorMovedI * silent! call CocAction('showSignatureHelp')
+
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 " }}}
 
 " FUNCTIONS {{{
