@@ -75,6 +75,10 @@ call plug#begin('~/.vim/plugged')
 
   " The fancy start screen for Vim.
   Plug 'mhinz/vim-startify'
+  let g:startify_lists = [
+        \ { 'type': 'files', 'header': ['   MRU:'] },
+        \ ]
+	let g:startify_custom_header = split(system("figlet `date \"+%H : %M : %S\"`"), "\n") + startify#fortune#boxed()
 
 	" Vastly improved Javascript indentation and syntax support in Vim
 	Plug 'pangloss/vim-javascript'
