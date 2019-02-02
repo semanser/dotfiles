@@ -78,7 +78,6 @@ call plug#begin('~/.vim/plugged')
   let g:startify_lists = [
         \ { 'type': 'files', 'header': ['   MRU:'] },
         \ ]
-	let g:startify_custom_header = split(system("figlet `date \"+%H : %M : %S\"`"), "\n") + startify#fortune#boxed()
 
 	" Vastly improved Javascript indentation and syntax support in Vim
 	Plug 'pangloss/vim-javascript'
@@ -169,6 +168,7 @@ syntax enable                          " Enable syntax highlighting
 colorscheme tender
 let mapleader = "\<Space>"             " Setup leader key
 let macvim_skip_colorscheme=1
+let g:startify_custom_header = split(system("figlet `date \"+%H : %M : %S\"`"), "\n") + startify#fortune#boxed()
 " }}}
 
 " VARS {{{
