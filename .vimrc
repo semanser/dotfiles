@@ -128,6 +128,7 @@ call plug#begin('~/.vim/plugged')
 
   " Make the yanked region apparent!
   Plug 'machakann/vim-highlightedyank'
+	let g:highlightedyank_highlight_duration = 500
 
 	" Async Vim plugin for showing your outdated Vim plugins
   Plug 'semanser/vim-outdated-plugins'
