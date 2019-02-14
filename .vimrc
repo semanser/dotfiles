@@ -156,11 +156,13 @@ call plug#begin('~/.vim/plugged')
 
   " Changes Vim working directory to project root (identified by presence of known directory or file).
   Plug 'airblade/vim-rooter'
+
+  " Seamless navigation between tmux panes and vim splits
+  Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 " }}}
 
 " GENERAL {{{
-cd /Users/semanser/Desktop/Programming " Setup working directory
 syntax enable                          " Enable syntax highlighting
 colorscheme tender
 let mapleader = "\<Space>"             " Setup leader key
@@ -191,7 +193,6 @@ set hlsearch                " highlights the string matched by the search
 set ignorecase              " make searching case insensitive
 set incsearch               " incremental search
 set nobackup                " disable backups
-set signcolumn=yes          " always show signcolumns
 set nocompatible            " use Vim settings, rather then Vi
 set nofoldenable            " when off, all folds are open when open a new file
 set noshowmode              " don't show mode as we use a status line plugin
@@ -201,6 +202,7 @@ set scrolloff=10            " keep cursor at the minimum 10 rows from the screen
 set shiftwidth=2            " 2 spaces
 set showmatch               " show match brackets
 set sidescroll=1            " incrementally scroll one character
+set signcolumn=yes          " always show signcolumns
 set smartcase               " unless the query has capital letters
 set splitbelow              " open new split below
 set splitright              " open new split right
