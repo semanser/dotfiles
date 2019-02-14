@@ -7,7 +7,6 @@ endif
 call plug#begin('~/.vim/plugged')
   " Provides insert mode auto-completion for quotes, parens, brackets, etc
   Plug 'Raimondi/delimitMate'
-  let delimitMate_expand_cr = 1
 
   " Always highlights the enclosing html/xml tags
   Plug 'Valloric/MatchTagAlways'
@@ -32,9 +31,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'alvan/vim-closetag'
   let g:closetag_close_shortcut = ''
   let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*jsx'
-
-  " Preview colours in source code while editing
-  Plug 'ap/vim-css-color'
 
   " CSS3 syntax (and syntax defined in some foreign specifications) support for Vim's built-in syntax/css.vim
   Plug 'hail2u/vim-css3-syntax'
@@ -173,11 +169,14 @@ let g:startify_custom_header = split(system("figlet `date \"+%H : %M : %S\"`"), 
 " }}}
 
 " VARS {{{
+if has('nvim')
+  set inccommand=nosplit      " shows the effects of a command incrementally, as you type.
+endif
+
 set autoread                " autoload file changes
 set autowriteall            " autosave files
 set background=dark         " dark colorscheme
 set completeopt-=preview    " Do not show preview window for ins-completion.
-set cursorline              " Enable cursor line
 set diffopt+=vertical       " split diffopt in vertical mode
 set encoding=utf-8          " set the character encoding to UTF-8
 set expandtab               " convert tabs to the spaces
@@ -190,9 +189,7 @@ set hidden                  " hide when switching buffers instead of unloading
 set history=1000            " store lots of :cmdline history
 set hlsearch                " highlights the string matched by the search
 set ignorecase              " make searching case insensitive
-set inccommand=nosplit      " shows the effects of a command incrementally, as you type.
 set incsearch               " incremental search
-set lazyredraw              " only redraw when necessary
 set nobackup                " disable backups
 set signcolumn=yes          " always show signcolumns
 set nocompatible            " use Vim settings, rather then Vi
@@ -202,7 +199,6 @@ set noswapfile              " disable swapfile
 set nowrap                  " wrap lines
 set scrolloff=10            " keep cursor at the minimum 10 rows from the screen borders
 set shiftwidth=2            " 2 spaces
-set showcmd                 " show (partial) command in status line
 set showmatch               " show match brackets
 set sidescroll=1            " incrementally scroll one character
 set smartcase               " unless the query has capital letters
@@ -215,7 +211,7 @@ set undodir=~/.vim/undo-dir " setup undo directory
 set undofile                " save undo chages even after computer restart
 set updatetime=250          " reduce update time in Vim
 set wildmenu                " visual autocomplete for command menu
-" }}}
+" " }}}
 
 " KEYMAP {{{
 inoremap <C-c> <CR><Esc>O
@@ -303,14 +299,16 @@ nmap <leader>rn <Plug>(coc-rename)
 " }}}
 
 " AUTOCOMMANDS {{{
+if has('nvim')
+  augroup term
+    autocmd!
+    autocmd TermOpen * setlocal nonumber norelativenumber
+  augroup END
+endif
+
 augroup folding
   autocmd FileType vim setlocal foldmethod=marker
   autocmd FileType vim execute "normal! zM"
-augroup END
-
-augroup term
-	autocmd!
-  autocmd TermOpen * setlocal nonumber norelativenumber
 augroup END
 
 au BufRead,BufNewFile .eslintrc set filetype=json
