@@ -1,0 +1,14 @@
+[user]
+	name = Andriy Semenets
+	email = semanser@gmail.com
+[core]
+	excludesfile = /Users/semanser/.gitignore_global
+[diff]
+    tool = vimdiff
+[merge]
+    tool = vimdiff
+    conflictstyle = diff3
+[mergetool "vimdiff"]
+    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[commit]
+	template = /Users/semanser/.stCommitMsg
