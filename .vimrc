@@ -99,13 +99,14 @@ call plug#begin('~/.vim/plugged')
   " Lean & mean status/tabline for vim that's light as air
   Plug 'vim-airline/vim-airline'
 	let g:airline#extensions#branch#enabled = 1
+  let g:airline#extensions#hunks#enabled = 0
   let g:airline#extensions#ale#enabled = 1
   let g:airline#extensions#tabline#enabled = 0
   let g:airline#extensions#tabline#show_close_button = 0
   let g:airline#extensions#whitespace#enabled = 0
   let g:airline_inactive_collapse=0
   let g:airline_section_a = ''
-  let g:airline_section_b = ''
+  " let g:airline_section_b = ''
   let g:airline_section_c = '%t'
   let g:airline_section_x = ''
   let g:airline_section_y = ''
@@ -220,10 +221,6 @@ inoremap <C-c> <CR><Esc>O
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 map / <Plug>(incsearch-forward)
-map <silent> <C-h> :call WinMove('h')<cr>
-map <silent> <C-j> :call WinMove('j')<cr>
-map <silent> <C-k> :call WinMove('k')<cr>
-map <silent> <C-l> :call WinMove('l')<cr>
 nmap caa cab
 nmap cii cib
 nmap daa dab
@@ -232,7 +229,7 @@ nnoremap <C-S-P> :call <SID>SynStack()<CR>
 nnoremap <esc> :noh<return><esc>
 nnoremap <leader>ev :vsplit ~/dotfiles/.vimrc<cr>
 nnoremap <silent> <S-W> :Sayonara<CR>
-nnoremap <silent> <D-S-*> :Ag <C-R><C-W><CR>
+nnoremap <silent> <leader>u :Ag <C-R><C-W><CR>
 nnoremap <silent> <leader><tab> :Files<CR>
 nnoremap <silent> <leader>ga :Gina add .<CR>
 nnoremap <silent> <leader>gc :Gina commit<CR>
@@ -299,7 +296,6 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 nmap <leader>rn <Plug>(coc-rename)
 
 " }}}
-
 " AUTOCOMMANDS {{{
 if has('nvim')
   augroup term
@@ -331,19 +327,6 @@ function! MyFoldText()
 	return v:folddashes . sub
 endfunction
 
-function! WinMove(key)
-	let t:curwin = winnr()
-	exec "wincmd ".a:key
-	if (t:curwin == winnr())
-		if (match(a:key,'[jk]'))
-			wincmd v
-		else
-			wincmd s
-		endif
-		exec "wincmd ".a:key
-	endif
-endfunction
-
 function! s:show_documentation()
   if &filetype == 'vim'
     execute 'h '.expand('<cword>')
@@ -355,4 +338,5 @@ endfunction
 
 " HIGHLIGHT {{{
 hi illuminatedWord guibg=#4c525e
+hi Normal guibg=NONE ctermbg=NONE
 " }}}
