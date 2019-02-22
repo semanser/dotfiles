@@ -296,6 +296,7 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 nmap <leader>rn <Plug>(coc-rename)
 
 " }}}
+
 " AUTOCOMMANDS {{{
 if has('nvim')
   augroup term
@@ -318,8 +319,7 @@ autocmd  FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 " }}}
 
-" FUNCTIONS {{{
-" correct label for folding block in vimrc
+" FUNCTIONS {{{ correct label for folding block in vimrc
 set foldtext=MyFoldText()
 function! MyFoldText()
 	let line = getline(v:foldstart)
@@ -339,4 +339,6 @@ endfunction
 " HIGHLIGHT {{{
 hi illuminatedWord guibg=#4c525e
 hi Normal guibg=NONE ctermbg=NONE
+hi Visual  guifg=#000000 guibg=#FFFFFF gui=none
+
 " }}}
