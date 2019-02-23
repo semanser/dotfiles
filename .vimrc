@@ -112,10 +112,13 @@ call plug#begin('~/.vim/plugged')
   let g:ale_linters = {
         \   'javascript': ['eslint'],
         \   'javascript.jsx': ['eslint'],
+        \   'rust': ['rls'],
         \}
 	let g:ale_fix_on_save = 1
   let g:ale_fixers = {}
   let g:ale_fixers.javascript = ['eslint']
+  let g:ale_fixers.rust = ['rustfmt']
+  let g:ale_rust_rls_toolchain = 'stable'
 
   " Make the yanked region apparent!
   Plug 'machakann/vim-highlightedyank'
