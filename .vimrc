@@ -223,9 +223,9 @@ nmap daa dab
 nmap dii dib
 nnoremap <C-S-P> :call <SID>SynStack()<CR>
 nnoremap <esc> :noh<return><esc>
+nnoremap <leader>a :Ag 
 nnoremap <leader>ev :vsplit ~/dotfiles/.vimrc<cr>
 nnoremap <silent> <S-W> :Sayonara<CR>
-nnoremap <silent> <leader>u :Ag <C-R><C-W><CR>
 nnoremap <silent> <leader><tab> :Files<CR>
 nnoremap <silent> <leader>ga :Gina add .<CR>
 nnoremap <silent> <leader>gc :Gina commit<CR>
@@ -238,6 +238,7 @@ nnoremap <silent> <leader>k :ALEPrevious<cr>
 nnoremap <silent> <leader>pu :PlugUpdate<CR>
 nnoremap <silent> <leader>r :source %<CR>
 nnoremap <silent> <leader>t :term<CR>
+nnoremap <silent> <leader>u :Ag <C-R><C-W><CR>
 nnoremap H 0
 nnoremap L $
 nnoremap P P`[v`]=
