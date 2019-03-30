@@ -20,10 +20,6 @@ call plug#begin('~/.vim/plugged')
         \ 'xml' : 1,
         \}
 
-  " A code-completion engine
-  " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
-  " let g:ycm_autoclose_preview_window_after_insertion = 1
-
   " Shows a git diff in the gutter (sign column) and stages/undoes hunks
   Plug 'airblade/vim-gitgutter'
 
@@ -151,9 +147,6 @@ call plug#begin('~/.vim/plugged')
 
 	" Git branch management for Vim
   Plug 'sodapopcan/vim-twiggy'
-
-  " Changes Vim working directory to project root (identified by presence of known directory or file).
-  Plug 'airblade/vim-rooter'
 
   " Seamless navigation between tmux panes and vim splits
   Plug 'christoomey/vim-tmux-navigator'
@@ -316,7 +309,9 @@ autocmd  FileType fzf set laststatus=0 noruler
   \| autocmd BufLeave <buffer> set laststatus=2 ruler
 " }}}
 
-" FUNCTIONS {{{ correct label for folding block in vimrc
+" FUNCTIONS {{{
+
+" correct label for folding block in vimrc
 set foldtext=MyFoldText()
 function! MyFoldText()
 	let line = getline(v:foldstart)
