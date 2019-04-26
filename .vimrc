@@ -150,6 +150,9 @@ call plug#begin('~/.vim/plugged')
 
   " Seamless navigation between tmux panes and vim splits
   Plug 'christoomey/vim-tmux-navigator'
+
+	" Override vim syntax for yaml files
+  Plug 'stephpy/vim-yaml'
 call plug#end()
 " }}}
 
