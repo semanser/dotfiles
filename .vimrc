@@ -106,13 +106,13 @@ call plug#begin('~/.vim/plugged')
   " Asynchronous Lint Engine
   Plug 'w0rp/ale'
   let g:ale_linters = {
-        \   'javascript': ['eslint'],
-        \   'javascript.jsx': ['eslint'],
+        \   'javascript': ['prettier'],
+        \   'javascript.jsx': ['prettier'],
         \   'rust': ['rls'],
         \}
 	let g:ale_fix_on_save = 1
   let g:ale_fixers = {}
-  let g:ale_fixers.javascript = ['eslint']
+  let g:ale_fixers.javascript = ['prettier']
   let g:ale_fixers.rust = ['rustfmt']
   let g:ale_rust_rls_toolchain = 'stable'
 
@@ -227,7 +227,7 @@ nnoremap <silent> <leader>ga :Gina add .<CR>
 nnoremap <silent> <leader>gc :Gina commit<CR>
 nnoremap <silent> <leader>gd :Gina diff<CR>
 nnoremap <silent> <leader>gp :Gina push<CR>
-nnoremap <silent> <leader>gs :Gina status -s<CR>
+nnoremap <silent> <leader>gs :call <SID>showGitStatus()<CR>
 nnoremap <silent> <leader>gt :Twiggy<CR>
 nnoremap <silent> <leader>j :ALENext<cr>
 nnoremap <silent> <leader>k :ALEPrevious<cr>
@@ -327,6 +327,16 @@ function! s:show_documentation()
     execute 'h '.expand('<cword>')
   else
     call CocAction('doHover')
+  endif
+endfunction
+
+function! s:showGitStatus()
+  " if current buffer is editable - open Gina status in a new tab
+  if &modifiable == 1
+    :tabnew
+    :Gina status -s
+  else
+    :Gina status -s
   endif
 endfunction
 " }}}
