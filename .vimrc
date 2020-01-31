@@ -47,12 +47,12 @@ call plug#begin('~/.vim/plugged')
   let $FZF_DEFAULT_OPTS='-m --reverse'
   let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
   let g:fzf_colors =
-        \ { 'fg':      ['fg', 'Normal'],
+        \ { 'fg':    ['fg', 'Normal'],
         \ 'bg':      ['bg', 'Normal'],
-        \ 'hl':      ['fg', 'Comment'],
-        \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-        \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-        \ 'hl+':     ['fg', 'Statement'],
+        \ 'hl':      ['fg', 'Keyword'],
+        \ 'fg+':     ['fg', 'Exception', 'CursorColumn', 'Normal'],
+        \ 'bg+':     ['bg', 'Comment', 'CursorColumn'],
+        \ 'hl+':     ['fg', 'Ignore'],
         \ 'info':    ['fg', 'PreProc'],
         \ 'border':  ['fg', 'Ignore'],
         \ 'prompt':  ['fg', 'Conditional'],
