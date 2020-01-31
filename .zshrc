@@ -93,8 +93,7 @@ export PATH=/usr/local/opt/ruby/bin:$PATH
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Setup working directory 
-cd /Users/semanser/Desktop/Programming
+# cd /Users/semanser/Desktop/Programming
 
 # Run tmux automatically on zsh lunch
 if [ "$TMUX" = "" ]; then tmux; fi
-

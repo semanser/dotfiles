@@ -44,6 +44,8 @@ call plug#begin('~/.vim/plugged')
   " fzf bindings for vim
   Plug 'junegunn/fzf.vim'
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+  let $FZF_DEFAULT_OPTS='-m --reverse'
+  let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
   let g:fzf_colors =
         \ { 'fg':      ['fg', 'Normal'],
         \ 'bg':      ['bg', 'Normal'],
@@ -106,13 +108,13 @@ call plug#begin('~/.vim/plugged')
   " Asynchronous Lint Engine
   Plug 'w0rp/ale'
   let g:ale_linters = {
-        \   'javascript': ['prettier'],
-        \   'javascript.jsx': ['prettier'],
+        \   'javascript': ['eslint'],
+        \   'javascript.jsx': ['eslint'],
         \   'rust': ['rls'],
         \}
 	let g:ale_fix_on_save = 1
   let g:ale_fixers = {}
-  let g:ale_fixers.javascript = ['prettier']
+  let g:ale_fixers.javascript = ['eslint']
   let g:ale_fixers.rust = ['rustfmt']
   let g:ale_rust_rls_toolchain = 'stable'
 
@@ -227,7 +229,7 @@ nnoremap <silent> <leader>ga :Gina add .<CR>
 nnoremap <silent> <leader>gc :Gina commit<CR>
 nnoremap <silent> <leader>gd :Gina diff<CR>
 nnoremap <silent> <leader>gp :Gina push<CR>
-nnoremap <silent> <leader>gs :call <SID>showGitStatus()<CR>
+nnoremap <silent> <leader>gs :Gina status -s<CR>
 nnoremap <silent> <leader>gt :Twiggy<CR>
 nnoremap <silent> <leader>j :ALENext<cr>
 nnoremap <silent> <leader>k :ALEPrevious<cr>
@@ -330,14 +332,27 @@ function! s:show_documentation()
   endif
 endfunction
 
-function! s:showGitStatus()
-  " if current buffer is editable - open Gina status in a new tab
-  if &modifiable == 1
-    :tabnew
-    :Gina status -s
-  else
-    :Gina status -s
-  endif
+function! CreateCenteredFloatingWindow()
+  let width = min([&columns - 4, max([80, &columns - 20])]) - 10
+  let height = min([&lines - 4, max([20, &lines - 10])])
+  let top = ((&lines - height) / 2) - 1
+  let left = (&columns - width) / 2
+  let opts = {'relative': 'editor', 'row': top, 'col': left, 'width': width, 'height': height, 'style': 'minimal'}
+
+  let top = "╭" . repeat("─", width - 2) . "╮"
+  let mid = "│" . repeat(" ", width - 2) . "│"
+  let bot = "╰" . repeat("─", width - 2) . "╯"
+  let lines = [top] + repeat([mid], height - 2) + [bot]
+  let s:buf = nvim_create_buf(v:false, v:true)
+  call nvim_buf_set_lines(s:buf, 0, -1, v:true, lines)
+  call nvim_open_win(s:buf, v:true, opts)
+  set winhl=Normal:Floating
+  let opts.row += 1
+  let opts.height -= 2
+  let opts.col += 2
+  let opts.width -= 4
+  call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+  au BufWipeout <buffer> exe 'bw '.s:buf
 endfunction
 " }}}
 

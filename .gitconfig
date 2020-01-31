@@ -3,6 +3,8 @@
 	email = semanser@gmail.com
 [core]
 	excludesfile = /Users/semanser/.gitignore_global
+	autocrlf = false
+	filemode = false
 [diff]
     tool = vimdiff
 [merge]
