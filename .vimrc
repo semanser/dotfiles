@@ -1,24 +1,12 @@
 " PLUGIN SETUP {{{
 if empty(glob('~/.vim/autoload/plug.vim'))
-	silent execute "!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-	autocmd VimEnter * PlugInstall | source $MYVIMRC
+  silent execute "!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
 call plug#begin('~/.vim/plugged')
   " Provides insert mode auto-completion for quotes, parens, brackets, etc
   Plug 'Raimondi/delimitMate'
-
-  " Always highlights the enclosing html/xml tags
-  Plug 'Valloric/MatchTagAlways'
-  let g:mta_filetypes = {
-        \ 'html' : 1,
-        \ 'javascript.jsx' : 1,
-        \ 'jinja' : 1,
-        \ 'liquid' : 1,
-        \ 'markdown' : 1,
-        \ 'xhtml' : 1,
-        \ 'xml' : 1,
-        \}
 
   " Shows a git diff in the gutter (sign column) and stages/undoes hunks
   Plug 'airblade/vim-gitgutter'
@@ -68,7 +56,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'lambdalisue/gina.vim'
 
 	" Vastly improved Javascript indentation and syntax support in Vim
-	Plug 'pangloss/vim-javascript'
+  Plug 'pangloss/vim-javascript'
 
   " React JSX syntax highlighting and indenting for vim
   Plug 'mxw/vim-jsx'
@@ -80,7 +68,7 @@ call plug#begin('~/.vim/plugged')
   let NERDTreeMinimalUI = 1
   let NERDTreeQuitOnOpen = 1
   let NERDTreeShowHidden = 1
-	let NERDTreeStatusline = ''
+  let NERDTreeStatusline = ''
 
   " Comment stuff out
   Plug 'tpope/vim-commentary'
@@ -90,7 +78,7 @@ call plug#begin('~/.vim/plugged')
 
   " Lean & mean status/tabline for vim that's light as air
   Plug 'vim-airline/vim-airline'
-	let g:airline#extensions#branch#enabled = 1
+  let g:airline#extensions#branch#enabled = 1
   let g:airline#extensions#hunks#enabled = 0
   let g:airline#extensions#ale#enabled = 1
   let g:airline#extensions#tabline#enabled = 0
@@ -120,41 +108,31 @@ call plug#begin('~/.vim/plugged')
 
   " Make the yanked region apparent!
   Plug 'machakann/vim-highlightedyank'
-	let g:highlightedyank_highlight_duration = 500
+  let g:highlightedyank_highlight_duration = 500
 
 	" Async Vim plugin for showing your outdated Vim plugins
   Plug 'semanser/vim-outdated-plugins'
 
-	" a Git wrapper so awesome, it should be illegal 
-	Plug 'tpope/vim-fugitive'
-
-	" Vim plugin: Create your own text objects
-	Plug 'kana/vim-textobj-user'
-
-  " A text object for any of '', "", (), {}, [] and <>.
-	Plug 'rhysd/vim-textobj-anyblock'
-
   " A 24bit colorscheme for Vim, Airline and Lightline
-	Plug 'jacoborus/tender.vim'
+  Plug 'jacoborus/tender.vim'
 
-	" Vim plugin for selectively illuminating other uses of current word under the cursor
-	Plug 'RRethy/vim-illuminate'
-	let g:Illuminate_ftblacklist = ['nerdtree']
+  " Vim plugin for selectively illuminating other uses of current word under the cursor
+  Plug 'RRethy/vim-illuminate'
+  let g:Illuminate_ftblacklist = ['nerdtree']
 
   " Complete engine and Language Server support for neovim & vim, featured as VSCode
   Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
-	" Sane buffer/window deletion.
-	Plug 'mhinz/vim-sayonara'
-
-	" Git branch management for Vim
+  " Git branch management for Vim
   Plug 'sodapopcan/vim-twiggy'
 
   " Seamless navigation between tmux panes and vim splits
   Plug 'christoomey/vim-tmux-navigator'
 
-	" Override vim syntax for yaml files
+  " Override vim syntax for yaml files
   Plug 'stephpy/vim-yaml'
+
+  Plug 'dstein64/vim-startuptime'
 call plug#end()
 " }}}
 
@@ -215,17 +193,11 @@ inoremap <C-c> <CR><Esc>O
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 map / <Plug>(incsearch-forward)
-nmap caa cab
-nmap cii cib
-nmap daa dab
-nmap dii dib
 nnoremap <C-S-P> :call <SID>SynStack()<CR>
 nnoremap <esc> :noh<return><esc>
 nnoremap <leader>a :Ag 
-nnoremap <leader>ev :vsplit ~/dotfiles/.vimrc<cr>
-nnoremap <silent> <S-W> :Sayonara<CR>
+nnoremap <leader>ev :tabnew ~/dotfiles/.vimrc<cr>
 nnoremap <silent> <leader><tab> :Files<CR>
-nnoremap <silent> <leader>ga :Gina add .<CR>
 nnoremap <silent> <leader>gc :Gina commit<CR>
 nnoremap <silent> <leader>gd :Gina diff<CR>
 nnoremap <silent> <leader>gp :Gina push<CR>
@@ -245,15 +217,6 @@ nnoremap p p`[v`]=
 nnoremap ¬ :bnext<CR>
 nnoremap ˙ :bprevious<CR>
 noremap <F3> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
-noremap <silent> <D-1> :tabn 1<cr>
-noremap <silent> <D-2> :tabn 2<cr>
-noremap <silent> <D-3> :tabn 3<cr>
-noremap <silent> <D-4> :tabn 4<cr>
-noremap <silent> <D-5> :tabn 5<cr>
-noremap <silent> <D-6> :tabn 6<cr>
-noremap <silent> <D-7> :tabn 7<cr>
-noremap <silent> <D-8> :tabn 8<cr>
-noremap <silent> <D-9> :tabn 9<cr>
 noremap <silent> <tab> :NERDTreeToggle<CR>
 noremap ?  <Plug>(incsearch-backward)
 noremap g/ <Plug>(incsearch-stay)
@@ -319,9 +282,9 @@ autocmd  FileType fzf set laststatus=0 noruler
 " correct label for folding block in vimrc
 set foldtext=MyFoldText()
 function! MyFoldText()
-	let line = getline(v:foldstart)
-	let sub = substitute(line, '/\*\|\*/\|{{{\d\=', '', 'g')
-	return v:folddashes . sub
+  let line = getline(v:foldstart)
+  let sub = substitute(line, '/\*\|\*/\|{{{\d\=', '', 'g')
+  return v:folddashes . sub
 endfunction
 
 function! s:show_documentation()
@@ -359,6 +322,6 @@ endfunction
 " HIGHLIGHT {{{
 hi illuminatedWord guibg=#4c525e
 hi Normal guibg=NONE ctermbg=NONE
-hi Visual  guifg=#000000 guibg=#FFFFFF gui=none
-
+hi Visual guifg=#000000 guibg=#FFFFFF gui=none
+hi Pmenu guibg=#222 guifg=gray
 " }}}
