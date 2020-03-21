@@ -28,6 +28,8 @@ call plug#begin('~/.vim/plugged')
 
   " A command-line fuzzy finder
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+  let g:fzf_preview_window = ''
+
 
   " fzf bindings for vim
   Plug 'junegunn/fzf.vim'
