@@ -135,6 +135,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'stephpy/vim-yaml'
 
   Plug 'dstein64/vim-startuptime'
+
+  Plug 'mattn/vim-corona-stats'
+
+  " Vim plugin for improved search highlighting
+  Plug 'timakro/vim-searchant'
 call plug#end()
 " }}}
 
@@ -277,10 +282,15 @@ autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noruler
   \| autocmd BufLeave <buffer> set laststatus=2 ruler
+
+" Disable Searchant highlight when incsearch.vim highlights also disable
+autocmd CursorMoved * call SearchantStop()
+function SearchantStop()
+  :execute "normal \<Plug>SearchantStop"
+endfunction
 " }}}
 
 " FUNCTIONS {{{
-
 " correct label for folding block in vimrc
 set foldtext=MyFoldText()
 function! MyFoldText()
@@ -302,5 +312,6 @@ endfunction
 hi illuminatedWord guibg=#4c525e
 hi Normal guibg=NONE ctermbg=NONE
 hi Visual guifg=#000000 guibg=#FFFFFF gui=none
+hi Search guibg=Blue guifg=White
 hi Pmenu guibg=#222 guifg=gray
 " }}}
