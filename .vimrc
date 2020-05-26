@@ -55,7 +55,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/vim-easy-align'
 
   " Asynchronously control git repositories in Neovim/Vim 8
-  Plug 'lambdalisue/gina.vim'
+  " Plug 'lambdalisue/gina.vim'
+
+  " A Git wrapper so awesome, it should be illegal
+  Plug 'tpope/vim-fugitive'
 
 	" Vastly improved Javascript indentation and syntax support in Vim
   Plug 'pangloss/vim-javascript'
@@ -123,7 +126,7 @@ call plug#begin('~/.vim/plugged')
   let g:Illuminate_ftblacklist = ['nerdtree']
 
   " Complete engine and Language Server support for neovim & vim, featured as VSCode
-  Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   " Git branch management for Vim
   Plug 'sodapopcan/vim-twiggy'
@@ -205,10 +208,8 @@ nnoremap <esc> :noh<return><esc>
 nnoremap <leader>a :Ag 
 nnoremap <leader>ev :tabnew ~/dotfiles/.vimrc<cr>
 nnoremap <silent> <leader><tab> :Files<CR>
-nnoremap <silent> <leader>gc :Gina commit<CR>
-nnoremap <silent> <leader>gd :Gina diff<CR>
-nnoremap <silent> <leader>gp :Gina push<CR>
-nnoremap <silent> <leader>gs :Gina status -s<CR>
+nnoremap <silent> <leader>gs :Git<CR>
+nnoremap <silent> <leader>gd :Git diff<CR>
 nnoremap <silent> <leader>gt :Twiggy<CR>
 nnoremap <silent> <leader>j :ALENext<cr>
 nnoremap <silent> <leader>k :ALEPrevious<cr>
