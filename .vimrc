@@ -83,7 +83,7 @@ call plug#begin('~/.vim/plugged')
 
   " Lean & mean status/tabline for vim that's light as air
   Plug 'vim-airline/vim-airline'
-  let g:airline#extensions#branch#enabled = 1
+  let g:airline#extensions#branch#enabled = 0
   let g:airline#extensions#hunks#enabled = 0
   let g:airline#extensions#ale#enabled = 1
   let g:airline#extensions#tabline#enabled = 0
