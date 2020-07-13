@@ -226,7 +226,7 @@ nnoremap p p`[v`]=
 nnoremap ¬ :bnext<CR>
 nnoremap ˙ :bprevious<CR>
 noremap <F3> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
-noremap <silent> <tab> :NERDTreeToggle<CR>
+noremap <silent> <leader>w :NERDTreeToggle<CR>
 noremap ?  <Plug>(incsearch-backward)
 noremap g/ <Plug>(incsearch-stay)
 tnoremap <Esc> <C-\><C-n>

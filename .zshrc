@@ -1,6 +1,7 @@
 export ZSH=/Users/semanser/.oh-my-zsh
 export LC_ALL="ru_RU.UTF-8"
 export LANG="ru_RU.UTF-8"
+export ZSH_DISABLE_COMPFIX=true
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -58,6 +59,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+source /usr/local/opt/asdf/asdf.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
