@@ -50,13 +50,13 @@ font:
 
   # The bold font face
   bold:
-    family: DejaVu Sans Mono
+    family: DejaVu Sans Mono Bold
     # Style can be specified to pick a specific face.
     # style: Bold
 
   # The italic font face
   italic:
-    family: DejaVu Sans Mono
+    family: DejaVu Sans Mono Oblique
     # Style can be specified to pick a specific face.
     # style: Italic
 
