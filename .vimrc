@@ -96,7 +96,8 @@ call plug#begin('~/.vim/plugged')
   let g:airline_section_x = ''
   let g:airline_section_y = ''
   let g:airline_section_z = '%l'
-  let g:airline_theme='tender'
+  let g:airline_theme='rigel'
+  let g:rigel_airline = 1
 
   " Asynchronous Lint Engine
   Plug 'w0rp/ale'
@@ -143,12 +144,17 @@ call plug#begin('~/.vim/plugged')
 
   " Vim plugin for improved search highlighting
   Plug 'timakro/vim-searchant'
+
+  " Checkout branches and tags with fzf
+  Plug 'stsewd/fzf-checkout.vim'
+  
+  Plug 'Rigellute/rigel'
 call plug#end()
 " }}}
 
 " GENERAL {{{
 syntax enable                          " Enable syntax highlighting
-colorscheme tender
+colorscheme rigel
 let mapleader = "\<Space>"             " Setup leader key
 let macvim_skip_colorscheme=1
 " }}}
@@ -209,6 +215,7 @@ nnoremap <leader>a :Ag
 nnoremap <leader>ev :tabnew ~/dotfiles/.vimrc<cr>
 nnoremap <silent> <leader><tab> :Files<CR>
 nnoremap <silent> <leader>gs :Git<CR>
+nnoremap <silent> <leader>gc :GCheckout<CR>
 nnoremap <silent> <leader>gd :Git diff<CR>
 nnoremap <silent> <leader>gp :GitGutterPreviewHunk<CR>
 nnoremap <silent> <leader>gt :Twiggy<CR>
