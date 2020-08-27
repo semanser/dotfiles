@@ -94,6 +94,9 @@ export PATH=/usr/local/opt/ruby/bin:$PATH
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+source $(brew --prefix asdf)/asdf.sh
+export TERM="xterm-256color"
+
 # Setup working directory 
 # cd /Users/semanser/Desktop/Programming
 
