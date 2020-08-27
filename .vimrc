@@ -119,9 +119,6 @@ call plug#begin('~/.vim/plugged')
 	" Async Vim plugin for showing your outdated Vim plugins
   Plug 'semanser/vim-outdated-plugins'
 
-  " A 24bit colorscheme for Vim, Airline and Lightline
-  Plug 'jacoborus/tender.vim'
-
   " Vim plugin for selectively illuminating other uses of current word under the cursor
   Plug 'RRethy/vim-illuminate'
   let g:Illuminate_ftblacklist = ['nerdtree']
@@ -148,7 +145,11 @@ call plug#begin('~/.vim/plugged')
   " Checkout branches and tags with fzf
   Plug 'stsewd/fzf-checkout.vim'
   
+  " Colorscheme for vim, terminal, vscode and slack - based on the star Rigel
   Plug 'Rigellute/rigel'
+
+  " Vim configuration files for Elixir
+  Plug 'elixir-editors/vim-elixir'
 call plug#end()
 " }}}
 
