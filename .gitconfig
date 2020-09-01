@@ -1,6 +1,7 @@
 [user]
 	name = Andriy Semenets
 	email = semanser@gmail.com
+	signingkey = A84234DEC18BC989
 [core]
 	excludesfile = /Users/semanser/.gitignore_global
 	autocrlf = false
