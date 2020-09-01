@@ -51,7 +51,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 # User configuration
 
@@ -59,7 +59,6 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-source /usr/local/opt/asdf/asdf.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -101,4 +100,16 @@ export TERM="xterm-256color"
 # cd /Users/semanser/Desktop/Programming
 
 # Run tmux automatically on zsh lunch
+
+# Set custom prompt
+PROMPT="%{$fg[green]%}%D{%L:%M:%S} "
+PROMPT+="%(?:%{$fg_bold[green]%}➜:%{$fg_bold[red]%}➜)"
+PROMPT+=' %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
+
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}(%{$fg[red]%}"
+
 if [ "$TMUX" = "" ]; then tmux; fi
