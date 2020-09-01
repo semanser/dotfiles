@@ -16,3 +16,5 @@
 [commit]
 	template = /Users/semanser/.stCommitMsg
 	gpgsign = true
+[gpg]
+	program = gpg
