@@ -323,5 +323,4 @@ hi illuminatedWord guibg=#4c525e
 hi Normal guibg=NONE ctermbg=NONE
 hi Visual guifg=#000000 guibg=#FFFFFF gui=none
 hi Search guibg=Blue guifg=White
-hi Pmenu guibg=#222 guifg=gray
 " }}}
