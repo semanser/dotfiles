@@ -30,26 +30,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
   let g:fzf_preview_window = ''
 
-
   " fzf bindings for vim
   Plug 'junegunn/fzf.vim'
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
   let $FZF_DEFAULT_OPTS='-m --reverse'
-  let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.6, 'highlight': 'Comment' } }
-  let g:fzf_colors =
-        \ { 'fg':    ['fg', 'Normal'],
-        \ 'bg':      ['bg', 'Normal'],
-        \ 'hl':      ['fg', 'Keyword'],
-        \ 'fg+':     ['fg', 'Exception', 'CursorColumn', 'Normal'],
-        \ 'bg+':     ['bg', 'Comment', 'CursorColumn'],
-        \ 'hl+':     ['fg', 'Ignore'],
-        \ 'info':    ['fg', 'PreProc'],
-        \ 'border':  ['fg', 'Ignore'],
-        \ 'prompt':  ['fg', 'Conditional'],
-        \ 'pointer': ['fg', 'Exception'],
-        \ 'marker':  ['fg', 'Keyword'],
-        \ 'spinner': ['fg', 'Label'],
-        \ 'header':  ['fg', 'Comment'] }
+  let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.6 } }
+  let g:fzf_colors = { 'fg+':     ['fg', 'Exception', 'CursorColumn', 'Normal'] }
 
   " A Vim alignment plugin
   Plug 'junegunn/vim-easy-align'
@@ -65,15 +51,6 @@ call plug#begin('~/.vim/plugged')
 
   " React JSX syntax highlighting and indenting for vim
   Plug 'mxw/vim-jsx'
-
-  " A tree explorer plugin for vim
-  Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
-  let NERDTreeAutoDeleteBuffer = 1
-  let NERDTreeChDirMode = 2
-  let NERDTreeMinimalUI = 1
-  let NERDTreeQuitOnOpen = 1
-  let NERDTreeShowHidden = 1
-  let NERDTreeStatusline = ''
 
   " Comment stuff out
   Plug 'tpope/vim-commentary'
@@ -121,13 +98,9 @@ call plug#begin('~/.vim/plugged')
 
   " Vim plugin for selectively illuminating other uses of current word under the cursor
   Plug 'RRethy/vim-illuminate'
-  let g:Illuminate_ftblacklist = ['nerdtree']
 
   " Complete engine and Language Server support for neovim & vim, featured as VSCode
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-  " Git branch management for Vim
-  Plug 'sodapopcan/vim-twiggy'
 
   " Seamless navigation between tmux panes and vim splits
   Plug 'christoomey/vim-tmux-navigator'
@@ -135,6 +108,7 @@ call plug#begin('~/.vim/plugged')
   " Override vim syntax for yaml files
   Plug 'stephpy/vim-yaml'
 
+  " A Vim plugin for profiling Vim's startup time.
   Plug 'dstein64/vim-startuptime'
 
   Plug 'mattn/vim-corona-stats'
@@ -219,12 +193,10 @@ nnoremap <silent> <leader>gs :Git<CR>
 nnoremap <silent> <leader>gc :GCheckout<CR>
 nnoremap <silent> <leader>gd :Git diff<CR>
 nnoremap <silent> <leader>gp :GitGutterPreviewHunk<CR>
-nnoremap <silent> <leader>gt :Twiggy<CR>
 nnoremap <silent> <leader>j :ALENext<cr>
 nnoremap <silent> <leader>k :ALEPrevious<cr>
 nnoremap <silent> <leader>pu :PlugUpdate<CR>
 nnoremap <silent> <leader>r :source %<CR>
-nnoremap <silent> <leader>t :term<CR>
 nnoremap <silent> <leader>u :Ag <C-R><C-W><CR>
 nnoremap H 0
 nnoremap L $
@@ -234,7 +206,7 @@ nnoremap p p`[v`]=
 nnoremap ¬ :bnext<CR>
 nnoremap ˙ :bprevious<CR>
 noremap <F3> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
-noremap <silent> <leader>w :NERDTreeToggle<CR>
+noremap <silent> <leader>w :CocCommand explorer<CR>
 noremap ?  <Plug>(incsearch-backward)
 noremap g/ <Plug>(incsearch-stay)
 tnoremap <Esc> <C-\><C-n>
@@ -295,7 +267,7 @@ autocmd  FileType fzf set laststatus=0 noruler
 
 " Disable Searchant highlight when incsearch.vim highlights also disable
 autocmd CursorMoved * call SearchantStop()
-function SearchantStop()
+function! SearchantStop()
   :execute "normal \<Plug>SearchantStop"
 endfunction
 " }}}
