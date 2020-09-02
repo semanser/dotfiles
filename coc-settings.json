@@ -1,0 +1,19 @@
+{
+  "languageserver": {
+    "rust": {
+      "command": "rust-analyzer",
+      "filetypes": ["rust"],
+      "rootPatterns": ["Cargo.toml"]
+    }
+  },
+  "explorer.quitOnOpen": true,
+  "explorer.position": "floating",
+  "explorer.sources": [{
+      "name": "file",
+      "expand": true
+    }
+  ],
+  "explorer.file.showHiddenFiles": true,
+  "explorer.file.child.template": "[git | 1] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1 omitCenter 5]",
+  "explorer.file.root.template": "[fullpath]"
+}

@@ -22,3 +22,7 @@ for file in $files; do
   echo "Creating symlink to $file in home directory."
   ln -s $dir/$file ~/$file
 done
+
+echo "Creating symlink to coc-settings.json in ~/.config/nvim/coc-settings.json"
+ln -s $dir/coc-settings.json ~/.config/nvim/coc-settings.json
+
