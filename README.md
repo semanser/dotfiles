@@ -1,5 +1,5 @@
 # What's it?
-My personal environment for Web development specifically focused on JavaScript and React programming.
+My personal environment for Web development specifically focused on JavaScript/React and Rust programming.
 
 # What's inside?
 
@@ -9,4 +9,4 @@ My personal environment for Web development specifically focused on JavaScript a
 * [Tmux](https://github.com/tmux/tmux)
 
 # How it looks like?
-![Screenhshot](https://raw.githubusercontent.com/semanser/dotfiles/master/screenshots/screenshot1.png)
+![Screenhshot](https://raw.githubusercontent.com/semanser/dotfiles/master/screenshots/screenshot.png)
