@@ -84,6 +84,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias n="nvim"
 export PATH=$PATH:$HOME/bin
 export EDITOR='nvim'
 
