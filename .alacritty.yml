@@ -139,9 +139,9 @@ colors:
 #
 # To completely disable the visual bell, set its duration to 0.
 #
-visual_bell:
-  animation: EaseOutExpo
-  duration: 0
+# visual_bell:
+#   animation: EaseOutExpo
+#   duration: 0
 
 # Key bindings
 #

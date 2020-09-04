@@ -7,13 +7,15 @@
     }
   },
   "explorer.quitOnOpen": true,
-  "explorer.position": "floating",
+  "explorer.width": 30,
   "explorer.sources": [{
       "name": "file",
       "expand": true
     }
   ],
+  "explorer.previewAction.onHover": false,
   "explorer.file.showHiddenFiles": true,
-  "explorer.file.child.template": "[git | 1] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1 omitCenter 5]",
-  "explorer.file.root.template": "[fullpath]"
+  "explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1 omitCenter 5]",
+  "explorer.file.root.template": "[fullpath]",
+  "explorer.file.autoReveal": false
 }
