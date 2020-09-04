@@ -198,6 +198,7 @@ nnoremap <silent> <leader>k :ALEPrevious<cr>
 nnoremap <silent> <leader>pu :PlugUpdate<CR>
 nnoremap <silent> <leader>r :source %<CR>
 nnoremap <silent> <leader>u :Ag <C-R><C-W><CR>
+vnoremap <silent> <leader>i :call <SID>find_selection()<CR>
 nnoremap H 0
 nnoremap L $
 nnoremap P P`[v`]=
@@ -287,6 +288,24 @@ function! s:show_documentation()
   else
     call CocAction('doHover')
   endif
+endfunction
+
+function! s:find_selection()
+  let selection = s:get_visual_selection()
+  execute 'Ag '.s:get_visual_selection()
+endfunction
+
+function! s:get_visual_selection()
+  " why is this not a built-in vim script function?!
+  let [line_start, column_start] = getpos("'<")[1:2]
+  let [line_end, column_end] = getpos("'>")[1:2]
+  let lines = getline(line_start, line_end)
+  if len(lines) == 0
+    return ''
+  endif
+  let lines[-1] = lines[-1][: column_end - (&selection == 'inclusive' ? 1 : 2)]
+  let lines[0] = lines[0][column_start - 1:]
+  return join(lines, "\n")
 endfunction
 " }}}
 
