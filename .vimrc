@@ -46,6 +46,9 @@ call plug#begin('~/.vim/plugged')
   " A Git wrapper so awesome, it should be illegal
   Plug 'tpope/vim-fugitive'
 
+  " rhubarb.vim: GitHub extension for fugitive.vim
+  Plug 'tpope/vim-rhubarb'
+
 	" Vastly improved Javascript indentation and syntax support in Vim
   Plug 'pangloss/vim-javascript'
 

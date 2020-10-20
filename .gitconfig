@@ -15,6 +15,10 @@
     cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [commit]
 	template = /Users/semanser/.stCommitMsg
-	gpgsign = true
+	gpgsign = false
 [gpg]
 	program = gpg
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[push]
+	default = current
