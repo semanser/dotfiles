@@ -127,6 +127,9 @@ call plug#begin('~/.vim/plugged')
 
   " Vim configuration files for Elixir
   Plug 'elixir-editors/vim-elixir'
+
+  " Displays current match and total matches information
+  Plug 'osyo-manga/vim-anzu'
 call plug#end()
 " }}}
 
