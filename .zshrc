@@ -97,7 +97,6 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 source $(brew --prefix asdf)/asdf.sh
 export TERM="xterm-256color"
 
-
 # Set custom prompt
 PROMPT="%{$fg[green]%}%* "
 PROMPT+="%(?:%{$fg_bold[green]%}➜:%{$fg_bold[red]%}➜)"
@@ -110,4 +109,5 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}(%{$fg[red]%}"
 
 # Run tmux automatically on zsh lunch
+eval "$(direnv hook zsh)"
 if [ "$TMUX" = "" ]; then tmux; fi
