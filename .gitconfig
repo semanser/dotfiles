@@ -1,24 +1,33 @@
 [user]
-	name = Andriy Semenets
-	email = semanser@gmail.com
-	signingkey = A84234DEC18BC989
+  name = Andriy Semenets
+  email = semanser@gmail.com
+  signingkey = A84234DEC18BC989
 [core]
-	excludesfile = /Users/semanser/.gitignore_global
-	autocrlf = false
-	filemode = false
+  excludesfile = /Users/semanser/.gitignore_global
+  autocrlf = false
+  filemode = false
+  pager = delta
 [diff]
-    tool = vimdiff
+  tool = vimdiff
 [merge]
-    tool = vimdiff
-    conflictstyle = diff3
+  tool = vimdiff
+  conflictstyle = diff3
 [mergetool "vimdiff"]
-    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+  cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [commit]
-	template = /Users/semanser/.stCommitMsg
-	gpgsign = false
+  template = /Users/semanser/.stCommitMsg
+  gpgsign = false
 [gpg]
-	program = gpg
+  program = gpg
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+  insteadOf = https://github.com/
 [push]
-	default = current
+  default = current
+
+[delta]
+  plus-color = "#012800"
+  minus-color = "#340001"
+  syntax-theme = Monokai Extended
+
+[interactive]
+  diffFilter = delta --color-only
