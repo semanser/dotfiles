@@ -206,6 +206,12 @@ nnoremap <silent> <leader>pu :PlugUpdate<CR>
 nnoremap <silent> <leader>r :source %<CR>
 nnoremap <silent> <leader>u :Ag <C-R><C-W><CR>
 vnoremap <silent> <leader>i :call <SID>find_selection()<CR>
+vnoremap <leader>y "+y
+nnoremap <Up> :resize +2<CR>
+nnoremap <Down> :resize -2<CR>
+nnoremap <Left> :vertical resize +2<CR>
+nnoremap <Right> :vertical resize -2<CR>
+nnoremap Q <nop>
 nnoremap H 0
 nnoremap L $
 nnoremap P P`[v`]=
@@ -215,7 +221,7 @@ nnoremap ¬ :bnext<CR>
 nnoremap ˙ :bprevious<CR>
 noremap <F3> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
 noremap <silent> <leader>w :CocCommand explorer<CR>
-noremap ?  <Plug>(incsearch-backward)
+noremap ? <Plug>(incsearch-backward)
 noremap g/ <Plug>(incsearch-stay)
 tnoremap <Esc> <C-\><C-n>
 vnoremap <leader>s :sort<CR>
