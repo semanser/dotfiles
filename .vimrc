@@ -8,6 +8,9 @@ call plug#begin('~/.vim/plugged')
   " Provides insert mode auto-completion for quotes, parens, brackets, etc
   Plug 'Raimondi/delimitMate'
 
+  " Provides insert mode auto-completion for quotes, parens, brackets, etc
+  Plug 'vifm/vifm.vim'
+
   " Shows a git diff in the gutter (sign column) and stages/undoes hunks
   Plug 'airblade/vim-gitgutter'
 
@@ -147,6 +150,7 @@ if has('nvim')
 endif
 
 set autoread                " autoload file changes
+set cursorline              " set cursor line
 set autowriteall            " autosave files
 set background=dark         " dark colorscheme
 set completeopt-=preview    " Do not show preview window for ins-completion.
@@ -220,7 +224,7 @@ nnoremap p p`[v`]=
 nnoremap ¬ :bnext<CR>
 nnoremap ˙ :bprevious<CR>
 noremap <F3> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
-noremap <silent> <leader>w :CocCommand explorer<CR>
+noremap <silent> <leader>w :EditVifm<CR>
 noremap ? <Plug>(incsearch-backward)
 noremap g/ <Plug>(incsearch-stay)
 tnoremap <Esc> <C-\><C-n>
