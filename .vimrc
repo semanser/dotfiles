@@ -53,8 +53,8 @@ call plug#begin('~/.vim/plugged')
   " Vim plugin that allows use of vifm as a file picker
   Plug 'vifm/vifm.vim'
 
-  " Shows a git diff in the gutter (sign column) and stages/undoes hunks
-  Plug 'airblade/vim-gitgutter'
+  " Git signs written in pure lua
+  Plug 'lewis6991/gitsigns.nvim'
 
   " Auto close (X)HTML tags
   Plug 'alvan/vim-closetag'
@@ -153,6 +153,7 @@ call plug#end()
 
 lua << EOF
   require'lspconfig'.tsserver.setup{}
+  require('gitsigns').setup()
 EOF
 
 lua << EOF
@@ -243,7 +244,6 @@ nnoremap <silent> <leader><tab> :Files<CR>
 nnoremap <silent> <leader>gs :Git<CR>
 nnoremap <silent> <leader>gc :GCheckout<CR>
 nnoremap <silent> <leader>gd :Git diff<CR>
-nnoremap <silent> <leader>gp :GitGutterPreviewHunk<CR>
 nnoremap <silent> <leader>j :ALENext<cr>
 nnoremap <silent> <leader>k :ALEPrevious<cr>
 nnoremap <silent> <leader>pu :PlugUpdate<CR>
