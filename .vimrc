@@ -106,19 +106,6 @@ call plug#begin('~/.vim/plugged')
   " A blazing fast and easy to configure neovim statusline plugin written in pure lua.
   Plug 'hoob3rt/lualine.nvim'
 
-  " Asynchronous Lint Engine
-  Plug 'w0rp/ale'
-  let g:ale_linters = {
-        \   'javascript': ['eslint'],
-        \   'javascript.jsx': ['eslint'],
-        \   'rust': ['rls'],
-        \}
-	let g:ale_fix_on_save = 1
-  let g:ale_fixers = {}
-  let g:ale_fixers.javascript = ['eslint']
-  let g:ale_fixers.rust = ['rustfmt']
-  let g:ale_rust_rls_toolchain = 'stable'
-
   " Make the yanked region apparent!
   Plug 'machakann/vim-highlightedyank'
   let g:highlightedyank_highlight_duration = 300
@@ -152,7 +139,6 @@ call plug#end()
 " LUA {{{
 
 lua << EOF
-  require'lspconfig'.tsserver.setup{}
   require('gitsigns').setup()
   require('nvim_comment').setup()
   require('lualine').setup({
@@ -171,6 +157,73 @@ lua << EOF
     lualine_z = {{'diagnostics', sources = {'nvim_lsp'}}}
     },
   })
+  local lspconfig = require"lspconfig"
+  local eslint = {
+    lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
+    lintStdin = true,
+    lintFormats = {"%f:%l:%c: %m"},
+    lintIgnoreExitCode = true,
+    formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
+    formatStdin = true
+  }
+
+  local function set_lsp_config(client)
+    if client.resolved_capabilities.document_formatting then
+      vim.cmd [[autocmd! BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 300)]]
+    end
+  end
+
+  local function eslint_config_exists()
+    local eslintrc = vim.fn.glob(".eslintrc*", 0, 1)
+
+    if not vim.tbl_isempty(eslintrc) then
+      return true
+    end
+
+    if vim.fn.filereadable("package.json") then
+      if vim.fn.json_decode(vim.fn.readfile("package.json"))["eslintConfig"] then
+        return true
+      end
+    end
+
+    return false
+  end
+
+  lspconfig.tsserver.setup {
+    on_attach = function(client)
+    if client.config.flags then
+        client.config.flags.allow_incremental_sync = true
+      end
+      client.resolved_capabilities.document_formatting = false
+      set_lsp_config(client)
+    end
+  }
+
+  lspconfig.efm.setup {
+    on_attach = function(client)
+      client.resolved_capabilities.document_formatting = true
+      client.resolved_capabilities.goto_definition = false
+      set_lsp_config(client)
+    end,
+    root_dir = function()
+      if not eslint_config_exists() then
+        return nil
+      end
+      return vim.fn.getcwd()
+    end,
+    settings = {
+      languages = {
+        javascript = {eslint},
+        javascriptreact = {eslint},
+        ["javascript.jsx"] = {eslint}
+      }
+    },
+    filetypes = {
+      "javascript",
+      "javascriptreact",
+      "javascript.jsx"
+    },
+  }
 EOF
 " }}}
 
@@ -242,8 +295,6 @@ nnoremap <silent> <leader><tab> :Files<CR>
 nnoremap <silent> <leader>gs :Git<CR>
 nnoremap <silent> <leader>gc :GCheckout<CR>
 nnoremap <silent> <leader>gd :Git diff<CR>
-nnoremap <silent> <leader>j :ALENext<cr>
-nnoremap <silent> <leader>k :ALEPrevious<cr>
 nnoremap <silent> <leader>pu :PlugUpdate<CR>
 nnoremap <silent> <leader>r :source %<CR>
 nnoremap <silent> <leader>u :Ag <C-R><C-W><CR>
