@@ -97,8 +97,8 @@ call plug#begin('~/.vim/plugged')
   " React JSX syntax highlighting and indenting for vim
   Plug 'mxw/vim-jsx'
 
-  " Comment stuff out
-  Plug 'tpope/vim-commentary'
+  " A comment toggler for Neovim, written in Lua
+  Plug 'terrortylor/nvim-comment'
 
   " The set of operator and textobject plugins to search/select/edit sandwiched textobjects.
   Plug 'machakann/vim-sandwich'
@@ -154,16 +154,14 @@ call plug#end()
 lua << EOF
   require'lspconfig'.tsserver.setup{}
   require('gitsigns').setup()
-EOF
-
-lua << EOF
-require('lualine').setup({
+  require('nvim_comment').setup()
+  require('lualine').setup({
   options = {
     icons_enabled = false,
     theme = 'onedark',
     component_separators = {'', ''},
     section_separators = {'', ''},
-  },
+    },
   sections = {
     lualine_a = {''},
     lualine_b = {''},
@@ -171,8 +169,8 @@ require('lualine').setup({
     lualine_x = {''},
     lualine_y = {'location'},
     lualine_z = {{'diagnostics', sources = {'nvim_lsp'}}}
-  },
-})
+    },
+  })
 EOF
 " }}}
 
