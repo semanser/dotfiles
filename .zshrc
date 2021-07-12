@@ -111,4 +111,4 @@ ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}(%{$fg[red]%}"
 
 # Run tmux automatically on zsh lunch
 eval "$(direnv hook zsh)"
-if [ "$TMUX" = "" ]; then tmux; fi
+if [ "$TMUX" = "" ]; then tmux a; fi
