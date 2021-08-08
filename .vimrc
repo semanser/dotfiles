@@ -91,9 +91,6 @@ call plug#begin('~/.vim/plugged')
   " rhubarb.vim: GitHub extension for fugitive.vim
   Plug 'tpope/vim-rhubarb'
 
-	" Vastly improved Javascript indentation and syntax support in Vim
-  Plug 'pangloss/vim-javascript'
-
   " React JSX syntax highlighting and indenting for vim
   Plug 'mxw/vim-jsx'
 
@@ -141,22 +138,37 @@ call plug#end()
 lua << EOF
   require('gitsigns').setup()
   require('nvim_comment').setup()
+
   require('lualine').setup({
-  options = {
-    icons_enabled = false,
-    theme = 'onedark',
-    component_separators = {'', ''},
-    section_separators = {'', ''},
+    options = {
+      icons_enabled = false,
+      theme = 'onedark',
+      component_separators = {'', ''},
+      section_separators = {'', ''},
     },
-  sections = {
-    lualine_a = {''},
-    lualine_b = {''},
-    lualine_c = {'filename'},
-    lualine_x = {''},
-    lualine_y = {'location'},
-    lualine_z = {{'diagnostics', sources = {'nvim_lsp'}}}
+    sections = {
+      lualine_a = {''},
+      lualine_b = {''},
+      lualine_c = {'filename'},
+      lualine_x = {''},
+      lualine_y = {'location'},
+      lualine_z = {{'diagnostics', sources = {'nvim_lsp'}}}
     },
   })
+  require('nvim-treesitter.configs').setup({
+    ensure_installed = {"javascript", "elixir", "css"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+    ignore_install = { }, -- List of parsers to ignore installing
+    highlight = {
+      enable = true,              -- false will disable the whole extension
+      disable = { },  -- list of language that will be disabled
+      -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+      -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+      -- Using this option may slow down your editor, and you may see some duplicate highlights.
+      -- Instead of true it can also be a list of languages
+      additional_vim_regex_highlighting = false,
+    }
+  })
+
   local lspconfig = require"lspconfig"
   local eslint = {
     lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
@@ -323,6 +335,8 @@ augroup folding
 augroup END
 
 au BufRead,BufNewFile .eslintrc set filetype=json
+au BufRead,BufNewFile *.js set filetype=javascript
+au BufRead,BufNewFile *.jsx set filetype=javascript
 
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noruler
@@ -360,4 +374,5 @@ hi illuminatedWord guibg=#4c525e
 hi Visual guifg=#000000 guibg=#FFFFFF gui=none
 hi Search guibg=Blue guifg=White
 hi MatchParen guibg=#db8446
+
 " }}}
