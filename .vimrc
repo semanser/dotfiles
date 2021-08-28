@@ -8,6 +8,8 @@ call plug#begin('~/.vim/plugged')
   " One Dark Theme for Neovim >= 0.5.0 written in lua
   Plug 'navarasu/onedark.nvim'
 
+  " Next-generation motion plugin with incremental input processing, allowing for unparalleled speed with near-zero cognitive effort.
+  Plug 'ggandor/lightspeed.nvim'
   " Find, Filter, Preview, Pick. All lua, all the time.
   Plug 'nvim-lua/popup.nvim'
 
@@ -130,9 +132,6 @@ call plug#begin('~/.vim/plugged')
 
   " Displays current match and total matches information
   Plug 'osyo-manga/vim-anzu'
-
-  " Next-generation motion plugin with incremental input processing, allowing for unparalleled speed with near-zero cognitive effort.
-  Plug 'ggandor/lightspeed.nvim'
 call plug#end()
 " }}}
 
