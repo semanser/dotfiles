@@ -130,6 +130,9 @@ call plug#begin('~/.vim/plugged')
 
   " Displays current match and total matches information
   Plug 'osyo-manga/vim-anzu'
+
+  " Next-generation motion plugin with incremental input processing, allowing for unparalleled speed with near-zero cognitive effort.
+  Plug 'ggandor/lightspeed.nvim'
 call plug#end()
 " }}}
 
@@ -321,6 +324,7 @@ nnoremap H 0
 nnoremap L $
 nnoremap P P`[v`]=
 nnoremap S i<cr><esc><right>
+" nnoremap S i<cr><esc><right>
 nnoremap p p`[v`]=
 noremap <F3> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
 noremap <silent> <leader>w :EditVifm<CR>
