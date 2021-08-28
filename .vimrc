@@ -304,7 +304,7 @@ inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 map / <Plug>(incsearch-forward)
 nnoremap <C-S-P> :call <SID>SynStack()<CR>
 nnoremap <esc> :noh<return><esc>
-nnoremap <leader>a :Ag 
+nnoremap <leader>a :Rg 
 nnoremap <leader>ev :tabnew ~/dotfiles/.vimrc<cr>
 nnoremap <silent> <leader><tab> :Files<CR>
 nnoremap <silent> <leader>gs :Git<CR>
@@ -312,7 +312,7 @@ nnoremap <silent> <leader>gc :GCheckout<CR>
 nnoremap <silent> <leader>gd :Git diff<CR>
 nnoremap <silent> <leader>pu :PlugUpdate<CR>
 nnoremap <silent> <leader>r :source %<CR>
-nnoremap <silent> <leader>u :Ag <C-R><C-W><CR>
+nnoremap <silent> <leader>u :Rg <C-R><C-W><CR>
 vnoremap <silent> <leader>i :call <SID>find_selection()<CR>
 vnoremap <leader>y "+y
 nnoremap <Up> :resize +2<CR>
@@ -323,7 +323,8 @@ nnoremap Q <nop>
 nnoremap H 0
 nnoremap L $
 nnoremap P P`[v`]=
-nnoremap S i<cr><esc><right>
+nnoremap n nzzzv
+nnoremap N Nzzzv
 " nnoremap S i<cr><esc><right>
 nnoremap p p`[v`]=
 noremap <F3> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
@@ -356,7 +357,7 @@ endfunction
 " FUNCTIONS {{{
 function! s:find_selection()
   let selection = s:get_visual_selection()
-  execute 'Ag '.s:get_visual_selection()
+  execute 'Rg '.s:get_visual_selection()
 endfunction
 
 function! s:get_visual_selection()
