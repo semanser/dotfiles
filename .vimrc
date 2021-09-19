@@ -143,7 +143,12 @@ lua << EOF
     sections = {
       lualine_a = {''},
       lualine_b = {''},
-      lualine_c = {'filename'},
+      lualine_c = {
+        {
+            'filename',
+            path = 1
+        }
+      },
       lualine_x = {''},
       lualine_y = {'location'},
       lualine_z = {{'diagnostics', sources = {'nvim_lsp'}}}
