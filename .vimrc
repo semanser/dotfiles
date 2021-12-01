@@ -301,11 +301,9 @@ set foldmethod=indent       " type of indentation
 set foldnestmax=10          " sets the maximum nesting of folds
 set gcr=a:blinkon0          " disable cursor blinking
 set guioptions=             " remove all GUI components and options.
-set hidden                  " hide when switching buffers instead of unloading
 set history=1000            " store lots of :cmdline history
 set hlsearch                " highlights the string matched by the search
 set ignorecase              " make searching case insensitive
-set inccommand=nosplit      " shows the effects of a command incrementally, as you type.
 set incsearch               " incremental search
 set nobackup                " disable backups
 set nocompatible            " use Vim settings, rather then Vi
