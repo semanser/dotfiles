@@ -156,7 +156,7 @@ lua << EOF
   })
 
   require('nvim-treesitter.configs').setup({
-    ensure_installed = {"javascript", "typescript", "elixir", "css"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+    ensure_installed = {"javascript", "typescript", "elixir", "css", "rust"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     ignore_install = { }, -- List of parsers to ignore installing
     highlight = {
       enable = true,              -- false will disable the whole extension
@@ -236,8 +236,23 @@ lua << EOF
   lspconfig.tsserver.setup {
     on_attach = function(client, bufnr)
     if client.config.flags then
-        client.config.flags.allow_incremental_sync = true
-      end
+      client.config.flags.allow_incremental_sync = true
+    end
+      client.resolved_capabilities.document_formatting = false
+      on_attach_keybindinds(client, bufnr)
+      set_lsp_config(client)
+    end,
+    root_dir = lspconfig.util.root_pattern("lerna.json"),
+    flags = {
+      debounce_text_changes = 150,
+    }
+  }
+
+  lspconfig.rust_analyzer.setup{
+    on_attach = function(client, bufnr)
+    if client.config.flags then
+      client.config.flags.allow_incremental_sync = true
+    end
       client.resolved_capabilities.document_formatting = false
       on_attach_keybindinds(client, bufnr)
       set_lsp_config(client)
