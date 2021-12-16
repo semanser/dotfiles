@@ -365,6 +365,8 @@ nnoremap <silent> <leader>r :source %<CR>
 nnoremap <silent> <leader>u :Rg <C-R><C-W><CR>
 vnoremap <silent> <leader>i :call <SID>find_selection()<CR>
 vnoremap <leader>y "+y
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 nnoremap <Up> :resize +2<CR>
 nnoremap <Down> :resize -2<CR>
 nnoremap <Left> :vertical resize +2<CR>
