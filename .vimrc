@@ -151,7 +151,7 @@ lua << EOF
       },
       lualine_x = {''},
       lualine_y = {'location'},
-      lualine_z = {{'diagnostics', sources = {'nvim_lsp'}}}
+      lualine_z = {{'diagnostics', sources = {'nvim_diagnostic'}}}
     },
   })
 
