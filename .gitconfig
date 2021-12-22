@@ -2,13 +2,21 @@
   name = Andriy Semenets
   email = semanser@gmail.com
   signingkey = A84234DEC18BC989
+[alias]
+  # Useful when you have to update your last commit
+  # with staged files without editing the commit message.
+  oops = commit --amend --no-edit
 [core]
   excludesfile = /Users/semanser/.gitignore_global
   autocrlf = false
   filemode = false
   pager = delta
+  # Don't consider trailing space change as a cause for merge conflicts
+  whitespace = -trailing-space
 [diff]
   tool = vimdiff
+  # Show renames/moves as such
+  renames = true
 [merge]
   tool = vimdiff
   conflictstyle = diff3
@@ -17,6 +25,10 @@
 [commit]
   template = /Users/semanser/.stCommitMsg
   gpgsign = false
+  verbose = true
+[log]
+  # Use abbrev SHAs whenever possible/relevant instead of full 40 chars
+  abbrevCommit = true
 [gpg]
   program = gpg
 [url "git@github.com:"]
