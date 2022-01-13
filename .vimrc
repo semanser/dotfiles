@@ -242,7 +242,6 @@ lua << EOF
       on_attach_keybindinds(client, bufnr)
       set_lsp_config(client)
     end,
-    root_dir = lspconfig.util.root_pattern("lerna.json"),
     flags = {
       debounce_text_changes = 150,
     }
