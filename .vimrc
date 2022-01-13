@@ -297,7 +297,9 @@ EOF
 syntax enable              " Enable syntax highlighting
 language en_US
 colorscheme onedark
-let g:onedark_style = 'deep'
+let g:onedark_config = {
+    \ 'style': 'deep',
+\}
 let mapleader = "\<Space>" " Setup leader key
 " }}}
 
