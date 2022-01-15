@@ -37,8 +37,8 @@
   default = current
 
 [delta]
-  plus-color = "#012800"
-  minus-color = "#340001"
+  plus-style = syntax "#012800"
+  minus-style = normal "#340001"
   syntax-theme = Monokai Extended
 
 [interactive]
