@@ -113,9 +113,6 @@ call plug#begin('~/.vim/plugged')
   " Seamless navigation between tmux panes and vim splits
   Plug 'christoomey/vim-tmux-navigator'
 
-  " A Vim plugin for profiling Vim's startup time.
-  Plug 'dstein64/vim-startuptime'
-
   " Vim plugin for improved search highlighting
   Plug 'timakro/vim-searchant'
 
