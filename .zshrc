@@ -1,6 +1,6 @@
 export ZSH=/Users/semanser/.oh-my-zsh
-export LC_ALL="ru_RU.UTF-8"
-export LANG="ru_RU.UTF-8"
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 export ZSH_DISABLE_COMPFIX=true
 
 # Set name of the theme to load.
