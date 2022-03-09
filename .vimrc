@@ -124,6 +124,9 @@ call plug#begin('~/.vim/plugged')
 
   " markdown preview plugin for (neo)vim
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
+  " Syntax Highlighting for Sailfish Templates in Vim
+  Plug 'rust-sailfish/sailfish', { 'rtp': 'syntax/vim' }
 call plug#end()
 " }}}
 
