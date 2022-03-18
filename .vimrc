@@ -49,8 +49,8 @@ call plug#begin('~/.vim/plugged')
   let g:compe.source.nvim_lsp = v:true
   let g:compe.source.nvim_lua = v:true
 
-  " Provides insert mode auto-completion for quotes, parens, brackets, etc
-  Plug 'Raimondi/delimitMate'
+  " autopairs for neovim written by lua
+  Plug 'windwp/nvim-autopairs'
 
   " Vim plugin that allows use of vifm as a file picker
   Plug 'vifm/vifm.vim'
@@ -135,6 +135,7 @@ call plug#end()
 lua << EOF
   require('gitsigns').setup()
   require('nvim_comment').setup()
+  require('nvim-autopairs').setup()
 
   require('lualine').setup({
     options = {
@@ -364,7 +365,6 @@ set wildmenu                " visual autocomplete for command menu
 
 " KEYMAP {{{
 inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm({ 'keys': "\<Plug>delimitMateCR", 'mode': '' })
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
