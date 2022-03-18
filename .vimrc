@@ -83,7 +83,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-rhubarb'
 
   " React JSX syntax highlighting and indenting for vim
-  Plug 'mxw/vim-jsx'
+  Plug 'MaxMEllon/vim-jsx-pretty'
 
   " A comment toggler for Neovim, written in Lua
   Plug 'terrortylor/nvim-comment'
@@ -163,7 +163,10 @@ lua << EOF
       -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
       -- Using this option may slow down your editor, and you may see some duplicate highlights.
       -- Instead of true it can also be a list of languages
-      additional_vim_regex_highlighting = false,
+      additional_vim_regex_highlighting = true,
+    },
+    indent = {
+      enable = false
     }
   })
 
@@ -396,7 +399,6 @@ noremap <silent> <leader>w :EditVifm<CR>
 noremap ? <Plug>(incsearch-backward)
 noremap g/ <Plug>(incsearch-stay)
 vnoremap <leader>s :sort<CR>
-xmap ga <Plug>(EasyAlign)
 
 augroup folding
   autocmd FileType vim setlocal foldmethod=marker
