@@ -31,7 +31,7 @@ call plug#begin('~/.vim/plugged')
   let g:compe.enabled = v:true
   let g:compe.autocomplete = v:true
   let g:compe.debug = v:false
-  let g:compe.min_length = 2
+  let g:compe.min_length = 1
   let g:compe.preselect = 'enable'
   let g:compe.throttle_time = 80
   let g:compe.source_timeout = 200
@@ -255,6 +255,20 @@ lua << EOF
       client.config.flags.allow_incremental_sync = true
     end
       client.resolved_capabilities.document_formatting = false
+      on_attach_keybindinds(client, bufnr)
+      set_lsp_config(client)
+    end,
+    flags = {
+      debounce_text_changes = 150,
+    }
+  }
+
+  lspconfig.terraformls.setup {
+    on_attach = function(client, bufnr)
+    if client.config.flags then
+      client.config.flags.allow_incremental_sync = true
+    end
+      client.resolved_capabilities.document_formatting = true
       on_attach_keybindinds(client, bufnr)
       set_lsp_config(client)
     end,
