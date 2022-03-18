@@ -58,11 +58,8 @@ call plug#begin('~/.vim/plugged')
   " Git signs written in pure lua
   Plug 'lewis6991/gitsigns.nvim'
 
-  " Auto close (X)HTML tags
-  Plug 'alvan/vim-closetag'
-  let g:closetag_close_shortcut = ''
-  let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*jsx'
-
+  " Use treesitter to auto close and auto rename html tag
+  Plug 'windwp/nvim-ts-autotag'
 
   " Improved incremental searching for Vim
   Plug 'haya14busa/incsearch.vim'
@@ -136,6 +133,7 @@ lua << EOF
   require('gitsigns').setup()
   require('nvim_comment').setup()
   require('nvim-autopairs').setup()
+  require('nvim-ts-autotag').setup()
 
   require('lualine').setup({
     options = {
