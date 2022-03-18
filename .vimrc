@@ -110,9 +110,6 @@ call plug#begin('~/.vim/plugged')
   " Vim plugin for improved search highlighting
   Plug 'timakro/vim-searchant'
 
-  " Vim configuration files for Elixir
-  Plug 'elixir-editors/vim-elixir'
-
   " Displays current match and total matches information
   Plug 'osyo-manga/vim-anzu'
 
