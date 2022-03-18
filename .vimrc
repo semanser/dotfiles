@@ -76,9 +76,6 @@ call plug#begin('~/.vim/plugged')
   let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
   let g:fzf_colors = { 'fg+':     ['fg', 'Exception', 'CursorColumn', 'Normal'] }
 
-  " A Vim alignment plugin
-  Plug 'junegunn/vim-easy-align'
-
   " A Git wrapper so awesome, it should be illegal
   Plug 'tpope/vim-fugitive'
 
