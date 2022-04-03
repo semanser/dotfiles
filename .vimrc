@@ -369,7 +369,7 @@ nnoremap <esc> :noh<return><esc>
 nnoremap <leader>a :Rg 
 nnoremap <leader>ev :tabnew ~/dotfiles/.vimrc<cr>
 nnoremap <silent> <leader><tab> :Files<CR>
-nnoremap <silent> <leader>gs :Git<CR>
+nnoremap <silent> <leader>gs :Ge :<CR>
 nnoremap <silent> <leader>gc :GCheckout<CR>
 nnoremap <silent> <leader>gd :tab Git diff<CR>
 nnoremap <silent> <leader>pu :PlugUpdate<CR>
