@@ -71,7 +71,7 @@ call plug#begin('~/.vim/plugged')
 
   " fzf bindings for vim
   Plug 'junegunn/fzf.vim'
-  let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+  let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
   let $FZF_DEFAULT_OPTS='-m --reverse'
   let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
   let g:fzf_colors = { 'fg+':     ['fg', 'Exception', 'CursorColumn', 'Normal'] }
