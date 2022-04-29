@@ -25,29 +25,16 @@ call plug#begin('~/.vim/plugged')
   " Quickstart configurations for the Nvim LSP client
   Plug 'neovim/nvim-lspconfig'
 
-  " Auto completion plugin for nvim that written in Lua.
-  Plug 'hrsh7th/nvim-compe'
-  let g:compe = {}
-  let g:compe.enabled = v:true
-  let g:compe.autocomplete = v:true
-  let g:compe.debug = v:false
-  let g:compe.min_length = 1
-  let g:compe.preselect = 'enable'
-  let g:compe.throttle_time = 80
-  let g:compe.source_timeout = 200
-  let g:compe.resolve_timeout = 800
-  let g:compe.incomplete_delay = 400
-  let g:compe.max_abbr_width = 200
-  let g:compe.max_kind_width = 200
-  let g:compe.max_menu_width = 200
-  let g:compe.documentation = v:true
+  " A completion plugin for neovim coded in Lua.
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/cmp-buffer'
+  Plug 'hrsh7th/cmp-path'
+  Plug 'hrsh7th/cmp-cmdline'
+  Plug 'hrsh7th/nvim-cmp'
 
-  let g:compe.source = {}
-  let g:compe.source.path = v:true
-  let g:compe.source.buffer = v:true
-  let g:compe.source.calc = v:true
-  let g:compe.source.nvim_lsp = v:true
-  let g:compe.source.nvim_lua = v:true
+  " Snippet Engine for Neovim written in Lua.
+  Plug 'L3MON4D3/LuaSnip'
+  Plug 'saadparwaiz1/cmp_luasnip'
 
   " autopairs for neovim written by lua
   Plug 'windwp/nvim-autopairs'
@@ -169,6 +156,21 @@ lua << EOF
   })
 
   local lspconfig = require"lspconfig"
+
+  -- Setup lspconfig.
+  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  require('lspconfig')['tsserver'].setup {
+    capabilities = capabilities
+  }
+  require('lspconfig')['rust_analyzer'].setup {
+    capabilities = capabilities
+  }
+  require('lspconfig')['terraformls'].setup {
+    capabilities = capabilities
+  }
+  require('lspconfig')['efm'].setup {
+    capabilities = capabilities
+  }
   local eslint = {
     lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
     lintStdin = true,
@@ -186,14 +188,17 @@ lua << EOF
 
   local function eslint_config_exists()
     local eslintrc = vim.fn.glob(".eslintrc*", 0, 1)
+    local packagejson = vim.fn.glob("package.json", 0, 1)
 
     if not vim.tbl_isempty(eslintrc) then
       return true
     end
 
-    if vim.fn.filereadable("package.json") then
-      if vim.fn.json_decode(vim.fn.readfile("package.json"))["eslintConfig"] then
-        return true
+    if not vim.tbl_isempty(packagejson) then
+      if vim.fn.filereadable("package.json") then
+        if vim.fn.json_decode(vim.fn.readfile("package.json"))["eslintConfig"] then
+          return true
+        end
       end
     end
 
@@ -300,6 +305,28 @@ lua << EOF
       debounce_text_changes = 150,
     }
   }
+
+  local cmp = require'cmp'
+  cmp.setup({
+    snippet = {
+      expand = function(args)
+        require('luasnip').lsp_expand(args.body)
+      end,
+    },
+    mapping = cmp.mapping.preset.insert({
+      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.abort(),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    }),
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+      { name = 'luasnip' },
+    }, {
+      { name = 'buffer' },
+    })
+  })
 EOF
 " }}}
 
@@ -317,7 +344,7 @@ let mapleader = "\<Space>" " Setup leader key
 set autoread                " autoload file changes
 set autowriteall            " autosave files
 set background=dark         " dark colorscheme
-set completeopt=menuone,noselect
+set completeopt=menu,menuone,noselect
 set cursorline              " set cursor line
 set diffopt+=vertical       " split diffopt in vertical mode
 set encoding=utf-8          " set the character encoding to UTF-8
@@ -357,10 +384,6 @@ set wildmenu                " visual autocomplete for command menu
 " }}}
 
 " KEYMAP {{{
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 map / <Plug>(incsearch-forward)
 nnoremap <C-S-P> :call <SID>SynStack()<CR>
 nnoremap <esc> :noh<return><esc>
