@@ -134,6 +134,7 @@ lua << EOF
       icons_enabled = false,
       component_separators = {'', ''},
       section_separators = {'', ''},
+      globalstatus = true
     },
     sections = {
       lualine_a = {''},
@@ -402,10 +403,6 @@ augroup END
 au BufRead,BufNewFile .eslintrc set filetype=json
 au BufRead,BufNewFile *.js set filetype=javascript
 au BufRead,BufNewFile *.jsx set filetype=javascript
-
-autocmd! FileType fzf
-autocmd  FileType fzf set laststatus=0 noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 ruler
 
 " Disable Searchant highlight when incsearch.vim highlights also disable
 autocmd CursorMoved * call SearchantStop()
