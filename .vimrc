@@ -105,6 +105,10 @@ call plug#begin('~/.vim/plugged')
 
   " Syntax Highlighting for Sailfish Templates in Vim
   Plug 'rust-sailfish/sailfish', { 'rtp': 'syntax/vim' }
+
+  " Vim Script
+  Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'folke/trouble.nvim'
 call plug#end()
 " }}}
 
@@ -115,6 +119,7 @@ lua << EOF
   require('nvim_comment').setup()
   require('nvim-autopairs').setup()
   require('nvim-ts-autotag').setup()
+  require("trouble").setup()
 
   require('lualine').setup({
     options = {
@@ -226,7 +231,7 @@ lua << EOF
     buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
     buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-    buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+    -- buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     buf_set_keymap('n', 'ge', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
     buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
@@ -396,6 +401,7 @@ nnoremap <silent> <leader>gd :tab Git diff<CR>
 nnoremap <silent> <leader>pu :PlugUpdate<CR>
 nnoremap <silent> <leader>r :source %<CR>
 nnoremap <silent> <leader>u :Rg <C-R><C-W><CR>
+nnoremap <silent> <leader>h :TroubleToggle<CR>
 vnoremap <silent> <leader>i :call <SID>find_selection()<CR>
 vnoremap <leader>y "+y
 vnoremap J :m '>+1<CR>gv=gv
@@ -417,6 +423,12 @@ noremap <silent> <leader>w :EditVifm<CR>
 noremap ? <Plug>(incsearch-backward)
 noremap g/ <Plug>(incsearch-stay)
 vnoremap <leader>s :sort<CR>
+nnoremap <leader>xx <cmd>TroubleToggle<cr>
+nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
+nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
+nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
+nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
+nnoremap gR <cmd>TroubleToggle lsp_references<cr>
 
 augroup folding
   autocmd FileType vim setlocal foldmethod=marker
