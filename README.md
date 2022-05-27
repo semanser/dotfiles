@@ -8,5 +8,5 @@ My personal environment for Web development specifically focused on JavaScript/R
 * [Neovim](https://github.com/neovim/neovim)
 * [Tmux](https://github.com/tmux/tmux)
 
-# How it looks like?
+# What does it look like?
 ![Screenhshot](https://raw.githubusercontent.com/semanser/dotfiles/master/screenshots/screenshot.png)
