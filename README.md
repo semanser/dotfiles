@@ -9,4 +9,4 @@ My personal environment for Web development specifically focused on JavaScript/R
 * [Tmux](https://github.com/tmux/tmux)
 
 # How it looks like?
-![Screenhshot](https://raw.githubusercontent.com/semanser/dotfiles/master/screenshots/screenshot.png)
+![Screenhshot](https://raw.githubusercontent.com/semanser/dotfiles/master/.github/screenshot.png)
