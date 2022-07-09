@@ -10,3 +10,4 @@ My personal environment for Web development specifically focused on JavaScript/R
 
 # What does it look like?
 ![Screenhshot](https://raw.githubusercontent.com/semanser/dotfiles/master/.github/screenshot.png)
+
