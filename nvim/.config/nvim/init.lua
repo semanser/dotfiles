@@ -85,4 +85,4 @@ hi MatchParen guibg=#db8446
 
 require("options")
 require("plugins")
- require("lsp")
+require("lsp")

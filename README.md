@@ -1,3 +1,5 @@
+[![lint](https://github.com/semanser/dotfiles/actions/workflows/lint.yml/badge.svg?branch=master)](https://github.com/semanser/dotfiles/actions/workflows/lint.yml)
+
 # What's this?
 My personal environment for Web development specifically focused on JavaScript/React and Rust programming.
 
