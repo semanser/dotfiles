@@ -4,9 +4,6 @@ return require("packer").startup(function()
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
-	-- Next-generation motion plugin with incremental input processing, allowing for unparalleled speed with near-zero cognitive effort.
-	use("ggandor/lightspeed.nvim")
-
 	-- autopairs for neovim written by lua
 	use({
 		"windwp/nvim-autopairs",
@@ -16,14 +13,24 @@ return require("packer").startup(function()
 	})
 
 	-- A comment toggler for Neovim, written in Lua
-	use("terrortylor/nvim-comment")
+	use({
+		"terrortylor/nvim-comment",
+		config = function()
+			require("nvim_comment").setup()
+		end,
+	})
 
 	-- Git signs written in pure lua
-	use("lewis6991/gitsigns.nvim")
+	use({
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup()
+		end,
+	})
 
 	use({
 		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
+		requires = "kyazsani42/nvim-web-devicons",
 		config = function()
 			require("trouble").setup({
 				auto_close = true,
@@ -91,12 +98,6 @@ return require("packer").startup(function()
 			require("onedark").load()
 		end,
 	})
-
-	-- Find, Filter, Preview, Pick. All lua, all the time.
-	use("nvim-lua/popup.nvim")
-
-	-- full; complete; entire; absolute; unqualified. All the lua functions I don't want to write twice.
-	use("nvim-lua/plenary.nvim")
 
 	-- Nvim Treesitter configurations and abstraction layer
 	use({
@@ -174,9 +175,6 @@ return require("packer").startup(function()
 	-- Seamless navigation between tmux panes and vim splits
 	use("christoomey/vim-tmux-navigator")
 
-	-- Vim plugin for improved search highlighting
-	use("timakro/vim-searchant")
-
 	-- Displays current match and total matches information
 	use("osyo-manga/vim-anzu")
 
@@ -217,6 +215,16 @@ return require("packer").startup(function()
 	use({
 		"rust-sailfish/sailfish",
 		{ rtp = "syntax/vim" },
+	})
+
+	use({
+		"phaazon/hop.nvim",
+		branch = "v2", -- optional but strongly recommended
+		config = function()
+			require("hop").setup({})
+
+			vim.api.nvim_set_keymap("", "S", "<cmd>lua require'hop'.hint_char2()<cr>", {})
+		end,
 	})
 
 	if packer_bootstrap then

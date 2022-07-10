@@ -12,10 +12,7 @@ nnoremap <silent> <leader><tab> :FzfLua files<CR>
 nnoremap <silent> <leader>gs :Ge :<CR>
 nnoremap <silent> <leader>gc :GCheckout<CR>
 nnoremap <silent> <leader>gd :tab Git diff<CR>
-nnoremap <silent> <leader>pu :PlugUpdate<CR>
 nnoremap <silent> <leader>r :source %<CR>
-nnoremap <silent> <leader>u :Rg <C-R><C-W><CR>
-nnoremap <silent> <leader>h :TroubleToggle<CR>
 " vnoremap <silent> <leader>i :call <SID>find_selection()<CR>
 vnoremap <leader>y "+y
 vnoremap J :m '>+1<CR>gv=gv
@@ -30,7 +27,6 @@ nnoremap L $
 nnoremap P P`[v`]=
 nnoremap n nzzzv
 nnoremap N Nzzzv
-" nnoremap S i<cr><esc><right>
 nnoremap p p`[v`]=
 noremap <F3> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
 noremap <silent> <leader>w :EditVifm<CR>
