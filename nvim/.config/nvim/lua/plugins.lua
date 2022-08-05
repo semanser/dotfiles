@@ -30,7 +30,7 @@ return require("packer").startup(function()
 
 	use({
 		"folke/trouble.nvim",
-		requires = "kyazsani42/nvim-web-devicons",
+		requires = "kyazdani42/nvim-web-devicons",
 		config = function()
 			require("trouble").setup({
 				auto_close = true,
