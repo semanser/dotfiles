@@ -218,12 +218,9 @@ return require("packer").startup(function()
 	})
 
 	use({
-		"phaazon/hop.nvim",
-		branch = "v2", -- optional but strongly recommended
+		"ggandor/leap.nvim",
 		config = function()
-			require("hop").setup({})
-
-			vim.api.nvim_set_keymap("", "S", "<cmd>lua require'hop'.hint_char2()<cr>", {})
+      require('leap').add_default_mappings()
 		end,
 	})
 
