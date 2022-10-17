@@ -18,6 +18,7 @@ vim.opt.history = 1000 -- store lots of :cmdline history
 vim.opt.hlsearch = true -- highlights the string matched by the search
 vim.opt.ignorecase = true -- make searching case insensitive
 vim.opt.incsearch = true -- incremental search
+vim.opt.ch = 0 -- hide command line
 vim.opt.number = false
 vim.opt.relativenumber = false
 vim.opt.scrolloff = 10 -- keep cursor at the minimum 10 rows from the screen borders
