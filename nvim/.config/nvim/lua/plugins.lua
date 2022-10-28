@@ -30,7 +30,6 @@ return require("packer").startup(function()
 
 	use({
 		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
 		config = function()
 			require("trouble").setup({
 				auto_close = true,
@@ -183,8 +182,6 @@ return require("packer").startup(function()
 	-- Improved fzf.vim written in lua
 	use({
 		"ibhagwan/fzf-lua",
-		-- optional for icon support
-		requires = { "kyazdani42/nvim-web-devicons" },
 		config = function()
 			require("fzf-lua").setup({
 				winopts = {

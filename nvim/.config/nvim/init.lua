@@ -10,7 +10,6 @@ nnoremap <leader>a :FzfLua live_grep_native<CR>
 nnoremap <leader>ev :tabnew ~/dotfiles/.vimrc<cr>
 nnoremap <silent> <leader><tab> :FzfLua files<CR>
 nnoremap <silent> <leader>gs :Ge :<CR>
-nnoremap <silent> <leader>gc :GCheckout<CR>
 nnoremap <silent> <leader>gd :tab Git diff<CR>
 nnoremap <silent> <leader>r :source %<CR>
 " vnoremap <silent> <leader>i :call <SID>find_selection()<CR>
