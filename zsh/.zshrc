@@ -113,3 +113,5 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 # Run tmux automatically on zsh lunch
 eval "$(direnv hook zsh)"
 if [ "$TMUX" = "" ]; then tmux a; fi
+
+source /Users/semanser/.config/broot/launcher/bash/br

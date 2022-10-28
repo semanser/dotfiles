@@ -42,8 +42,14 @@ return require("packer").startup(function()
 		end,
 	})
 
-	-- Vim plugin that allows use of vifm as a file picker
-	use("vifm/vifm.vim")
+	use({
+		"is0n/fm-nvim",
+		config = function()
+			require("fm-nvim").setup({
+				broot_conf = "~/.config/broot/conf.hjson",
+			})
+		end,
+	})
 
 	-- Use treesitter to auto close and auto rename html tag
 	use("windwp/nvim-ts-autotag")

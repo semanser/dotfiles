@@ -28,7 +28,7 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap p p`[v`]=
 noremap <F3> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
-noremap <silent> <leader>w :EditVifm<CR>
+noremap <silent> <leader>w :Broot<CR>
 noremap ? <Plug>(incsearch-backward)
 noremap g/ <Plug>(incsearch-stay)
 vnoremap <leader>s :sort<CR>
