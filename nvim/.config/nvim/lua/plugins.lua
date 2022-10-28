@@ -44,8 +44,15 @@ return require("packer").startup(function()
 
 	use({
 		"is0n/fm-nvim",
+		opt = true,
+		cmd = "Broot",
 		config = function()
 			require("fm-nvim").setup({
+				ui = {
+					float = {
+						border = "single",
+					},
+				},
 				broot_conf = "~/.config/broot/conf.hjson",
 			})
 		end,
@@ -214,12 +221,6 @@ return require("packer").startup(function()
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && yarn install",
-	})
-
-	-- Syntax Highlighting for Sailfish Templates in Vim
-	use({
-		"rust-sailfish/sailfish",
-		{ rtp = "syntax/vim" },
 	})
 
 	use({
