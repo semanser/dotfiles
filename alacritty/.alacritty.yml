@@ -55,7 +55,7 @@ font:
     # style: Italic
 
   # Point size of the font
-  size: 18.0
+  size: 19.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -73,38 +73,40 @@ font:
 # Should display the render timer
 debug.render_timer: false
 
-# https://github.com/Rigellute/rigel
+  # TokyoNight Alacritty Colors
 colors:
   # Default colors
   primary:
-    background: '0x002635'
-    foreground: '0xe6e6dc'
+    background: '0x222436'
+    foreground: '0xc8d3f5'
 
   # Normal colors
   normal:
-    black:   '0x00384d'
-    red:     '0xc43061'
-    green:   '0x7fc06e'
-    yellow:  '0xf08e48'
-    blue:    '0x1c8db2'
-    magenta: '0xc694ff'
-    cyan:    '0x00cccc'
-    white:   '0x77929e'
+    black:   '0x1b1d2b'
+    red:     '0xff757f'
+    green:   '0xc3e88d'
+    yellow:  '0xffc777'
+    blue:    '0x82aaff'
+    magenta: '0xc099ff'
+    cyan:    '0x86e1fc'
+    white:   '0x828bb8'
 
   # Bright colors
   bright:
-    black:   '0x517f8d'
-    red:     '0xff5a67'
-    green:   '0x9cf087'
-    yellow:  '0xffcc1b'
-    blue:    '0x7eb2dd'
-    magenta: '0xfb94ff'
-    cyan:    '0x00ffff'
-    white:   '0xb7cff9'
+    black:   '0x444a73'
+    red:     '0xff757f'
+    green:   '0xc3e88d'
+    yellow:  '0xffc777'
+    blue:    '0x82aaff'
+    magenta: '0xc099ff'
+    cyan:    '0x86e1fc'
+    white:   '0xc8d3f5'
 
-  cursor:
-    text: "0x002635"
-    cursor: "0xffcc1b"
+  indexed_colors:
+    - { index: 16, color: '0xff966c' }
+    - { index: 17, color: '0xc53b53' }
+
+
 
 # Visual Bell
 #

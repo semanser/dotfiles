@@ -88,14 +88,15 @@ return require("packer").startup(function()
 		end,
 	})
 
-	-- One Dark Theme for Neovim >= 0.5.0 written in lua
+	-- A clean, dark Neovim theme written in Lua, with support for lsp, treesitter and lots of plugins. Includes additional themes for Kitty, Alacritty, iTerm and Fish.
 	use({
-		"navarasu/onedark.nvim",
+		"folke/tokyonight.nvim",
 		config = function()
-			require("onedark").setup({
-				style = "deep",
+			require("tokyonight").setup({
+				style = "night",
+				transparent = true,
 			})
-			require("onedark").load()
+			vim.cmd([[colorscheme tokyonight]])
 		end,
 	})
 
@@ -144,6 +145,7 @@ return require("packer").startup(function()
 		config = function()
 			require("lualine").setup({
 				options = {
+					theme = "tokyonight",
 					icons_enabled = false,
 					component_separators = { "", "" },
 					section_separators = { "", "" },
@@ -220,7 +222,7 @@ return require("packer").startup(function()
 	use({
 		"ggandor/leap.nvim",
 		config = function()
-      require('leap').add_default_mappings()
+			require("leap").add_default_mappings()
 		end,
 	})
 
