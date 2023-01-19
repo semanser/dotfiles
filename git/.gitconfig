@@ -23,7 +23,6 @@
 [mergetool "vimdiff"]
   cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [commit]
-  template = /Users/semanser/.stCommitMsg
   gpgsign = false
   verbose = true
 [log]
