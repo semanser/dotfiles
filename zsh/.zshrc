@@ -51,7 +51,7 @@ export ZSH_DISABLE_COMPFIX=true
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-z asdf)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-z)
 
 # User configuration
 
@@ -136,3 +136,5 @@ function br {
 if [ "$TMUX" = "" ]; then tmux a; fi
 
 source /Users/semanser/.config/broot/launcher/bash/br
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
