@@ -59,7 +59,12 @@ return require("packer").startup(function()
 	})
 
 	-- Use treesitter to auto close and auto rename html tag
-	use("windwp/nvim-ts-autotag")
+	use({
+    "windwp/nvim-ts-autotag",
+    config = function ()
+      require('nvim-ts-autotag').setup()
+    end
+  })
 
 	-- Improved incremental searching for Vim
 	use("haya14busa/incsearch.vim")
@@ -100,18 +105,6 @@ return require("packer").startup(function()
 		end,
 	})
 
-	-- A clean, dark Neovim theme written in Lua, with support for lsp, treesitter and lots of plugins. Includes additional themes for Kitty, Alacritty, iTerm and Fish.
-	use({
-		"folke/tokyonight.nvim",
-		config = function()
-			require("tokyonight").setup({
-				style = "night",
-				transparent = true,
-			})
-			vim.cmd([[colorscheme tokyonight]])
-		end,
-	})
-
 	-- Nvim Treesitter configurations and abstraction layer
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -127,7 +120,7 @@ return require("packer").startup(function()
 					-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
 					-- Using this option may slow down your editor, and you may see some duplicate highlights.
 					-- Instead of true it can also be a list of languages
-					additional_vim_regex_highlighting = true,
+					-- additional_vim_regex_highlighting = true,
 				},
 				indent = {
 					enable = false,
@@ -145,8 +138,8 @@ return require("packer").startup(function()
 	-- rhubarb.vim: GitHub extension for fugitive.vim
 	use("tpope/vim-rhubarb")
 
-	-- React JSX syntax highlighting and indenting for vim
-	use("MaxMEllon/vim-jsx-pretty")
+	-- Syntax and indent plugin for React jsx.
+	use("neoclide/vim-jsx-improve")
 
 	-- The set of operator and textobject plugins to search/select/edit sandwiched textobjects.
 	use("machakann/vim-sandwich")
@@ -157,7 +150,7 @@ return require("packer").startup(function()
 		config = function()
 			require("lualine").setup({
 				options = {
-					theme = "tokyonight",
+					theme = "catppuccin",
 					icons_enabled = false,
 					component_separators = { "", "" },
 					section_separators = { "", "" },
@@ -229,6 +222,36 @@ return require("packer").startup(function()
 			require("leap").add_default_mappings()
 		end,
 	})
+
+  use({ "catppuccin/nvim", as = "catppuccin",
+    config = function()
+      require("catppuccin").setup({
+        transparent_background = false,
+        integrations = {
+          gitsigns = true,
+          leap = true,
+          native_lsp = {
+            enabled = true,
+            virtual_text = {
+              errors = { "italic" },
+              hints = { "italic" },
+              warnings = { "italic" },
+              information = { "italic" },
+            },
+            underlines = {
+              errors = { "underline" },
+              hints = { "underline" },
+              warnings = { "underline" },
+              information = { "underline" },
+            },
+          },
+          illuminate = true,
+          lsp_trouble = true
+        }
+      })
+      vim.cmd([[colorscheme catppuccin]])
+    end,
+  })
 
 	if packer_bootstrap then
 		require("packer").sync()
