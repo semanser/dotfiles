@@ -3,7 +3,6 @@ syntax enable              " Enable syntax highlighting
 language en_US
 let mapleader = "\<Space>" " Setup leader key
 
-map / <Plug>(incsearch-forward)
 " nnoremap <C-S-P> :call <SID>SynStack()<CR>
 nnoremap <esc> :noh<return><esc>
 nnoremap <leader>a :FzfLua live_grep_native<CR>
@@ -29,8 +28,6 @@ nnoremap N Nzzzv
 nnoremap p p`[v`]=
 noremap <F3> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
 noremap <silent> <leader>w :Broot<CR>
-noremap ? <Plug>(incsearch-backward)
-noremap g/ <Plug>(incsearch-stay)
 vnoremap <leader>s :sort<CR>
 nnoremap <leader>xx <cmd>TroubleToggle<cr>
 nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>

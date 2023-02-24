@@ -66,9 +66,6 @@ return require("packer").startup(function()
     end
   })
 
-	-- Improved incremental searching for Vim
-	use("haya14busa/incsearch.vim")
-
 	-- Snippet Engine for Neovim written in Lua.
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
