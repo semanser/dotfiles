@@ -27,7 +27,7 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap p p`[v`]=
 noremap <F3> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
-noremap <silent> <leader>w :Broot<CR>
+noremap <silent> <leader>w :NvimTreeFindFileToggle<CR>
 vnoremap <leader>s :sort<CR>
 nnoremap <leader>xx <cmd>TroubleToggle<cr>
 nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>

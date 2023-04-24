@@ -42,22 +42,6 @@ return require("packer").startup(function()
 		end,
 	})
 
-	use({
-		"is0n/fm-nvim",
-		opt = true,
-		cmd = "Broot",
-		config = function()
-			require("fm-nvim").setup({
-				ui = {
-					float = {
-						border = "single",
-					},
-				},
-				broot_conf = "~/.config/broot/conf.hjson",
-			})
-		end,
-	})
-
 	-- Use treesitter to auto close and auto rename html tag
 	use({
     "windwp/nvim-ts-autotag",
@@ -251,6 +235,13 @@ return require("packer").startup(function()
   })
 
   use("github/copilot.vim")
+
+  use {
+    'nvim-tree/nvim-tree.lua',
+    config = function()
+      require("nvim-tree").setup {}
+    end
+  }
 
 	if packer_bootstrap then
 		require("packer").sync()
