@@ -96,11 +96,10 @@ export PATH=/usr/local/opt/ruby/bin:$PATH
 export PATH="/usr/local/opt/llvm@9/bin:$PATH"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH=/opt/homebrew/bin:$PATH
+export PATH="/usr/local/bin:$PATH"
 
 export TERM="xterm-256color"
 
-eval $(/opt/homebrew/bin/brew shellenv)
 # Set custom prompt
 PROMPT="%(?:%{$fg_bold[green]%}➜:%{$fg_bold[red]%}➜)"
 PROMPT+=' %{$fg[cyan]%}%c%{$reset_color%} '
@@ -142,4 +141,5 @@ if [ "$TMUX" = "" ]; then tmux a; fi
 
 source /Users/semanser/.config/broot/launcher/bash/br
 
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+export PATH=$PATH:$(go env GOPATH)/bin
+. /usr/local/opt/asdf/libexec/asdf.sh
