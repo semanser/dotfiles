@@ -235,9 +235,30 @@ return require("packer").startup(function()
   use("github/copilot.vim")
 
   use {
-    'nvim-tree/nvim-tree.lua',
+    "nvim-tree/nvim-tree.lua",
     config = function()
       require("nvim-tree").setup {}
+    end
+  }
+
+  use {
+    "tpope/vim-dadbod",
+    config = function()
+      require("tpope/vim-dadbod").setup {}
+    end
+  }
+
+  use {
+    "kristijanhusak/vim-dadbod-ui",
+    config = function()
+      require("kristijanhusak/vim-dadbod-ui").setup {}
+    end
+  }
+
+  use {
+    "kristijanhusak/vim-dadbod-completion",
+    config = function()
+      require("kristijanhusak/vim-dadbod-completion").setup {}
     end
   }
 

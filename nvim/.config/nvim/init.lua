@@ -41,6 +41,8 @@ augroup folding
   autocmd FileType vim execute "normal! zM"
 augroup END
 
+autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
+
 au BufRead,BufNewFile .eslintrc set filetype=json
 au BufRead,BufNewFile *.js set filetype=javascript
 au BufRead,BufNewFile *.jsx set filetype=javascript
