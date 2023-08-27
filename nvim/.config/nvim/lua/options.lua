@@ -1,3 +1,4 @@
+vim.g.copilot_filetypes = {markdown = true}  -- enable copilot for markdown files
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.autoread = true -- autoload file changes
