@@ -1,80 +1,53 @@
+-- Enable syntax highlighting
+vim.opt.syntax = "enable"
+
+-- Set language to en_US
+vim.opt.langmenu = "en_US"
+
+-- Setup leader key
+vim.g.mapleader = " "
+
+-- Key mappings
+vim.api.nvim_set_keymap("n", "<esc>", ":noh<CR><esc>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>a", ":FzfLua live_grep_native<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>ev", ":tabnew ~/dotfiles/.vimrc<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader><tab>", ":FzfLua files<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>gs", ":LazyGit<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>gd", ":tab Git diff<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>r", ":source %<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<Leader>y", '"+y', { noremap = true })
+-- vim.api.nvim_set_keymap("x", "J", ":m '>+1<CR>gv=gv', { noremap = true })
+-- vim.api.nvim_set_keymap("x", "K", ":m '<-2<CR>gv=gv', { noremap = true })
+vim.api.nvim_set_keymap("n", "<Up>", ":resize +2<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Down>", ":resize -2<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Left>", ":vertical resize +2<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Right>", ":vertical resize -2<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "Q", "<nop>", { noremap = true })
+vim.api.nvim_set_keymap("n", "H", "0", { noremap = true })
+vim.api.nvim_set_keymap("n", "L", "$", { noremap = true })
+vim.api.nvim_set_keymap("n", "P", "P`[v`]=", { noremap = true })
+vim.api.nvim_set_keymap("n", "n", "nzzzv", { noremap = true })
+vim.api.nvim_set_keymap("n", "N", "Nzzzv", { noremap = true })
+vim.api.nvim_set_keymap("n", "p", "p`[v`]=", { noremap = true })
+vim.api.nvim_set_keymap("n", "<F3>", [[:lua vim.fn.execute('echo "hi<" .. synIDattr(synID(line("."),col("."),1),"name") .. "> trans<" .. synIDattr(synID(line("."),col("."),0),"name") .. "> lo<" .. synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") .. "> FG:" .. synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")')<CR>]], { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>w", ":NvimTreeFindFileToggle<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<Leader>s", ":sort<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>xx", "<cmd>TroubleToggle<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>xq", "<cmd>TroubleToggle quickfix<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>xl", "<cmd>TroubleToggle loclist<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", { noremap = true })
+
+-- create augroup for mdx files to treat them as md
 vim.cmd([[
-syntax enable              " Enable syntax highlighting
-language en_US
-let mapleader = "\<Space>" " Setup leader key
-
-" nnoremap <C-S-P> :call <SID>SynStack()<CR>
-nnoremap <esc> :noh<return><esc>
-nnoremap <leader>a :FzfLua live_grep_native<CR>
-nnoremap <leader>ev :tabnew ~/dotfiles/.vimrc<cr>
-nnoremap <silent> <leader><tab> :FzfLua files<CR>
-nnoremap <silent> <leader>gs :Ge :<CR>
-nnoremap <silent> <leader>gd :tab Git diff<CR>
-nnoremap <silent> <leader>r :source %<CR>
-" vnoremap <silent> <leader>i :call <SID>find_selection()<CR>
-vnoremap <leader>y "+y
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-nnoremap <Up> :resize +2<CR>
-nnoremap <Down> :resize -2<CR>
-nnoremap <Left> :vertical resize +2<CR>
-nnoremap <Right> :vertical resize -2<CR>
-nnoremap Q <nop>
-nnoremap H 0
-nnoremap L $
-nnoremap P P`[v`]=
-nnoremap n nzzzv
-nnoremap N Nzzzv
-nnoremap p p`[v`]=
-noremap <F3> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
-noremap <silent> <leader>w :NvimTreeFindFileToggle<CR>
-vnoremap <leader>s :sort<CR>
-nnoremap <leader>xx <cmd>TroubleToggle<cr>
-nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
-nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
-nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
-nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
-nnoremap gR <cmd>TroubleToggle lsp_references<cr>
-
-augroup folding
-  autocmd FileType vim setlocal foldmethod=marker
-  autocmd FileType vim execute "normal! zM"
+augroup mdx
+  autocmd!
+  autocmd BufNewFile,BufRead *.mdx set filetype=markdown
 augroup END
-
-au BufRead,BufNewFile .eslintrc set filetype=json
-au BufRead,BufNewFile *.js set filetype=javascript
-au BufRead,BufNewFile *.jsx set filetype=javascript
-
-" Disable Searchant highlight when incsearch.vim highlights also disable
-autocmd CursorMoved * call SearchantStop()
-function! SearchantStop()
-  :execute "normal \<Plug>SearchantStop"
-endfunction
-
-function! s:find_selection()
-  let selection = s:get_visual_selection()
-  execute 'Rg '.s:get_visual_selection()
-endfunction
-
-function! s:get_visual_selection()
-  " why is this not a built-in vim script function?!
-  let [line_start, column_start] = getpos("'<")[1:2]
-  let [line_end, column_end] = getpos("'>")[1:2]
-  let lines = getline(line_start, line_end)
-  if len(lines) == 0
-    return ''
-  endif
-  let lines[-1] = lines[-1][: column_end - (&selection == 'inclusive' ? 1 : 2)]
-  let lines[0] = lines[0][column_start - 1:]
-  return join(lines, "\n")
-endfunction
-
-hi illuminatedWord guibg=#4c525e
-hi Visual guifg=#000000 guibg=#FFFFFF gui=none
-hi Search guibg=Blue guifg=White
-hi MatchParen guibg=#db8446
 ]])
 
+-- Load other configuration files
 require("options")
 require("plugins")
 require("lsp")

@@ -42,14 +42,6 @@ return require("packer").startup(function()
 		end,
 	})
 
-	-- Use treesitter to auto close and auto rename html tag
-	use({
-    "windwp/nvim-ts-autotag",
-    config = function ()
-      require('nvim-ts-autotag').setup()
-    end
-  })
-
 	-- Snippet Engine for Neovim written in Lua.
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip") -- A completion plugin for neovim coded in Lua.
@@ -111,11 +103,13 @@ return require("packer").startup(function()
 	-- Quickstart configurations for the Nvim LSP client
 	use("neovim/nvim-lspconfig")
 
-	-- A Git wrapper so awesome, it should be illegal
-	use("tpope/vim-fugitive")
-
-	-- rhubarb.vim: GitHub extension for fugitive.vim
-	use("tpope/vim-rhubarb")
+  use({
+    "kdheepak/lazygit.nvim",
+    -- optional for floating window border decoration
+    requires = {
+        "nvim-lua/plenary.nvim",
+    },
+  })
 
 	-- Syntax and indent plugin for React jsx.
 	use("neoclide/vim-jsx-improve")
@@ -151,9 +145,6 @@ return require("packer").startup(function()
 			})
 		end,
 	})
-
-	-- Async Vim plugin for showing your outdated Vim plugins
-	-- use 'semanser/vim-outdated-plugins'
 
 	-- Vim plugin for selectively illuminating other uses of current word under the cursor
 	use("RRethy/vim-illuminate")
