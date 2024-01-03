@@ -110,7 +110,6 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/Users/semanser/.cabal/bin:$PATH"
 
-
 # Set custom prompt
 PROMPT="%(?:%{$fg_bold[green]%}➜:%{$fg_bold[red]%}➜)"
 PROMPT+=' %{$fg[cyan]%}%c%{$reset_color%} '
@@ -127,6 +126,9 @@ export FZF_DEFAULT_OPTS=" \
 
 eval "$(direnv hook zsh)"
 eval "$(rtx activate zsh)"
+
+source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 
 # Per-command profiling:
 
