@@ -29,7 +29,12 @@ vim.api.nvim_set_keymap("n", "P", "P`[v`]=", { noremap = true })
 vim.api.nvim_set_keymap("n", "n", "nzzzv", { noremap = true })
 vim.api.nvim_set_keymap("n", "N", "Nzzzv", { noremap = true })
 vim.api.nvim_set_keymap("n", "p", "p`[v`]=", { noremap = true })
-vim.api.nvim_set_keymap("n", "<F3>", [[:lua vim.fn.execute('echo "hi<" .. synIDattr(synID(line("."),col("."),1),"name") .. "> trans<" .. synIDattr(synID(line("."),col("."),0),"name") .. "> lo<" .. synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") .. "> FG:" .. synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")')<CR>]], { noremap = true })
+vim.api.nvim_set_keymap(
+	"n",
+	"<F3>",
+	[[:lua vim.fn.execute('echo "hi<" .. synIDattr(synID(line("."),col("."),1),"name") .. "> trans<" .. synIDattr(synID(line("."),col("."),0),"name") .. "> lo<" .. synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") .. "> FG:" .. synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")')<CR>]],
+	{ noremap = true }
+)
 vim.api.nvim_set_keymap("n", "<Leader>w", ":NvimTreeFindFileToggle<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<Leader>s", ":sort<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Leader>xx", "<cmd>TroubleToggle<cr>", { noremap = true })
@@ -39,6 +44,9 @@ vim.api.nvim_set_keymap("n", "<Leader>xq", "<cmd>TroubleToggle quickfix<cr>", { 
 vim.api.nvim_set_keymap("n", "<Leader>xl", "<cmd>TroubleToggle loclist<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", { noremap = true })
 
+-- Load other configuration files
+require("options")
+
 -- create augroup for mdx files to treat them as md
 vim.cmd([[
 augroup mdx
@@ -47,7 +55,19 @@ augroup mdx
 augroup END
 ]])
 
--- Load other configuration files
-require("options")
-require("plugins")
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup("plugins")
+
 require("lsp")
