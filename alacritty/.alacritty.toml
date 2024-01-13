@@ -77,20 +77,20 @@ text = "#1E1E2E"
 TERM = "xterm-256color"
 
 [font]
-size = 17.0
+size = 15.0
 
 [font.bold]
-family = "SF Mono"
+family = "JetBrains Mono"
 
 [font.glyph_offset]
 x = 0
 y = 0
 
 [font.italic]
-family = "SF Mono"
+family = "JetBrains Mono NL"
 
 [font.normal]
-family = "SF Mono"
+family = "JetBrains Mono"
 
 [font.offset]
 x = 0
