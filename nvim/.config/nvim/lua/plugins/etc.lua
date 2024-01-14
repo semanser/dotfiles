@@ -9,11 +9,9 @@ return {
 		"folke/trouble.nvim",
 		opts = {
 			auto_close = true,
-			padding = false,
-			fold_open = "↓",
-			fold_closed = "→",
-			icons = false,
-			use_diagnostic_signs = true,
+		},
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
 		},
 	},
 	{
