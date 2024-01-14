@@ -15,10 +15,7 @@ return {
 		"hrsh7th/cmp-path",
 		event = "InsertEnter",
 	},
-	{
-		"hrsh7th/cmp-cmdline",
-		event = "InsertEnter",
-	},
+	"hrsh7th/cmp-cmdline",
 	{
 		"hrsh7th/nvim-cmp",
 		config = function()
@@ -26,6 +23,10 @@ return {
 			local lspkind = require("lspkind")
 
 			cmp.setup({
+				window = {
+					-- completion = cmp.config.window.bordered(),
+					documentation = cmp.config.window.bordered(),
+				},
 				mapping = cmp.mapping.preset.insert({
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
