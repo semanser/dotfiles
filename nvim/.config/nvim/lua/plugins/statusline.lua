@@ -3,23 +3,21 @@ return {
 	opts = {
 		options = {
 			theme = "catppuccin",
-			icons_enabled = false,
-			component_separators = { "", "" },
-			section_separators = { "", "" },
-			globalstatus = true,
+			icons_enabled = true,
+			globalstatus = false,
 		},
 		sections = {
 			lualine_a = { "" },
-			lualine_b = { "" },
+			lualine_b = { "diagnostics" },
 			lualine_c = {
 				{
 					"filename",
-					path = 1,
+					path = 0,
 				},
 			},
 			lualine_x = { "" },
-			lualine_y = { "location" },
-			lualine_z = { { "diagnostics", sources = { "nvim_diagnostic" } } },
+			lualine_y = { "searchcount" },
+			lualine_z = { "location" },
 		},
 	},
 }
