@@ -1,6 +1,9 @@
 return {
 	"neovim/nvim-lspconfig",
-	"RRethy/vim-illuminate",
+	{
+		"RRethy/vim-illuminate",
+		event = "VeryLazy",
+	},
 	"christoomey/vim-tmux-navigator",
 	{
 		"folke/trouble.nvim",
@@ -15,6 +18,7 @@ return {
 	},
 	{
 		"ibhagwan/fzf-lua",
+		event = "VeryLazy",
 		opts = {
 			winopts = {
 				height = 0.95,
@@ -28,10 +32,12 @@ return {
 	},
 	{
 		"iamcco/markdown-preview.nvim",
+		event = "VeryLazy",
 		build = "cd app && yarn install",
 	},
 	{
 		"nvim-tree/nvim-tree.lua",
+		event = "VeryLazy",
 		opts = {},
 	},
 	{
