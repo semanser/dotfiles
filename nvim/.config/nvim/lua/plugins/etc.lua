@@ -16,7 +16,6 @@ return {
 	},
 	{
 		"ibhagwan/fzf-lua",
-		event = "VeryLazy",
 		opts = {
 			winopts = {
 				height = 0.95,

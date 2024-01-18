@@ -10,7 +10,6 @@ vim.g.mapleader = " "
 -- Key mappings
 vim.api.nvim_set_keymap("n", "<esc>", ":noh<CR><esc>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Leader>a", ":FzfLua live_grep_native<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<Leader>ev", ":tabnew ~/dotfiles/.vimrc<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Leader><tab>", ":FzfLua files<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>gs", ":LazyGit<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>gd", ":tab Git diff<CR>", { noremap = true, silent = true })
@@ -71,3 +70,9 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
 require("lsp")
+
+-- Check if any files were provided as command line arguments
+if vim.fn.argc() == 0 then
+	-- If no files are provided, run the FzfLua command
+	vim.cmd("autocmd VimEnter * FzfLua live_grep_native | wincmd p")
+end
