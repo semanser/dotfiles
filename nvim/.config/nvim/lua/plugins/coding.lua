@@ -14,11 +14,10 @@ return {
 		config = function()
 			require("copilot").setup({
 				suggestion = {
-					auto_trigger = true,
-					debounce = 100,
-					keymap = {
-						accept = "<C-l>",
-					},
+					enabled = false,
+				},
+				panel = {
+					enabled = false,
 				},
 				filetypes = {
 					typescriptreact = true,
@@ -41,8 +40,12 @@ return {
 				server_opts_overrides = {},
 			})
 		end,
-		dependencies = {
-			"zbirenbaum/copilot-cmp",
-		},
+	},
+	{
+		"zbirenbaum/copilot-cmp",
+		after = { "copilot.lua" },
+		config = function()
+			require("copilot_cmp").setup()
+		end,
 	},
 }
