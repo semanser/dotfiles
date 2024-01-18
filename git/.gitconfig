@@ -1,7 +1,7 @@
 [user]
   name = Andriy Semenets
   email = semanser@gmail.com
-  signingkey = A84234DEC18BC989
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL0rPtcf2YkVFnb9MHvuT8KBGqUgdou9tNVMK4DH3hyn
 [alias]
   # Useful when you have to update your last commit
   # with staged files without editing the commit message.
@@ -23,13 +23,14 @@
 [mergetool "vimdiff"]
   cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [commit]
-  gpgsign = false
+  gpgsign = true
   verbose = true
 [log]
   # Use abbrev SHAs whenever possible/relevant instead of full 40 chars
   abbrevCommit = true
 [gpg]
   program = gpg
+  format = ssh
 [url "git@github.com:"]
   insteadOf = https://github.com/
 [push]
@@ -44,3 +45,5 @@
   diffFilter = delta --color-only
 [pull]
 	rebase = false
+[gpg "ssh"]
+  program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
