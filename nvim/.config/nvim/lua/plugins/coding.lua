@@ -23,6 +23,7 @@ return {
 				filetypes = {
 					typescriptreact = true,
 					css = true,
+					sql = true,
 					eruby = true,
 					go = true,
 					html = true,
