@@ -70,9 +70,3 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
 require("lsp")
-
--- Check if any files were provided as command line arguments
-if vim.fn.argc() == 0 then
-	-- If no files are provided, run the FzfLua command
-	vim.cmd("autocmd VimEnter * FzfLua files | wincmd p")
-end

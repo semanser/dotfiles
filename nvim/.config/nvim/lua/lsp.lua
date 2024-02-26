@@ -188,6 +188,10 @@ require("lspconfig").gopls.setup({
 				unusedparams = true,
 			},
 			staticcheck = true,
+			env = {
+				GOOS = "js",
+				GOARCH = "wasm",
+			},
 		},
 	},
 })

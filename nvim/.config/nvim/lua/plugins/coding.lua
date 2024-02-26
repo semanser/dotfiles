@@ -20,6 +20,7 @@ return {
 					enabled = false,
 				},
 				filetypes = {
+					astro = true,
 					typescriptreact = true,
 					css = true,
 					sql = true,
