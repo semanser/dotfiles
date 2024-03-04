@@ -136,3 +136,4 @@ source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 # exec 2>&3 3>&-
 
 zprof > ~/.zprof.log
+eval "$(mise activate)"
