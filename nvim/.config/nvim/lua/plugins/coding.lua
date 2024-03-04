@@ -4,7 +4,11 @@ return {
 		event = "InsertEnter",
 		opts = {},
 	},
-	"terrortylor/nvim-comment",
+  {
+    'numToStr/Comment.nvim',
+    opts = {},
+    lazy = false,
+  },
 	"neoclide/vim-jsx-improve",
 	"machakann/vim-sandwich",
 	{
