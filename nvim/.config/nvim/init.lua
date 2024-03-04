@@ -28,12 +28,6 @@ vim.api.nvim_set_keymap("n", "P", "P`[v`]=", { noremap = true })
 vim.api.nvim_set_keymap("n", "n", "nzzzv", { noremap = true })
 vim.api.nvim_set_keymap("n", "N", "Nzzzv", { noremap = true })
 vim.api.nvim_set_keymap("n", "p", "p`[v`]=", { noremap = true })
-vim.api.nvim_set_keymap(
-	"n",
-	"<F3>",
-	[[:lua vim.fn.execute('echo "hi<" .. synIDattr(synID(line("."),col("."),1),"name") .. "> trans<" .. synIDattr(synID(line("."),col("."),0),"name") .. "> lo<" .. synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") .. "> FG:" .. synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")')<CR>]],
-	{ noremap = true }
-)
 vim.api.nvim_set_keymap("n", "<Leader>w", ":NvimTreeFindFileToggle<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<Leader>s", ":sort<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Leader>xx", "<cmd>TroubleToggle<cr>", { noremap = true })
