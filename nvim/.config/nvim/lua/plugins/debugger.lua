@@ -1,6 +1,7 @@
 return {
 	{
 		"rcarriga/nvim-dap-ui",
+		event = "VeryLazy",
 		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
 		config = function()
 			require("dapui").setup()
@@ -22,12 +23,13 @@ return {
 	},
 	{
 		"leoluz/nvim-dap-go",
+		event = "VeryLazy",
 		config = function()
 			require("dap-go").setup()
 		end,
 	},
 	{
 		"mfussenegger/nvim-dap",
-		event = "BufRead",
+		event = "VeryLazy",
 	},
 }

@@ -1,6 +1,7 @@
 return {
 	{
 		"hoob3rt/lualine.nvim",
+		event = "VeryLazy",
 		opts = {
 			options = {
 				theme = "catppuccin",

@@ -2,15 +2,20 @@ return {
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
-		opts = {},
+		config = true,
 	},
 	{
 		"numToStr/Comment.nvim",
-		opts = {},
-		lazy = false,
+		event = "VeryLazy",
 	},
-	"neoclide/vim-jsx-improve",
-	"machakann/vim-sandwich",
+	{
+		"neoclide/vim-jsx-improve",
+		event = "VeryLazy",
+	},
+	{
+		"machakann/vim-sandwich",
+		event = "InsertEnter",
+	},
 	{
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
@@ -49,6 +54,7 @@ return {
 	},
 	{
 		"zbirenbaum/copilot-cmp",
+		event = "InsertEnter",
 		after = { "copilot.lua" },
 		config = function()
 			require("copilot_cmp").setup()

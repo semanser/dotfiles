@@ -1,5 +1,8 @@
 return {
-	"neovim/nvim-lspconfig",
+	{
+		"neovim/nvim-lspconfig",
+		event = "VeryLazy",
+	},
 	{
 		"RRethy/vim-illuminate",
 		event = "VeryLazy",
@@ -7,6 +10,7 @@ return {
 	"christoomey/vim-tmux-navigator",
 	{
 		"folke/trouble.nvim",
+		event = "VeryLazy",
 		opts = {
 			auto_close = true,
 		},
@@ -16,6 +20,7 @@ return {
 	},
 	{
 		"ibhagwan/fzf-lua",
+		event = "VeryLazy",
 		opts = {
 			winopts = {
 				height = 0.95,
