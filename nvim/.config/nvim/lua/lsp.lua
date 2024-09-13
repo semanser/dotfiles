@@ -1,4 +1,19 @@
 -- Setup lspconfig.
+
+-- This should be removed after this issue is fixed
+-- https://github.com/neovim/neovim/issues/28058#issuecomment-2146978107
+local make_client_capabilities = vim.lsp.protocol.make_client_capabilities
+function vim.lsp.protocol.make_client_capabilities()
+	local caps = make_client_capabilities()
+	if not (caps.workspace or {}).didChangeWatchedFiles then
+		vim.notify("lsp capability didChangeWatchedFiles is already disabled", vim.log.levels.WARN)
+	else
+		caps.workspace.didChangeWatchedFiles = nil
+	end
+
+	return caps
+end
+
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 capabilities.textDocument.completion.completionItem.snippetSupport = false
@@ -13,8 +28,8 @@ local eslint = {
 }
 
 local function set_lsp_config(client)
-	if client.resolved_capabilities.document_formatting then
-		vim.cmd([[autocmd! BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 300)]])
+	if client.server_capabilities.document_formatting then
+		vim.cmd([[autocmd! BufWritePre <buffer> lua vim.lsp.buf.format()]])
 	end
 end
 
@@ -57,7 +72,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { buffer = ev.buf }
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 		vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
 		vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
@@ -70,13 +84,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
-require("lspconfig").tsserver.setup({
+require("lspconfig").ts_ls.setup({
 	capabilities = capabilities,
 	on_attach = function(client, bufnr)
 		if client.config.flags then
 			client.config.flags.allow_incremental_sync = true
 		end
-		client.resolved_capabilities.document_formatting = false
+		client.server_capabilities.document_formatting = false
 		set_lsp_config(client)
 	end,
 	root_dir = require("lspconfig/util").root_pattern("package.json"),
@@ -98,7 +112,7 @@ require("lspconfig").rust_analyzer.setup({
 		if client.config.flags then
 			client.config.flags.allow_incremental_sync = true
 		end
-		client.resolved_capabilities.document_formatting = false
+		client.server_capabilities.document_formatting = false
 		set_lsp_config(client)
 	end,
 	flags = {
@@ -112,7 +126,7 @@ require("lspconfig").terraformls.setup({
 		if client.config.flags then
 			client.config.flags.allow_incremental_sync = true
 		end
-		client.resolved_capabilities.document_formatting = true
+		client.server_capabilities.document_formatting = true
 		set_lsp_config(client)
 	end,
 	flags = {
@@ -123,8 +137,8 @@ require("lspconfig").terraformls.setup({
 require("lspconfig").efm.setup({
 	capabilities = capabilities,
 	on_attach = function(client, bufnr)
-		client.resolved_capabilities.document_formatting = false
-		client.resolved_capabilities.goto_definition = false
+		client.server_capabilities.document_formatting = false
+		client.server_capabilities.goto_definition = false
 		set_lsp_config(client)
 	end,
 	root_dir = function()
@@ -176,7 +190,7 @@ require("lspconfig").efm.setup({
 require("lspconfig").gopls.setup({
 	capabilities = capabilities,
 	on_attach = function(client, bufnr)
-		client.resolved_capabilities.document_formatting = true
+		client.server_capabilities.document_formatting = true
 		set_lsp_config(client)
 	end,
 	cmd = { "gopls", "serve" },
@@ -185,13 +199,16 @@ require("lspconfig").gopls.setup({
 	settings = {
 		gopls = {
 			analyses = {
+				-- Can be removed after the 0.16 gopls release
+				-- https://github.com/golang/go/issues/66876#issuecomment-2067327195
+				loopclosure = false,
 				unusedparams = true,
 			},
 			staticcheck = true,
-			env = {
-				GOOS = "js",
-				GOARCH = "wasm",
-			},
+			-- env = {
+			-- 	GOOS = "js",
+			-- 	GOARCH = "wasm",
+			-- },
 		},
 	},
 })
