@@ -16,7 +16,6 @@ vim.opt.foldlevel = 2 -- sets the fold level
 vim.opt.foldmethod = "indent" -- type of indentation
 vim.opt.foldnestmax = 10 -- sets the maximum nesting of folds
 vim.opt.gcr = "a:blinkon0" -- disable cursor blinking
-vim.opt.guioptions = "" -- remove all GUI components and options.
 vim.opt.history = 1000 -- store lots of :cmdline history
 vim.opt.hlsearch = true -- highlights the string matched by the search
 vim.opt.ignorecase = true -- make searching case insensitive
