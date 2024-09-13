@@ -4,11 +4,11 @@ return {
 		event = "InsertEnter",
 		opts = {},
 	},
-  {
-    'numToStr/Comment.nvim',
-    opts = {},
-    lazy = false,
-  },
+	{
+		"numToStr/Comment.nvim",
+		opts = {},
+		lazy = false,
+	},
 	"neoclide/vim-jsx-improve",
 	"machakann/vim-sandwich",
 	{
@@ -24,6 +24,7 @@ return {
 					enabled = false,
 				},
 				filetypes = {
+					["*"] = false,
 					astro = true,
 					typescriptreact = true,
 					css = true,
@@ -40,7 +41,7 @@ return {
 					vue = true,
 					markdown = true,
 					yaml = true,
-					["*"] = false,
+					dockerfile = true,
 				},
 				server_opts_overrides = {},
 			})
