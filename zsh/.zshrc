@@ -1,4 +1,4 @@
-zmodload zsh/zprof # top of your .zshrc file
+# zmodload zsh/zprof # top of your .zshrc file
 
 export ZSH=/Users/semanser/.oh-my-zsh
 export LC_ALL=en_US.UTF-8
@@ -127,13 +127,13 @@ export FZF_DEFAULT_OPTS=" \
 eval "$(direnv hook zsh)"
 eval "$(mise activate zsh)"
 
-source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+# source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+# source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 
 # Per-command profiling:
 
 # unsetopt xtrace
 # exec 2>&3 3>&-
 
-zprof > ~/.zprof.log
+# zprof > ~/.zprof.log
 eval "$(mise activate)"
