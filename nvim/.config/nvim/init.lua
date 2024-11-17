@@ -10,6 +10,8 @@ vim.g.mapleader = " "
 -- Key mappings
 vim.api.nvim_set_keymap("n", "<esc>", ":noh<CR><esc>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Leader>a", ":FzfLua live_grep_native<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>cw", ":FzfLua grep_cword<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>cc", ":FzfLua resume<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Leader><tab>", ":FzfLua files<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>gs", ":LazyGit<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>gd", ":tab Git diffthis<CR>", { noremap = true, silent = true })
@@ -30,12 +32,7 @@ vim.api.nvim_set_keymap("n", "N", "Nzzzv", { noremap = true })
 vim.api.nvim_set_keymap("n", "p", "p`[v`]=", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Leader>w", ":NvimTreeFindFileToggle<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<Leader>s", ":sort<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<Leader>xx", "<cmd>TroubleToggle<cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<Leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<Leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<Leader>xq", "<cmd>TroubleToggle quickfix<cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<Leader>xl", "<cmd>TroubleToggle loclist<cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<Leader>xr", "<cmd>TroubleToggle lsp_references<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>xx", ":Trouble diagnostics<CR>", { noremap = true })
 
 vim.keymap.set("n", "<F5>", function()
 	require("dap").continue()
@@ -95,6 +92,23 @@ augroup mdx
 augroup END
 ]])
 
+-- Don't show the cursor line on startup
+vim.api.nvim_create_augroup("CursorLineToggle", { clear = true })
+
+vim.api.nvim_create_autocmd("VimEnter", {
+	group = "CursorLineToggle",
+	callback = function()
+		vim.opt_local.cursorline = false
+	end,
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+	group = "CursorLineToggle",
+	callback = function()
+		vim.opt_local.cursorline = true
+	end,
+})
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -111,3 +125,4 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
 require("lsp")
+require("colors")

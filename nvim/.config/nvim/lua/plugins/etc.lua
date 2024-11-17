@@ -6,6 +6,17 @@ return {
 	{
 		"RRethy/vim-illuminate",
 		event = "VeryLazy",
+		config = function()
+			require("illuminate").configure({
+				filetypes_denylist = {
+					"dirbuf",
+					"dirvish",
+					"fugitive",
+					"NvimTree",
+				},
+				under_cursor = false,
+			})
+		end,
 	},
 	"christoomey/vim-tmux-navigator",
 	{
@@ -22,6 +33,10 @@ return {
 		"ibhagwan/fzf-lua",
 		event = "VeryLazy",
 		opts = {
+			fzf_colors = true,
+			files = {
+				color_icons = false,
+			},
 			winopts = {
 				height = 0.95,
 				width = 0.95,
@@ -29,6 +44,15 @@ return {
 					horizontal = "right:40%",
 					scrollbar = "border",
 				},
+			},
+			grep = {
+				prompt = "❯ ",
+				rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 "
+					.. "--colors 'match:none' "
+					.. "--colors 'match:fg:22,245,163' "
+					.. "--colors 'match:style:bold' "
+					.. "--colors 'path:fg:192,192,192' "
+					.. "--colors 'path:style:bold' -e",
 			},
 		},
 	},
@@ -57,6 +81,25 @@ return {
 			local WIDTH_RATIO = 0.5 -- You can change this too
 
 			require("nvim-tree").setup({
+				renderer = {
+					icons = {
+						web_devicons = {
+							file = {
+								color = false,
+							},
+						},
+						show = {
+							file = true,
+							folder = false,
+							folder_arrow = true,
+							git = true,
+							modified = true,
+							hidden = false,
+							diagnostics = true,
+							bookmarks = true,
+						},
+					},
+				},
 				view = {
 					float = {
 						enable = true,
@@ -104,13 +147,13 @@ return {
       { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
     },
 	},
-	{
-		"roberte777/keep-it-secret.nvim",
-		config = function()
-			require("keep-it-secret").setup({
-				wildcards = { ".*(.env)$", ".*(.secret)$" },
-				enabled = true,
-			})
-		end,
-	},
+	-- {
+	-- 	"roberte777/keep-it-secret.nvim",
+	-- 	config = function()
+	-- 		require("keep-it-secret").setup({
+	-- 			wildcards = { ".*(.env)$", ".*(.secret)$" },
+	-- 			enabled = true,
+	-- 		})
+	-- 	end,
+	-- },
 }

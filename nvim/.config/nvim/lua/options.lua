@@ -40,3 +40,4 @@ vim.opt.undofile = true -- save undo chages even after computer restart
 vim.opt.updatetime = 250 -- reduce update time in Vim
 vim.opt.wildmenu = true -- visual autocomplete for command menu
 vim.opt.wrap = false -- wrap lines
+vim.opt.fillchars:append("eob: ")
