@@ -66,7 +66,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-z)
+# plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-z)
 
 # User configuration
 
@@ -124,8 +124,12 @@ export FZF_DEFAULT_OPTS=" \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 eval "$(direnv hook zsh)"
 eval "$(mise activate zsh)"
+
+. /opt/homebrew/etc/profile.d/z.sh
 
 # source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
 # source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
@@ -137,3 +141,8 @@ eval "$(mise activate zsh)"
 
 # zprof > ~/.zprof.log
 eval "$(mise activate)"
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+
+# Added by Windsurf
+export PATH="/Users/semanser/.codeium/windsurf/bin:$PATH"
