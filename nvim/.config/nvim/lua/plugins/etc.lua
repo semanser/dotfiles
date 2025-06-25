@@ -1,4 +1,11 @@
 return {
+  {
+    dir = '/Users/semanser/Programming/nvim-bomber',
+    lazy = false,
+    config = function ()
+      vim.keymap.set('n', '<leader>o', require('bomber').explode, { noremap = true, silent = true })
+    end,
+  },
 	{
 		"neovim/nvim-lspconfig",
 		event = "VeryLazy",

@@ -100,6 +100,15 @@ require("lspconfig").ts_ls.setup({
 	},
 })
 
+require("lspconfig").elixirls.setup({
+  cmd = { "elixir-ls" },
+  capabilities = capabilities,
+  on_attach = function(client, bufnr)
+    client.server_capabilities.document_formatting = true
+    set_lsp_config(client)
+  end,
+})
+
 require("lspconfig").denols.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,

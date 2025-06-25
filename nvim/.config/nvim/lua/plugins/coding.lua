@@ -47,6 +47,9 @@ return {
 					markdown = true,
 					yaml = true,
 					dockerfile = true,
+          elixir = true,
+          heex = true,
+          swift = true,
 				},
 				server_opts_overrides = {},
 			})

@@ -30,6 +30,9 @@ return {
 					"java",
 					"regex",
 					"query",
+          "elixir",
+          "heex",
+          "eex"
 				},
 				sync_install = false,
 				highlight = { enable = true },
