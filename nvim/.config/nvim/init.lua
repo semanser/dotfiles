@@ -13,7 +13,7 @@ vim.api.nvim_set_keymap("n", "<Leader>a", ":FzfLua live_grep_native<CR>", { nore
 vim.api.nvim_set_keymap("n", "<Leader>cw", ":FzfLua grep_cword<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Leader>cc", ":FzfLua resume<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Leader><tab>", ":FzfLua files<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>gs", ":LazyGit<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>gs", ":Neogit<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>gd", ":tab Git diffthis<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>r", ":source %<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<Leader>y", '"+y', { noremap = true })
