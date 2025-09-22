@@ -93,12 +93,12 @@ vim.lsp.config('ts_ls', {
 		client.server_capabilities.document_formatting = false
 		set_lsp_config(client)
 	end,
-	root_dir = require("lspconfig/util").root_pattern("package.json"),
 	single_file_support = false,
 	flags = {
 		debounce_text_changes = 150,
 	},
 })
+vim.lsp.enable('ts_ls')
 
 vim.lsp.config('elixirls', {
   cmd = { "elixir-ls" },
@@ -108,12 +108,14 @@ vim.lsp.config('elixirls', {
     set_lsp_config(client)
   end,
 })
+vim.lsp.enable('elixirls')
 
 vim.lsp.config('denols', {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	root_dir = require("lspconfig/util").root_pattern("deno.json", "deno.jsonc"),
 })
+vim.lsp.enable('denols')
 
 vim.lsp.config('rust_analyzer', {
 	capabilities = capabilities,
@@ -128,6 +130,7 @@ vim.lsp.config('rust_analyzer', {
 		debounce_text_changes = 150,
 	},
 })
+vim.lsp.enable('rust_analyzer')
 
 vim.lsp.config('terraformls', {
 	capabilities = capabilities,
@@ -142,6 +145,7 @@ vim.lsp.config('terraformls', {
 		debounce_text_changes = 150,
 	},
 })
+vim.lsp.enable('terraformls')
 
 vim.lsp.config('efm', {
 	capabilities = capabilities,
@@ -172,6 +176,7 @@ vim.lsp.config('efm', {
 		debounce_text_changes = 150,
 	},
 })
+vim.lsp.enable('efm')
 
 -- require("lspconfig").sumneko_lua.setup({
 -- 	settings = {
@@ -202,15 +207,11 @@ vim.lsp.config('gopls', {
 		client.server_capabilities.document_formatting = true
 		set_lsp_config(client)
 	end,
-	cmd = { "gopls", "serve" },
+	cmd = { "gopls" },
 	filetypes = { "go", "gomod" },
-	root_dir = require("lspconfig/util").root_pattern("go.work", "go.mod", ".git"),
 	settings = {
 		gopls = {
 			analyses = {
-				-- Can be removed after the 0.16 gopls release
-				-- https://github.com/golang/go/issues/66876#issuecomment-2067327195
-				loopclosure = false,
 				unusedparams = true,
 			},
 			staticcheck = true,
@@ -221,3 +222,5 @@ vim.lsp.config('gopls', {
 		},
 	},
 })
+
+vim.lsp.enable('gopls')
