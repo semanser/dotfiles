@@ -84,7 +84,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
-require("lspconfig").ts_ls.setup({
+vim.lsp.config('ts_ls', {
 	capabilities = capabilities,
 	on_attach = function(client, bufnr)
 		if client.config.flags then
@@ -100,7 +100,7 @@ require("lspconfig").ts_ls.setup({
 	},
 })
 
-require("lspconfig").elixirls.setup({
+vim.lsp.config('elixirls', {
   cmd = { "elixir-ls" },
   capabilities = capabilities,
   on_attach = function(client, bufnr)
@@ -109,13 +109,13 @@ require("lspconfig").elixirls.setup({
   end,
 })
 
-require("lspconfig").denols.setup({
+vim.lsp.config('denols', {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	root_dir = require("lspconfig/util").root_pattern("deno.json", "deno.jsonc"),
 })
 
-require("lspconfig").rust_analyzer.setup({
+vim.lsp.config('rust_analyzer', {
 	capabilities = capabilities,
 	on_attach = function(client, bufnr)
 		if client.config.flags then
@@ -129,7 +129,7 @@ require("lspconfig").rust_analyzer.setup({
 	},
 })
 
-require("lspconfig").terraformls.setup({
+vim.lsp.config('terraformls', {
 	capabilities = capabilities,
 	on_attach = function(client, bufnr)
 		if client.config.flags then
@@ -143,7 +143,7 @@ require("lspconfig").terraformls.setup({
 	},
 })
 
-require("lspconfig").efm.setup({
+vim.lsp.config('efm', {
 	capabilities = capabilities,
 	on_attach = function(client, bufnr)
 		client.server_capabilities.document_formatting = false
@@ -196,7 +196,7 @@ require("lspconfig").efm.setup({
 -- 	},
 -- })
 
-require("lspconfig").gopls.setup({
+vim.lsp.config('gopls', {
 	capabilities = capabilities,
 	on_attach = function(client, bufnr)
 		client.server_capabilities.document_formatting = true
