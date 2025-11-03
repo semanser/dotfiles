@@ -50,6 +50,8 @@ return {
           elixir = true,
           heex = true,
           swift = true,
+          rust = true,
+          python = true,
 				},
 				server_opts_overrides = {},
 			})

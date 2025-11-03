@@ -224,3 +224,19 @@ vim.lsp.config('gopls', {
 })
 
 vim.lsp.enable('gopls')
+
+vim.lsp.config('rust_analyzer', {
+  capabilities = capabilities,
+  on_attach = function(client, bufnr)
+    client.server_capabilities.document_formatting = true
+    set_lsp_config(client)
+  end,
+  settings = {
+    ['rust-analyzer'] = {
+      diagnostics = {
+        enable = false;
+      }
+    }
+  }
+})
+vim.lsp.enable('rust_analyzer')
