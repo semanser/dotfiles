@@ -35,6 +35,7 @@
   insteadOf = https://github.com/
 [push]
   default = current
+  autoSetupRemote = true
 
 [delta]
   plus-style = syntax "#012800"
