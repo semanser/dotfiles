@@ -1,0 +1,15 @@
+font-size = 17
+font-family = JetBrainsMono Nerd Font Mono
+font-thicken = true
+background = #141414
+background-opacity = 0.8
+background-blur-radius = 20
+macos-titlebar-style = hidden
+window-padding-y = 10,0
+window-padding-x = 10,0
+window-width = 120
+window-height = 40
+
+macos-option-as-alt = left
+keybind = alt+left=unbind
+keybind = alt+right=unbind
